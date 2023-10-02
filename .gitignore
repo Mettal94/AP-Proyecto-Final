@@ -23,3 +23,7 @@
 hs_err_pid*
 replay_pid*
 
+/ComprasLocas_ProyectoFinal/nbproject/private/
+/ComprasLocas_ProyectoFinal/build/
+/ComprasLocas_ProyectoFinal/dist/
+/ComprasLocas_ProyectoFinal/test/
