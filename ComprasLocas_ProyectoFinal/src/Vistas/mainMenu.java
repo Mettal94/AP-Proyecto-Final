@@ -42,7 +42,12 @@ public class mainMenu extends javax.swing.JFrame {
         Escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        AgregarProducto = new javax.swing.JMenuItem();
+        ListarProducto = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        SolicitarProducto = new javax.swing.JMenuItem();
+        HistorialCompras = new javax.swing.JMenuItem();
+        AdministrarProveedores = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,10 +62,52 @@ public class mainMenu extends javax.swing.JFrame {
             .addGap(0, 370, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("File");
+        jMenu1.setText("Productos");
+
+        AgregarProducto.setText("Agregar Producto");
+        AgregarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarProductoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(AgregarProducto);
+
+        ListarProducto.setText("Listar Productos");
+        ListarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListarProductoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(ListarProducto);
+
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Proveedores");
+
+        SolicitarProducto.setText("Solicitar Productos");
+        SolicitarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SolicitarProductoActionPerformed(evt);
+            }
+        });
+        jMenu2.add(SolicitarProducto);
+
+        HistorialCompras.setText("Historial de Compras");
+        HistorialCompras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HistorialComprasActionPerformed(evt);
+            }
+        });
+        jMenu2.add(HistorialCompras);
+
+        AdministrarProveedores.setText("Administrar Proveedores");
+        AdministrarProveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdministrarProveedoresActionPerformed(evt);
+            }
+        });
+        jMenu2.add(AdministrarProveedores);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -78,6 +125,51 @@ public class mainMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductoActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        AgregarProductoIF mostrar = new AgregarProductoIF();
+        mostrar.setVisible(true);
+        Escritorio.add(mostrar);
+        Escritorio.moveToFront(mostrar);
+    }//GEN-LAST:event_AgregarProductoActionPerformed
+
+    private void ListarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarProductoActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        ListarProductoIF mostrar = new ListarProductoIF();
+        mostrar.setVisible(true);
+        Escritorio.add(mostrar);
+        Escritorio.moveToFront(mostrar);
+    }//GEN-LAST:event_ListarProductoActionPerformed
+
+    private void SolicitarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SolicitarProductoActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        SolicitarProductoIF mostrar = new SolicitarProductoIF();
+        mostrar.setVisible(true);
+        Escritorio.add(mostrar);
+        Escritorio.moveToFront(mostrar);
+    }//GEN-LAST:event_SolicitarProductoActionPerformed
+
+    private void HistorialComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialComprasActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        HistorialCompraIF mostrar = new HistorialCompraIF();
+        mostrar.setVisible(true);
+        Escritorio.add(mostrar);
+        Escritorio.moveToFront(mostrar);
+    }//GEN-LAST:event_HistorialComprasActionPerformed
+
+    private void AdministrarProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdministrarProveedoresActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        AdminProveedoresIF mostrar = new AdminProveedoresIF();
+        mostrar.setVisible(true);
+        Escritorio.add(mostrar);
+        Escritorio.moveToFront(mostrar);
+    }//GEN-LAST:event_AdministrarProveedoresActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,12 +207,18 @@ public class mainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem AdministrarProveedores;
+    private javax.swing.JMenuItem AgregarProducto;
     public static javax.swing.JDesktopPane Escritorio;
+    private javax.swing.JMenuItem HistorialCompras;
+    private javax.swing.JMenuItem ListarProducto;
+    private javax.swing.JMenuItem SolicitarProducto;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 
+    
     public static void mensaje(String mensaje){
         JOptionPane.showMessageDialog(null, mensaje);
     }
