@@ -29,6 +29,7 @@ public class mainMenu extends javax.swing.JFrame {
         this.compD = new ComprasData();
         this.detaD = new DetalleData();
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -43,8 +44,6 @@ public class mainMenu extends javax.swing.JFrame {
         Escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        AgregarProducto = new javax.swing.JMenuItem();
-        ListarProducto = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         SolicitarProducto = new javax.swing.JMenuItem();
         HistorialCompras = new javax.swing.JMenuItem();
@@ -54,7 +53,6 @@ public class mainMenu extends javax.swing.JFrame {
 
         Escritorio.setMaximumSize(new java.awt.Dimension(1000, 600));
         Escritorio.setMinimumSize(new java.awt.Dimension(1000, 600));
-        Escritorio.setPreferredSize(new java.awt.Dimension(1000, 600));
 
         javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
         Escritorio.setLayout(EscritorioLayout);
@@ -68,23 +66,11 @@ public class mainMenu extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Productos");
-
-        AgregarProducto.setText("Agregar Producto");
-        AgregarProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgregarProductoActionPerformed(evt);
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
             }
         });
-        jMenu1.add(AgregarProducto);
-
-        ListarProducto.setText("Listar Productos");
-        ListarProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ListarProductoActionPerformed(evt);
-            }
-        });
-        jMenu1.add(ListarProducto);
-
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Proveedores");
@@ -133,24 +119,6 @@ public class mainMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductoActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
-        AgregarProductoIF mostrar = new AgregarProductoIF();
-        mostrar.setVisible(true);
-        Escritorio.add(mostrar);
-        Escritorio.moveToFront(mostrar);
-    }//GEN-LAST:event_AgregarProductoActionPerformed
-
-    private void ListarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarProductoActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
-        ListarProductoIF mostrar = new ListarProductoIF();
-        mostrar.setVisible(true);
-        Escritorio.add(mostrar);
-        Escritorio.moveToFront(mostrar);
-    }//GEN-LAST:event_ListarProductoActionPerformed
-
     private void SolicitarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SolicitarProductoActionPerformed
         Escritorio.removeAll();
         Escritorio.repaint();
@@ -177,6 +145,15 @@ public class mainMenu extends javax.swing.JFrame {
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
     }//GEN-LAST:event_AdministrarProveedoresActionPerformed
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        ProductoIF mostrar = new ProductoIF();
+        mostrar.setVisible(true);
+        Escritorio.add(mostrar);
+        Escritorio.moveToFront(mostrar);
+    }//GEN-LAST:event_jMenu1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -215,10 +192,8 @@ public class mainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AdministrarProveedores;
-    private javax.swing.JMenuItem AgregarProducto;
     public static javax.swing.JDesktopPane Escritorio;
     private javax.swing.JMenuItem HistorialCompras;
-    private javax.swing.JMenuItem ListarProducto;
     private javax.swing.JMenuItem SolicitarProducto;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
