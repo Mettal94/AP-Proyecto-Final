@@ -9,6 +9,7 @@ import AccesoADatos.ComprasData;
 import AccesoADatos.DetalleData;
 import AccesoADatos.ProductosData;
 import AccesoADatos.ProveedorData;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -119,4 +120,9 @@ public class mainMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
+
+    public static void mensaje(String mensaje){
+        JOptionPane.showMessageDialog(null, mensaje);
+    }
+
 }

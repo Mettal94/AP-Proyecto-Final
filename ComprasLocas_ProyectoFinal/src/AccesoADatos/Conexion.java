@@ -1,5 +1,6 @@
 package AccesoADatos;
 
+import static Vistas.mainMenu.mensaje;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -24,9 +25,9 @@ public class Conexion {
             Class.forName("org.mariadb.jdbc.Driver");
             con = DriverManager.getConnection(URL+DB,USER,PASSWORD);     
         }catch (ClassNotFoundException e){
-            JOptionPane.showMessageDialog(null, "Error Driver");
+            mensaje("Error Driver.");
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error conexion BD");
+            mensaje("Error conexion BD.");
         }
         return con;    
     }
