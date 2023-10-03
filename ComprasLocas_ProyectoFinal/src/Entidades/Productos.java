@@ -5,6 +5,7 @@ public class Productos {
     private int idProducto=-1;
     private String nombre;
     private String descripcion;
+    private String rubro;
     private double precioActual;
     private int stock;
     private boolean estado;
@@ -12,18 +13,20 @@ public class Productos {
     public Productos() {
     }
 
-    public Productos(String nombre, String descripcion, double precioActual, int stock, boolean estado) {
+    public Productos(String nombre, String descripcion, String rubro, double precioActual, int stock, boolean estado) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.rubro = rubro;
         this.precioActual = precioActual;
         this.stock = stock;
         this.estado = estado;
     }
 
-    public Productos(int idProducto, String nombre, String descripcion, double precioActual, int stock, boolean estado) {
+    public Productos(int idProducto, String nombre, String descripcion,String rubro, double precioActual, int stock, boolean estado) {
         this.idProducto = idProducto;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.rubro = rubro;
         this.precioActual = precioActual;
         this.stock = stock;
         this.estado = estado;
@@ -53,6 +56,14 @@ public class Productos {
         this.descripcion = descripcion;
     }
 
+    public String getRubro() {
+        return rubro;
+    }
+
+    public void setRubro(String rubro) {
+        this.rubro = rubro;
+    }
+    
     public double getPrecioActual() {
         return precioActual;
     }

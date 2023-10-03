@@ -7,23 +7,26 @@ public class DetalleDeCompras {
     private double precioCosto;
     private Compras compra;
     private Productos producto;
+    private boolean estado;
 
     public DetalleDeCompras() {
     }
 
-    public DetalleDeCompras(int idDetalle, int cantidad, double precioCosto, Compras compra, Productos producto) {
+    public DetalleDeCompras(int idDetalle, int cantidad, double precioCosto, Compras compra, Productos producto, boolean estado) {
         this.idDetalle = idDetalle;
         this.cantidad = cantidad;
         this.precioCosto = precioCosto;
         this.compra = compra;
         this.producto = producto;
+        this.estado = estado;
     }
 
-    public DetalleDeCompras(int cantidad, double precioCosto, Compras compra, Productos producto) {
+    public DetalleDeCompras(int cantidad, double precioCosto, Compras compra, Productos producto, boolean estado) {
         this.cantidad = cantidad;
         this.precioCosto = precioCosto;
         this.compra = compra;
         this.producto = producto;
+        this.estado = estado;
     }
 
     public int getIdDetalle() {
@@ -64,6 +67,14 @@ public class DetalleDeCompras {
 
     public void setProducto(Productos producto) {
         this.producto = producto;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 
     @Override
