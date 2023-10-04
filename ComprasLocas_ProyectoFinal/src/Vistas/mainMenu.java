@@ -51,18 +51,19 @@ public class mainMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Escritorio.setMaximumSize(new java.awt.Dimension(1000, 600));
-        Escritorio.setMinimumSize(new java.awt.Dimension(1000, 600));
+        Escritorio.setMaximumSize(new java.awt.Dimension(1010, 610));
+        Escritorio.setMinimumSize(new java.awt.Dimension(1010, 610));
+        Escritorio.setPreferredSize(new java.awt.Dimension(1010, 610));
 
         javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGap(0, 1010, Short.MAX_VALUE)
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 610, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Productos");

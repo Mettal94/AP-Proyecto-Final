@@ -49,15 +49,15 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         setClosable(true);
         setResizable(true);
         setTitle("Agregar Productos");
-        setMaximumSize(new java.awt.Dimension(1000, 600));
-        setMinimumSize(new java.awt.Dimension(1000, 600));
-        setPreferredSize(new java.awt.Dimension(1000, 600));
+        setMaximumSize(new java.awt.Dimension(1008, 605));
+        setMinimumSize(new java.awt.Dimension(1008, 605));
+        setPreferredSize(new java.awt.Dimension(1008, 605));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("Agregar Productos");
         jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 220, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 270, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel2.setText("Listado de Productos");
