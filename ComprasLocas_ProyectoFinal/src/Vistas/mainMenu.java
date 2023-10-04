@@ -168,7 +168,7 @@ public class mainMenu extends javax.swing.JFrame {
                 .addContainerGap(193, Short.MAX_VALUE))
         );
 
-        getContentPane().add(Escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 630));
+        getContentPane().add(Escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 630));
         Escritorio.getAccessibleContext().setAccessibleName("");
 
         setJMenuBar(jMenuBar1);
