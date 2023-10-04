@@ -47,7 +47,6 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         grisIzq = new javax.swing.JLabel();
 
         setClosable(true);
-        setResizable(true);
         setTitle("Agregar Productos");
         setMaximumSize(new java.awt.Dimension(1008, 605));
         setMinimumSize(new java.awt.Dimension(1008, 605));
