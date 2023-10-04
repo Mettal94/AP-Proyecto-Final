@@ -44,9 +44,9 @@ public class mainMenu extends javax.swing.JFrame {
 
         Escritorio = new javax.swing.JDesktopPane();
         ProductosB = new javax.swing.JButton();
-        HistorialB = new javax.swing.JButton();
-        ProveedoresB = new javax.swing.JButton();
         SolicitarB = new javax.swing.JButton();
+        ProveedoresB = new javax.swing.JButton();
+        HistorialB = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -70,13 +70,13 @@ public class mainMenu extends javax.swing.JFrame {
             }
         });
 
-        HistorialB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Historial.png"))); // NOI18N
-        HistorialB.setMaximumSize(new java.awt.Dimension(100, 100));
-        HistorialB.setMinimumSize(new java.awt.Dimension(100, 100));
-        HistorialB.setPreferredSize(new java.awt.Dimension(100, 100));
-        HistorialB.addActionListener(new java.awt.event.ActionListener() {
+        SolicitarB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/SolicitarCompra.png"))); // NOI18N
+        SolicitarB.setMaximumSize(new java.awt.Dimension(100, 100));
+        SolicitarB.setMinimumSize(new java.awt.Dimension(100, 100));
+        SolicitarB.setPreferredSize(new java.awt.Dimension(100, 100));
+        SolicitarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HistorialBActionPerformed(evt);
+                SolicitarBActionPerformed(evt);
             }
         });
 
@@ -90,13 +90,13 @@ public class mainMenu extends javax.swing.JFrame {
             }
         });
 
-        SolicitarB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/SolicitarCompra.png"))); // NOI18N
-        SolicitarB.setMaximumSize(new java.awt.Dimension(100, 100));
-        SolicitarB.setMinimumSize(new java.awt.Dimension(100, 100));
-        SolicitarB.setPreferredSize(new java.awt.Dimension(100, 100));
-        SolicitarB.addActionListener(new java.awt.event.ActionListener() {
+        HistorialB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Historial.png"))); // NOI18N
+        HistorialB.setMaximumSize(new java.awt.Dimension(100, 100));
+        HistorialB.setMinimumSize(new java.awt.Dimension(100, 100));
+        HistorialB.setPreferredSize(new java.awt.Dimension(100, 100));
+        HistorialB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SolicitarBActionPerformed(evt);
+                HistorialBActionPerformed(evt);
             }
         });
 
@@ -109,9 +109,9 @@ public class mainMenu extends javax.swing.JFrame {
         jLabel4.setText("Solicitar Productos");
 
         Escritorio.setLayer(ProductosB, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(HistorialB, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(ProveedoresB, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Escritorio.setLayer(SolicitarB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(ProveedoresB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(HistorialB, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Escritorio.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Escritorio.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Escritorio.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -133,11 +133,11 @@ public class mainMenu extends javax.swing.JFrame {
                     .addGroup(EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(EscritorioLayout.createSequentialGroup()
                             .addGap(301, 301, 301)
-                            .addComponent(SolicitarB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(HistorialB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(EscritorioLayout.createSequentialGroup()
-                                .addComponent(HistorialB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SolicitarB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(301, 301, 301))
                             .addGroup(EscritorioLayout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -166,8 +166,8 @@ public class mainMenu extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SolicitarB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(HistorialB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(HistorialB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SolicitarB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(193, Short.MAX_VALUE))
         );
 
@@ -199,16 +199,6 @@ public class mainMenu extends javax.swing.JFrame {
         botones();
     }//GEN-LAST:event_ProveedoresBActionPerformed
 
-    private void HistorialBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialBActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
-        HistorialCompraIF mostrar = new HistorialCompraIF();
-        mostrar.setVisible(true);
-        Escritorio.add(mostrar);
-        Escritorio.moveToFront(mostrar);
-        botones();
-    }//GEN-LAST:event_HistorialBActionPerformed
-
     private void SolicitarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SolicitarBActionPerformed
         Escritorio.removeAll();
         Escritorio.repaint();
@@ -219,6 +209,16 @@ public class mainMenu extends javax.swing.JFrame {
         botones();
     }//GEN-LAST:event_SolicitarBActionPerformed
 
+    private void HistorialBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialBActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        HistorialCompraIF mostrar = new HistorialCompraIF();
+        mostrar.setVisible(true);
+        Escritorio.add(mostrar);
+        Escritorio.moveToFront(mostrar);
+        botones();
+    }//GEN-LAST:event_HistorialBActionPerformed
+
     private void loggin(){
         LoginIF mostrar = new LoginIF();
         mostrar.setVisible(true);
@@ -227,10 +227,10 @@ public class mainMenu extends javax.swing.JFrame {
     }
     
     private void botones(){
-        Escritorio.add(HistorialB);
+        Escritorio.add(SolicitarB);
         Escritorio.add(ProductosB);
         Escritorio.add(ProveedoresB);
-        Escritorio.add(SolicitarB);
+        Escritorio.add(HistorialB);
         Escritorio.add(jLabel1);
         Escritorio.add(jLabel2);
         Escritorio.add(jLabel3);

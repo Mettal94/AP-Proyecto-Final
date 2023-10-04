@@ -69,12 +69,12 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="301" max="-2" attributes="0"/>
-                              <Component id="SolicitarB" min="-2" max="-2" attributes="0"/>
+                              <Component id="HistorialB" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="37" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="HistorialB" min="-2" max="-2" attributes="0"/>
+                                  <Component id="SolicitarB" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="301" pref="301" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -114,8 +114,8 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="SolicitarB" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="HistorialB" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="SolicitarB" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="193" max="32767" attributes="0"/>
               </Group>
@@ -142,10 +142,10 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ProductosBActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="HistorialB">
+        <Component class="javax.swing.JButton" name="SolicitarB">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Historial.png"/>
+              <Image iconType="3" name="/Imagenes/SolicitarCompra.png"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 100]"/>
@@ -158,7 +158,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HistorialBActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SolicitarBActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ProveedoresB">
@@ -180,10 +180,10 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ProveedoresBActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="SolicitarB">
+        <Component class="javax.swing.JButton" name="HistorialB">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/SolicitarCompra.png"/>
+              <Image iconType="3" name="/Imagenes/Historial.png"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 100]"/>
@@ -196,7 +196,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SolicitarBActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HistorialBActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
