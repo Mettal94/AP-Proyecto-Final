@@ -58,7 +58,6 @@ public class mainMenu extends javax.swing.JFrame {
 
         Escritorio.setMaximumSize(new java.awt.Dimension(1010, 610));
         Escritorio.setMinimumSize(new java.awt.Dimension(1010, 610));
-        Escritorio.setPreferredSize(new java.awt.Dimension(1010, 610));
 
         ProductosB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Productos.png"))); // NOI18N
         ProductosB.setMaximumSize(new java.awt.Dimension(100, 100));
@@ -136,9 +135,7 @@ public class mainMenu extends javax.swing.JFrame {
                             .addComponent(HistorialB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(EscritorioLayout.createSequentialGroup()
-                                .addComponent(SolicitarB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(301, 301, 301))
+                            .addComponent(SolicitarB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(EscritorioLayout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(161, 161, 161)

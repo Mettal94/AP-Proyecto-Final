@@ -30,16 +30,18 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Administrar Proveedores");
         setToolTipText("");
+        setMaximumSize(new java.awt.Dimension(1008, 605));
+        setMinimumSize(new java.awt.Dimension(1008, 605));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGap(0, 1006, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGap(0, 583, Short.MAX_VALUE)
         );
 
         pack();

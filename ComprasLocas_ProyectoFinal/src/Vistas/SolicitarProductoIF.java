@@ -93,17 +93,22 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 91, -1, 336));
 
         jButton1.setText("Agregar al Carrito");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 501, 352, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 430, -1));
 
         jButton2.setText("Comprar Todo");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 501, 206, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 520, 206, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel6.setText("Carrito");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 33, -1, -1));
 
         jButton3.setText("Eliminar Item");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(752, 501, 218, -1));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 520, 218, -1));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 459, 229, -1));
 
         jLabel7.setText("Precio Total");
@@ -123,6 +128,10 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
