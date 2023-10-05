@@ -10,12 +10,13 @@ package Vistas;
  * @author ariel
  */
 public class LoginIF extends javax.swing.JInternalFrame {
-
+static boolean loggin = false;
     /**
      * Creates new form LoginIF
      */
     public LoginIF() {
         initComponents();
+        
     }
 
     /**
@@ -95,7 +96,9 @@ public class LoginIF extends javax.swing.JInternalFrame {
 
     private void logginBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logginBActionPerformed
 
+        
         this.dispose();
+        loggin = true;
     }//GEN-LAST:event_logginBActionPerformed
 
 
@@ -107,4 +110,13 @@ public class LoginIF extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JButton logginB;
     // End of variables declaration//GEN-END:variables
+
+
+    public static boolean nombre(){
+        if(loggin == true){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

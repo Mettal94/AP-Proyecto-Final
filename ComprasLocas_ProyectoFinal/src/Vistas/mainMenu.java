@@ -30,6 +30,10 @@ public class mainMenu extends javax.swing.JFrame {
         this.detaD = new DetalleData();
         initComponents();
         setLocationRelativeTo(null);
+        ProductosB.setEnabled(false);
+        HistorialB.setEnabled(false);
+        ProveedoresB.setEnabled(false);
+        SolicitarB.setEnabled(false);
         loggin();
     }
 
@@ -221,6 +225,20 @@ public class mainMenu extends javax.swing.JFrame {
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
+        boolean x = LoginIF.nombre();
+        
+        if(x == false){
+        ProductosB.setEnabled(false);
+        HistorialB.setEnabled(false);
+        ProveedoresB.setEnabled(false);
+        SolicitarB.setEnabled(false);
+        }else if(x == true){
+        ProductosB.setEnabled(true);
+        HistorialB.setEnabled(true);
+        ProveedoresB.setEnabled(true);
+        SolicitarB.setEnabled(true);
+        }
+
     }
     
     private void botones(){
@@ -287,4 +305,5 @@ public class mainMenu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, mensaje);
     }
 
+    
 }
