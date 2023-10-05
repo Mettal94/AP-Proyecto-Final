@@ -23,6 +23,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         this.prodD = prodD;
         initComponents();
         armarCabecera();
+        ActivosRB.setSelected(true);
         listar();
     }
 
@@ -35,6 +36,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Grupo = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -54,6 +56,11 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         StockT = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         ListaProducto = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        InactivosRB = new javax.swing.JRadioButton();
+        ActivosRB = new javax.swing.JRadioButton();
         grisDer = new javax.swing.JLabel();
         grisIzq = new javax.swing.JLabel();
 
@@ -91,7 +98,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         jLabel8.setText("Proveedor");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, -1, -1));
 
-        EliminarB.setText("Borrar");
+        EliminarB.setText("Modificar Estado");
         EliminarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EliminarBActionPerformed(evt);
@@ -102,7 +109,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, 320, -1));
 
-        AgregarB.setText("Agregar");
+        AgregarB.setText("Agregar Producto");
         AgregarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregarBActionPerformed(evt);
@@ -113,7 +120,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         RubroCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hogar", "Cocina", "Pequeños Electrodomésticos" }));
         getContentPane().add(RubroCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 320, -1));
 
-        ModificarB.setText("Modificar");
+        ModificarB.setText("Modificar Producto");
         getContentPane().add(ModificarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 490, 230, -1));
         getContentPane().add(NombreT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 320, -1));
         getContentPane().add(DescripcionT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 320, -1));
@@ -149,6 +156,31 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(ListaProducto);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(523, 100, 460, 360));
+
+        jLabel9.setText("Inactivos");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 530, -1, 30));
+
+        jLabel10.setText("Mostrar :");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 530, -1, 30));
+
+        jLabel11.setText("Activos");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 530, -1, 30));
+
+        Grupo.add(InactivosRB);
+        InactivosRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InactivosRBActionPerformed(evt);
+            }
+        });
+        getContentPane().add(InactivosRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 530, 20, 30));
+
+        Grupo.add(ActivosRB);
+        ActivosRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActivosRBActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ActivosRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 530, 20, 30));
 
         grisDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/gris.png"))); // NOI18N
         grisDer.setMaximumSize(new java.awt.Dimension(500, 250));
@@ -193,7 +225,11 @@ public class ProductoIF extends javax.swing.JInternalFrame {
             int selec = ListaProducto.getSelectedRow();
             int id = (int) ListaProducto.getValueAt(selec, 0);
 
-            prodD.altaBajaProducto(id, 0);
+            if(ActivosRB.isSelected()){
+                prodD.altaBajaProducto(id, 0);
+            }else if(InactivosRB.isSelected()){
+                prodD.altaBajaProducto(id, 1);
+            }
             listar();
         }catch(ArrayIndexOutOfBoundsException ex){
             mensaje("Debe seleccionar un producto de la tabla.");
@@ -201,11 +237,24 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_EliminarBActionPerformed
 
+    private void ActivosRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActivosRBActionPerformed
+        // Listar activos
+        listar();
+    }//GEN-LAST:event_ActivosRBActionPerformed
+
+    private void InactivosRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InactivosRBActionPerformed
+        // Listar inactivos
+        listar();
+    }//GEN-LAST:event_InactivosRBActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton ActivosRB;
     private javax.swing.JButton AgregarB;
     private javax.swing.JTextField DescripcionT;
     private javax.swing.JButton EliminarB;
+    private javax.swing.ButtonGroup Grupo;
+    private javax.swing.JRadioButton InactivosRB;
     private javax.swing.JTable ListaProducto;
     private javax.swing.JButton ModificarB;
     private javax.swing.JTextField NombreT;
@@ -216,6 +265,8 @@ public class ProductoIF extends javax.swing.JInternalFrame {
     private javax.swing.JLabel grisIzq;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -223,13 +274,18 @@ public class ProductoIF extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
 
     public void listar(){
         borrarFilas();
-       lista = prodD.listarProductos(1);
+        if (ActivosRB.isSelected()) {
+            lista = prodD.listarProductos(1);
+        } else if(InactivosRB.isSelected()){
+            lista = prodD.listarProductos(0);
+        }
         
        for (Productos productos : lista) {
             modelo.addRow(new Object[]{productos.getIdProducto(), productos.getNombre(),productos.getPrecioActual(), productos.getStock()});
