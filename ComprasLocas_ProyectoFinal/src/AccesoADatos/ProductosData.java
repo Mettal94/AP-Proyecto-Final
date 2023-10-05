@@ -110,4 +110,29 @@ public class ProductosData {
         }
         return listaPro;
     }
+    
+    public void altaBajaProducto(int id, int estado){
+        
+        String sql = "UPDATE producto SET estado = ? WHERE idProducto = ?";
+        
+        try{
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, estado);
+            ps.setInt(2, id);
+            
+            int fila = ps.executeUpdate();
+            
+            if(fila == 1){
+                mensaje("Modificación exitosa");
+            }else{
+                mensaje("Hubo un error.");
+            }
+            
+            ps.close();
+        }catch(SQLException ex){
+            mensaje("Error al acceder a la base de datos. ");
+            System.out.println(ex.getMessage());
+        }
+    }
 }

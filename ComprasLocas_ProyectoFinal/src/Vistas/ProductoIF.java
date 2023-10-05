@@ -8,15 +8,22 @@ package Vistas;
 import AccesoADatos.ProductosData;
 import Entidades.Productos;
 import static Vistas.mainMenu.mensaje;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 
 public class ProductoIF extends javax.swing.JInternalFrame {
 
     private ProductosData prodD;
-
+    private DefaultTableModel modelo = new DefaultTableModel();
+    List<Productos> lista = new ArrayList<>();
     public ProductoIF(ProductosData prodD) {
         this.prodD = prodD;
         initComponents();
+        armarCabecera();
+        listar();
     }
 
     /**
@@ -85,6 +92,11 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, -1, -1));
 
         EliminarB.setText("Borrar");
+        EliminarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarBActionPerformed(evt);
+            }
+        });
         getContentPane().add(EliminarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 220, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -116,9 +128,24 @@ public class ProductoIF extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nombre", "Precio", "Stock"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(ListaProducto);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(523, 100, 460, 360));
@@ -160,6 +187,20 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_AgregarBActionPerformed
 
+    private void EliminarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarBActionPerformed
+        // Boton para eliminar el producto
+        try{    
+            int selec = ListaProducto.getSelectedRow();
+            int id = (int) ListaProducto.getValueAt(selec, 0);
+
+            prodD.altaBajaProducto(id, 0);
+            listar();
+        }catch(ArrayIndexOutOfBoundsException ex){
+            mensaje("Debe seleccionar un producto de la tabla.");
+            System.out.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_EliminarBActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarB;
@@ -184,4 +225,29 @@ public class ProductoIF extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+
+    public void listar(){
+        borrarFilas();
+       lista = prodD.listarProductos(1);
+        
+       for (Productos productos : lista) {
+            modelo.addRow(new Object[]{productos.getIdProducto(), productos.getNombre(),productos.getPrecioActual(), productos.getStock()});
+        }
+    }
+    
+    public void borrarFilas(){
+        int f = ListaProducto.getRowCount() - 1;
+        for (; f >= 0; f--) {
+            modelo.removeRow(f);
+        }
+    }
+    
+    public void armarCabecera(){
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Precio");
+        modelo.addColumn("Stock");
+        ListaProducto.setModel(modelo);
+    }
 }
