@@ -30,11 +30,8 @@ public class mainMenu extends javax.swing.JFrame {
         this.detaD = new DetalleData();
         initComponents();
         setLocationRelativeTo(null);
-        ProductosB.setEnabled(false);
-        HistorialB.setEnabled(false);
-        ProveedoresB.setEnabled(false);
-        SolicitarB.setEnabled(false);
-        loggin();
+
+        //loggin();
     }
 
     /**

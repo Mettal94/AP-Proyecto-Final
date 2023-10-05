@@ -7,6 +7,7 @@ package Vistas;
 
 import AccesoADatos.ProductosData;
 import Entidades.Productos;
+import static Vistas.mainMenu.Escritorio;
 import static Vistas.mainMenu.mensaje;
 import java.util.ArrayList;
 import java.util.List;
@@ -121,6 +122,11 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         getContentPane().add(RubroCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 320, -1));
 
         ModificarB.setText("Modificar Producto");
+        ModificarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarBActionPerformed(evt);
+            }
+        });
         getContentPane().add(ModificarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 490, 230, -1));
         getContentPane().add(NombreT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 320, -1));
         getContentPane().add(DescripcionT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 320, -1));
@@ -246,6 +252,25 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         // Listar inactivos
         listar();
     }//GEN-LAST:event_InactivosRBActionPerformed
+
+    private void ModificarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarBActionPerformed
+        try{
+            int fila = ListaProducto.getSelectedRow();
+            int id = (int) ListaProducto.getValueAt(fila,0);
+            Productos modificar = new Productos();
+            
+            modificar = lista.get(fila);
+            ModificarProductoIF mostrar = new ModificarProductoIF(prodD,modificar);
+            mostrar.setVisible(true);
+            Escritorio.add(mostrar);
+            Escritorio.moveToFront(mostrar);
+           
+            
+        }catch(ArrayIndexOutOfBoundsException ex){
+            mensaje("Debe seleccionar un producto de la tabla.");
+            System.out.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_ModificarBActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

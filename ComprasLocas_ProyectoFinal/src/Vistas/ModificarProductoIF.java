@@ -5,6 +5,11 @@
  */
 package Vistas;
 
+import AccesoADatos.ProductosData;
+import Entidades.Productos;
+import static Vistas.mainMenu.Escritorio;
+import static Vistas.mainMenu.mensaje;
+
 /**
  *
  * @author ariel
@@ -14,8 +19,17 @@ public class ModificarProductoIF extends javax.swing.JInternalFrame {
     /**
      * Creates new form ModificarProductoIF
      */
-    public ModificarProductoIF() {
+    private Productos producto;
+    private ProductosData prodD;
+    public ModificarProductoIF(ProductosData prodD, Productos producto) {
         initComponents();
+        this.prodD=prodD;
+        this.producto=producto;
+        NombreT.setText(producto.getNombre());
+        DesT.setText(producto.getDescripcion());
+        RubroCB.setSelectedItem(producto.getRubro());
+        PrecioAT.setText(producto.getPrecioActual()+"");
+        stockT.setText(producto.getStock()+"");
     }
 
     /**
@@ -27,21 +41,161 @@ public class ModificarProductoIF extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        NombreT = new javax.swing.JTextField();
+        DesT = new javax.swing.JTextField();
+        PrecioAT = new javax.swing.JTextField();
+        RubroCB = new javax.swing.JComboBox<>();
+        ModificarB = new javax.swing.JButton();
+        CancelarB = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        stockT = new javax.swing.JTextField();
+
+        setTitle("Modificar Productos");
+
+        jLabel1.setText("Nombre");
+
+        jLabel2.setText("Descripcion");
+
+        jLabel3.setText("Rubro");
+
+        jLabel4.setText("PrecioActual");
+
+        RubroCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hogar", "Cocina", "Pequeños Electrodomésticos" }));
+
+        ModificarB.setText("Modificar");
+        ModificarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarBActionPerformed(evt);
+            }
+        });
+
+        CancelarB.setText("Cancelar");
+        CancelarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarBActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Stock");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(NombreT)
+                            .addComponent(DesT)
+                            .addComponent(PrecioAT)
+                            .addComponent(RubroCB, 0, 230, Short.MAX_VALUE)
+                            .addComponent(stockT)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(ModificarB, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(CancelarB, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(NombreT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(DesT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(RubroCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(PrecioAT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(stockT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ModificarB)
+                    .addComponent(CancelarB))
+                .addGap(37, 37, 37))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ModificarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarBActionPerformed
+       try{
+           
+           int id = producto.getIdProducto();
+           String nom = NombreT.getText();
+           String des = DesT.getText();
+           String rub =(String) RubroCB.getSelectedItem();
+           double precio = Integer.parseInt(PrecioAT.getText());
+           Boolean estado = producto.isEstado();
+           int stock = Integer.parseInt(stockT.getText());
+           
+           Productos modificar = new Productos (id, nom, des, rub, precio,stock, estado);
+           prodD.modificarProducto(modificar);
+           
+            Escritorio.removeAll();
+            Escritorio.repaint();
+            ProductoIF pif = new ProductoIF(prodD);
+            pif.setVisible(true);
+            Escritorio.add(pif);
+            Escritorio.moveToFront(pif);
+            
+            
+      }catch (NullPointerException ex) {
+            mensaje("No pueden quedar campos vacíos.");
+            System.out.println(ex.getMessage());
+        } catch (NumberFormatException ex) {
+            mensaje("Debe ingresar un valor válido.");
+            System.out.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_ModificarBActionPerformed
+
+    private void CancelarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarBActionPerformed
+            Escritorio.removeAll();
+            Escritorio.repaint();
+            ProductoIF pif = new ProductoIF(prodD);
+            pif.setVisible(true);
+            Escritorio.add(pif);
+            Escritorio.moveToFront(pif);
+    }//GEN-LAST:event_CancelarBActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CancelarB;
+    private javax.swing.JTextField DesT;
+    private javax.swing.JButton ModificarB;
+    private javax.swing.JTextField NombreT;
+    private javax.swing.JTextField PrecioAT;
+    private javax.swing.JComboBox<String> RubroCB;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField stockT;
     // End of variables declaration//GEN-END:variables
 }
