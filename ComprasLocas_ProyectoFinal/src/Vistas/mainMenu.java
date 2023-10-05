@@ -179,7 +179,7 @@ public class mainMenu extends javax.swing.JFrame {
     private void ProductosBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductosBActionPerformed
         Escritorio.removeAll();
         Escritorio.repaint();
-        ProductoIF mostrar = new ProductoIF();
+        ProductoIF mostrar = new ProductoIF(prodD);
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);

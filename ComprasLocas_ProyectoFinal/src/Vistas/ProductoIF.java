@@ -5,16 +5,17 @@
  */
 package Vistas;
 
-/**
- *
- * @author ariel
- */
+import AccesoADatos.ProductosData;
+import Entidades.Productos;
+import static Vistas.mainMenu.mensaje;
+
+
 public class ProductoIF extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form AgregarProductoIF
-     */
-    public ProductoIF() {
+    private ProductosData prodD;
+
+    public ProductoIF(ProductosData prodD) {
+        this.prodD = prodD;
         initComponents();
     }
 
@@ -35,12 +36,13 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        EliminarB = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         AgregarB = new javax.swing.JButton();
+        RubroCB = new javax.swing.JComboBox<>();
         ModificarB = new javax.swing.JButton();
         NombreT = new javax.swing.JTextField();
         DescripcionT = new javax.swing.JTextField();
-        RubroT = new javax.swing.JTextField();
         PrecioT = new javax.swing.JTextField();
         StockT = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -82,17 +84,27 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         jLabel8.setText("Proveedor");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, -1, -1));
 
+        EliminarB.setText("Borrar");
+        getContentPane().add(EliminarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 220, -1));
+
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, 320, -1));
 
         AgregarB.setText("Agregar");
+        AgregarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarBActionPerformed(evt);
+            }
+        });
         getContentPane().add(AgregarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 450, -1));
 
+        RubroCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hogar", "Cocina", "Pequeños Electrodomésticos" }));
+        getContentPane().add(RubroCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 320, -1));
+
         ModificarB.setText("Modificar");
-        getContentPane().add(ModificarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 450, -1));
+        getContentPane().add(ModificarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 490, 230, -1));
         getContentPane().add(NombreT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 320, -1));
         getContentPane().add(DescripcionT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 320, -1));
-        getContentPane().add(RubroT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 320, -1));
         getContentPane().add(PrecioT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 320, -1));
         getContentPane().add(StockT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, 320, -1));
 
@@ -123,15 +135,41 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void AgregarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarBActionPerformed
+        // Boton para agregar un producto
+        try{
+            String nombre = NombreT.getText();
+            String desc = DescripcionT.getText();
+            String rubro = (String) RubroCB.getSelectedItem();
+            Double precioA = Double.parseDouble(PrecioT.getText());
+            int stock = Integer.parseInt(StockT.getText());
+            Productos prod = new Productos(nombre, desc, rubro, precioA, stock, true);
+            
+            prodD.agregarProducto(prod);
+            
+            NombreT.setText("");
+            DescripcionT.setText("");
+            PrecioT.setText("");
+            StockT.setText("");
+        }catch(NumberFormatException ex){
+            mensaje("Hay campos vacíos o valores mal ingresados, revisar el formulario.");
+            System.out.println(ex.getMessage());
+        }catch(NullPointerException ex){
+            mensaje("Hay campos vacíos o valores mal ingresados, revisar el formulario.");
+            System.out.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_AgregarBActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarB;
     private javax.swing.JTextField DescripcionT;
+    private javax.swing.JButton EliminarB;
     private javax.swing.JTable ListaProducto;
     private javax.swing.JButton ModificarB;
     private javax.swing.JTextField NombreT;
     private javax.swing.JTextField PrecioT;
-    private javax.swing.JTextField RubroT;
+    private javax.swing.JComboBox<String> RubroCB;
     private javax.swing.JTextField StockT;
     private javax.swing.JLabel grisDer;
     private javax.swing.JLabel grisIzq;
