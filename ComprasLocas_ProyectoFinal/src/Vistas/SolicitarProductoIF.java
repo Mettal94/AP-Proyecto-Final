@@ -10,6 +10,8 @@ import AccesoADatos.ComprasData;
 import AccesoADatos.DetalleData;
 import AccesoADatos.ProductosData;
 import AccesoADatos.ProveedorData;
+import Entidades.Productos;
+import Entidades.Proveedor;
 
 /**
  *
@@ -22,6 +24,10 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
     private ProveedorData provD;
     private DetalleData detaD;
     public SolicitarProductoIF(ComprasData compD, ProductosData prodD, ProveedorData provD, DetalleData detaD) {
+        this.compD = compD;
+        this.prodD = prodD;
+        this.provD = provD;
+        this.detaD = detaD;
         initComponents();
     }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-10-2023 a las 01:53:29
+-- Tiempo de generación: 07-10-2023 a las 01:35:39
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -66,6 +66,23 @@ CREATE TABLE `producto` (
   `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`idProducto`, `nombre`, `descripcion`, `rubro`, `precioActual`, `stock`, `estado`) VALUES
+(1, 'Lavadora LG', 'Lavadora de carga frontal con capacidad de 8 kg', 'Electrodomésticos', 599.99, 20, 1),
+(2, 'Refrigerador Samsung', 'Refrigerador de dos puertas con dispensador de agua', 'Electrodomésticos', 899.99, 15, 1),
+(3, 'Horno Microondas Panasonic', 'Horno microondas con capacidad de 1.2 cu.ft.', 'Cocina', 129.99, 25, 1),
+(4, 'Aspiradora Dyson', 'Aspiradora sin cable con tecnología ciclónica', 'Hogar', 349.99, 10, 1),
+(5, 'Licuadora Oster', 'Licuadora de alto rendimiento con motor de 1000W', 'Electrodomésticos', 79.99, 30, 1),
+(6, 'Cafetera Keurig', 'Cafetera de cápsulas con función de preparación rápida', 'Hogar', 129.99, 12, 0),
+(7, 'Robot de Cocina Moulinex', 'Robot de cocina multifunción con 12 programas', 'Robotica', 249.99, 18, 1),
+(8, 'Plancha de Vapor Rowenta', 'Plancha de vapor con suela de acero inoxidable', 'Hogar', 59.99, 22, 1),
+(9, 'Batidora KitchenAid', 'Batidora de pie con cabezal inclinable y 10 velocidades', 'Hogar', 279.99, 15, 1),
+(10, 'Ventilador de Torre Honeywell', 'Ventilador de torre con control remoto y temporizador', 'Ventilaciones', 89.99, 20, 1),
+(11, 'Aspiradora Smart', 'Aspiradora robótica inteligente marca Honda', 'Hogar', 300.55, 25, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -80,6 +97,14 @@ CREATE TABLE `proveedor` (
   `telefono` varchar(100) NOT NULL,
   `estado` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `proveedor`
+--
+
+INSERT INTO `proveedor` (`idProveedor`, `razonSocial`, `domicilio`, `email`, `telefono`, `estado`) VALUES
+(1, 'Merca SA', 'Cabildo 500, CABA', 'merca.sa@gmail.com', '+54 9 1155554444', 1),
+(2, 'GalleLokas SRL', 'Cuzco 420, Rosario', 'gallelokas_srl@yahoo.com.ar', '+ 54 9 341420024', 0);
 
 --
 -- Índices para tablas volcadas
@@ -132,13 +157,13 @@ ALTER TABLE `detallecompra`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  MODIFY `idProveedor` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idProveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
