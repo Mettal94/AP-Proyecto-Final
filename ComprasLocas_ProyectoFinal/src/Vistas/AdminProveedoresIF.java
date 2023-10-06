@@ -5,17 +5,28 @@
  */
 package Vistas;
 
+import AccesoADatos.ProveedorData;
+import Entidades.Proveedor;
+import static Vistas.mainMenu.mensaje;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ariel
  */
 public class AdminProveedoresIF extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form AdminProveedoresIF
-     */
-    public AdminProveedoresIF() {
+    private ProveedorData provD;
+    private DefaultTableModel modelo = new DefaultTableModel();
+    List<Proveedor> lista = new ArrayList<>(); 
+    public AdminProveedoresIF(ProveedorData provD) {
+        this.provD = provD;
         initComponents();
+        armarCabecera();
+        ActivosRB.setSelected(true);
+        listar();
     }
 
     /**
@@ -27,23 +38,27 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        Grupo = new javax.swing.ButtonGroup();
+        AgregarB = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        DomicilioT = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        EmailT = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        TelefonoT = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextField5 = new javax.swing.JTextField();
+        ProveedorTabla = new javax.swing.JTable();
+        ModificarB = new javax.swing.JButton();
+        EstadoB = new javax.swing.JButton();
+        RazonST = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        ActivosRB = new javax.swing.JRadioButton();
+        InactivosRB = new javax.swing.JRadioButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("Administrar Proveedores");
@@ -51,27 +66,22 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
         setMaximumSize(new java.awt.Dimension(1008, 605));
         setMinimumSize(new java.awt.Dimension(1008, 605));
 
-        jButton1.setText("Agregar nuevo Proveedor");
+        AgregarB.setText("Agregar nuevo Proveedor");
+        AgregarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarBActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Razon Social");
 
         jLabel2.setText("Domicilio");
 
-        jTextField1.setText("jTextField1");
-
         jLabel3.setText("Email");
-
-        jTextField2.setText("jTextField2");
 
         jLabel4.setText("Telefono");
 
-        jTextField3.setText("jTextField3");
-
-        jLabel5.setText("Estado");
-
-        jTextField4.setText("jTextField4");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ProveedorTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -82,22 +92,56 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(ProveedorTabla);
 
-        jButton2.setText("Modificar");
+        ModificarB.setText("Modificar Proveedor");
+        ModificarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarBActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Eliminar Proveedor");
-
-        jTextField5.setText("jTextField5");
+        EstadoB.setText("Modificar Estado");
+        EstadoB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EstadoBActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Agregar nuevo Proveedor");
 
         jLabel8.setText("Gestionar proveedores existentes");
 
+        Grupo.add(ActivosRB);
+        ActivosRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActivosRBActionPerformed(evt);
+            }
+        });
+
+        Grupo.add(InactivosRB);
+        InactivosRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InactivosRBActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Mostrar :");
+
+        jLabel6.setText("Inactivos");
+
+        jLabel9.setText("Activos");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(151, 151, 151)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addGap(168, 168, 168))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -106,32 +150,36 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                            .addComponent(jLabel4))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField5)))
+                            .addComponent(DomicilioT, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+                            .addComponent(EmailT)
+                            .addComponent(TelefonoT)
+                            .addComponent(RazonST)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jButton1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(162, 162, 162)
+                        .addComponent(AgregarB)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(ModificarB)
                         .addGap(164, 164, 164)
-                        .addComponent(jButton3))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(EstadoB))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(64, 64, 64))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(151, 151, 151)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(168, 168, 168))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(InactivosRB)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addGap(25, 25, 25)
+                .addComponent(ActivosRB)
+                .addGap(231, 231, 231))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,25 +191,21 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(RazonST, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(DomicilioT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(EmailT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TelefonoT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(45, 45, 45)
-                        .addComponent(jButton1))
+                        .addComponent(AgregarB))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(jLabel8)
@@ -169,32 +213,141 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2))
-                .addContainerGap(65, Short.MAX_VALUE))
+                    .addComponent(EstadoB)
+                    .addComponent(ModificarB))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ActivosRB)
+                        .addComponent(InactivosRB)
+                        .addComponent(jLabel9))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(jLabel5)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void AgregarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarBActionPerformed
+        // Agregar proveedor
+        try{
+            String razonSoc = RazonST.getText();
+            String domicilio = DomicilioT.getText();
+            String email = EmailT.getText();
+            String telefono = TelefonoT.getText();
+            
+            Proveedor prov = new Proveedor(razonSoc, domicilio, email, telefono, true);
+            
+            provD.agregarProveedor(prov);
+            
+            RazonST.setText("");
+            DomicilioT.setText("");
+            EmailT.setText("");
+            TelefonoT.setText("");
+            
+            listar();
+        }catch(NullPointerException ex){
+            mensaje("Hay campos vacíos o valores mal ingresados, revisar el formulario");
+            System.out.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_AgregarBActionPerformed
+
+    private void ModificarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarBActionPerformed
+        // Boton modificar proveedor
+         try{   
+            int fila = ProveedorTabla.getSelectedRow();
+
+            int id = (int) ProveedorTabla.getValueAt(fila, 0);
+            Proveedor modificar = new Proveedor();
+            modificar = lista.get(fila);
+         }catch(ArrayIndexOutOfBoundsException ex){
+            mensaje("Debe seleccionar un producto de la tabla.");
+            System.out.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_ModificarBActionPerformed
+
+    private void ActivosRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActivosRBActionPerformed
+        // Boton activo
+        listar();
+    }//GEN-LAST:event_ActivosRBActionPerformed
+
+    private void InactivosRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InactivosRBActionPerformed
+        // Boton inactivos
+        listar();
+    }//GEN-LAST:event_InactivosRBActionPerformed
+
+    private void EstadoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadoBActionPerformed
+        // Boton para dar de baja
+        try{
+            int fila = ProveedorTabla.getSelectedRow();
+
+            int id = (int) ProveedorTabla.getValueAt(fila, 0);
+            if(ActivosRB.isSelected()){
+                provD.altaBajaProveedores(0, id);
+            }else{
+                provD.altaBajaProveedores(1, id);
+            }
+            
+            listar();
+        }catch(ArrayIndexOutOfBoundsException ex){
+            mensaje("Debe seleccionar un producto de la tabla.");
+            System.out.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_EstadoBActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JRadioButton ActivosRB;
+    private javax.swing.JButton AgregarB;
+    private javax.swing.JTextField DomicilioT;
+    private javax.swing.JTextField EmailT;
+    private javax.swing.JButton EstadoB;
+    private javax.swing.ButtonGroup Grupo;
+    private javax.swing.JRadioButton InactivosRB;
+    private javax.swing.JButton ModificarB;
+    private javax.swing.JTable ProveedorTabla;
+    private javax.swing.JTextField RazonST;
+    private javax.swing.JTextField TelefonoT;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
+
+    private void armarCabecera(){
+        modelo.addColumn("ID");
+        modelo.addColumn("Razón Social");
+        modelo.addColumn("Dirección");
+        modelo.addColumn("E-Mail");
+        modelo.addColumn("Teléfono");
+        ProveedorTabla.setModel(modelo);
+    }
+    
+    public void listar(){
+        borrarFilas();
+        if (ActivosRB.isSelected()) {
+            lista = provD.listarProveedores(1);
+        } else if(InactivosRB.isSelected()){
+             lista = provD.listarProveedores(0);
+        }
+        
+       for (Proveedor prov : lista) {
+            modelo.addRow(new Object[]{prov.getIdProveedor(),prov.getRazonSocial(),prov.getDomicilio(),prov.getEmail(),prov.getTelefono()});
+        }
+    }
+    
+    public void borrarFilas(){
+        int f = ProveedorTabla.getRowCount() - 1;
+        for (; f >= 0; f--) {
+            modelo.removeRow(f);
+        }
+    }
 }

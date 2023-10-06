@@ -103,4 +103,26 @@ public class ProveedorData {
         }
         return listaProv;
     }
+    
+    public void altaBajaProveedores(int estado, int id){
+        
+        String sql = "UPDATE proveedor SET estado = ? WHERE idProveedor = ?";
+        
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, estado);
+            ps.setInt(2, id);
+            
+            int fila = ps.executeUpdate();
+            if(fila == 1){
+                mensaje("Modificación exitosa");
+            }else{
+                mensaje("Hubo un error");
+            }
+            ps.close();
+        }catch(SQLException ex){
+            mensaje("Error al acceder a la tabla de proveedor");
+            System.out.println(ex.getMessage());
+        }
+    }
 }

@@ -190,7 +190,7 @@ public class mainMenu extends javax.swing.JFrame {
     private void ProveedoresBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProveedoresBActionPerformed
         Escritorio.removeAll();
         Escritorio.repaint();
-        AdminProveedoresIF mostrar = new AdminProveedoresIF();
+        AdminProveedoresIF mostrar = new AdminProveedoresIF(provD);
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
