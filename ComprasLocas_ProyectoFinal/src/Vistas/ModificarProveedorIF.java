@@ -131,6 +131,7 @@ public class ModificarProveedorIF extends javax.swing.JInternalFrame {
         Boolean estado = proveedor.isEstado();
         
         Proveedor modificar = new Proveedor (id, razon, domicilio, correo, tel, estado);
+           System.out.println(modificar);
         provD.modificarProveedor(modificar);
         
         Escritorio.removeAll();

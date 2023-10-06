@@ -10,6 +10,8 @@ import AccesoADatos.ComprasData;
 import AccesoADatos.DetalleData;
 import AccesoADatos.ProductosData;
 import AccesoADatos.ProveedorData;
+import Entidades.Productos;
+import Entidades.Proveedor;
 
 /**
  *
