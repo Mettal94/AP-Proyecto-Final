@@ -79,7 +79,7 @@ public class Proveedor {
 
     @Override
     public String toString() {
-        return this.razonSocial;
+        return this.razonSocial+" "+ this.domicilio +" "+ this.email +" "+ this.telefono +" "+ this.estado;
     }
     
     

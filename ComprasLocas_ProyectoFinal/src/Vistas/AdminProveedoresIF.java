@@ -7,6 +7,7 @@ package Vistas;
 
 import AccesoADatos.ProveedorData;
 import Entidades.Proveedor;
+import static Vistas.mainMenu.Escritorio;
 import static Vistas.mainMenu.mensaje;
 import java.util.ArrayList;
 import java.util.List;
@@ -217,10 +218,9 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
                     .addComponent(ModificarB))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ActivosRB)
-                        .addComponent(InactivosRB)
-                        .addComponent(jLabel9))
+                    .addComponent(ActivosRB)
+                    .addComponent(jLabel9)
+                    .addComponent(InactivosRB)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel6)
                         .addComponent(jLabel5)))
@@ -258,10 +258,15 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
         // Boton modificar proveedor
          try{   
             int fila = ProveedorTabla.getSelectedRow();
-
+            
             int id = (int) ProveedorTabla.getValueAt(fila, 0);
             Proveedor modificar = new Proveedor();
             modificar = lista.get(fila);
+             System.out.println(modificar);
+            ModificarProveedorIF mpif = new ModificarProveedorIF(provD, modificar);
+            mpif.setVisible(true);
+            Escritorio.add(mpif);
+            Escritorio.moveToFront(mpif);
          }catch(ArrayIndexOutOfBoundsException ex){
             mensaje("Debe seleccionar un producto de la tabla.");
             System.out.println(ex.getMessage());
