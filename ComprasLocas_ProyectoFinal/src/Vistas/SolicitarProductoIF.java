@@ -6,14 +6,22 @@
 
 package Vistas;
 
+import AccesoADatos.ComprasData;
+import AccesoADatos.DetalleData;
+import AccesoADatos.ProductosData;
+import AccesoADatos.ProveedorData;
+
 /**
  *
  * @author ariel
  */
 public class SolicitarProductoIF extends javax.swing.JInternalFrame {
 
-    /** Creates new form SolicitarProductoIF */
-    public SolicitarProductoIF() {
+    private ComprasData compD;
+    private ProductosData prodD;
+    private ProveedorData provD;
+    private DetalleData detaD;
+    public SolicitarProductoIF(ComprasData compD, ProductosData prodD, ProveedorData provD, DetalleData detaD) {
         initComponents();
     }
 
@@ -28,13 +36,13 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        ProveedorJCB = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        Stock = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        Fecha = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        ProductosJCB = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
@@ -60,22 +68,20 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         jLabel2.setText("Producto :");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 181, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 101, 306, -1));
+        getContentPane().add(ProveedorJCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 101, 306, -1));
 
         jLabel3.setText("Unidades :");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 265, -1, -1));
-        getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 151, -1));
+        getContentPane().add(Stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 151, -1));
 
         jLabel4.setText("Fecha :");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 334, -1, 29));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 334, 306, -1));
+        getContentPane().add(Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 334, 306, -1));
 
         jLabel5.setText("Proveedor :");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 106, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 176, 306, -1));
+        getContentPane().add(ProductosJCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 176, 306, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -137,12 +143,13 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AzulDer;
     private javax.swing.JLabel AzulIzq;
+    private com.toedter.calendar.JDateChooser Fecha;
+    private javax.swing.JComboBox<Productos> ProductosJCB;
+    private javax.swing.JComboBox<Proveedor> ProveedorJCB;
+    private javax.swing.JSpinner Stock;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -151,7 +158,6 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
