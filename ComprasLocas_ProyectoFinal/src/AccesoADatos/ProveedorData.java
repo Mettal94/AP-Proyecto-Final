@@ -45,9 +45,8 @@ public class ProveedorData {
     }
     
     public void modificarProveedor(Proveedor prov){
-        
-        String sql = "UPDATE proveedor SET razonSocial = ?, domicilio = ?, email = ?, telefono = ?, estado = ?"
-                + "WHERE idProveedor = ?";
+        System.out.println(prov);
+        String sql = "UPDATE `proveedor` SET `razonSocial`='?',`domicilio`='?',`email`='?',`telefono`='?',`estado`='?' WHERE `idProveedor`='?';";
         PreparedStatement ps = null;
         
         try{
