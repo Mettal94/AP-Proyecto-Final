@@ -30,7 +30,7 @@ public class mainMenu extends javax.swing.JFrame {
         this.detaD = new DetalleData();
         initComponents();
         setLocationRelativeTo(null);
-
+        setResizable(false);
         //loggin();
     }
 
