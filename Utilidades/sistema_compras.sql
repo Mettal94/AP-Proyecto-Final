@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-10-2023 a las 01:35:39
+-- Tiempo de generación: 10-10-2023 a las 00:45:04
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -32,6 +32,7 @@ USE `sistema_compras`;
 CREATE TABLE `compra` (
   `idCompra` int(11) NOT NULL,
   `idProveedor` int(11) NOT NULL,
+  `precioTotal` double NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -72,13 +73,13 @@ CREATE TABLE `producto` (
 
 INSERT INTO `producto` (`idProducto`, `nombre`, `descripcion`, `rubro`, `precioActual`, `stock`, `estado`) VALUES
 (1, 'Lavadora LG', 'Lavadora de carga frontal con capacidad de 8 kg', 'Electrodomésticos', 599.99, 20, 1),
-(2, 'Refrigerador Samsung', 'Refrigerador de dos puertas con dispensador de agua', 'Electrodomésticos', 899.99, 15, 1),
+(2, 'Refrigerador Samsung', 'Refrigerador de dos puertas con dispensador de agua', 'Electrodomésticos', 899.99, 15, 0),
 (3, 'Horno Microondas Panasonic', 'Horno microondas con capacidad de 1.2 cu.ft.', 'Cocina', 129.99, 25, 1),
 (4, 'Aspiradora Dyson', 'Aspiradora sin cable con tecnología ciclónica', 'Hogar', 349.99, 10, 1),
 (5, 'Licuadora Oster', 'Licuadora de alto rendimiento con motor de 1000W', 'Electrodomésticos', 79.99, 30, 1),
 (6, 'Cafetera Keurig', 'Cafetera de cápsulas con función de preparación rápida', 'Hogar', 129.99, 12, 0),
 (7, 'Robot de Cocina Moulinex', 'Robot de cocina multifunción con 12 programas', 'Robotica', 249.99, 18, 1),
-(8, 'Plancha de Vapor Rowenta', 'Plancha de vapor con suela de acero inoxidable', 'Hogar', 59.99, 22, 1),
+(8, 'Plancha de Vapor Rowenta', 'Plancha de vapor con suela de acero inoxidable', 'Hogar', 60.01, 22, 1),
 (9, 'Batidora KitchenAid', 'Batidora de pie con cabezal inclinable y 10 velocidades', 'Hogar', 279.99, 15, 1),
 (10, 'Ventilador de Torre Honeywell', 'Ventilador de torre con control remoto y temporizador', 'Ventilaciones', 89.99, 20, 1),
 (11, 'Aspiradora Smart', 'Aspiradora robótica inteligente marca Honda', 'Hogar', 300.55, 25, 0);

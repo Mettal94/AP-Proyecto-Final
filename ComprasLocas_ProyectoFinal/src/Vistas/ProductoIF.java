@@ -45,9 +45,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         EliminarB = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
         AgregarB = new javax.swing.JButton();
         RubroCB = new javax.swing.JComboBox<>();
         ModificarB = new javax.swing.JButton();
@@ -96,9 +94,6 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         jLabel7.setText("Stock");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, 20));
 
-        jLabel8.setText("Proveedor");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, -1, -1));
-
         EliminarB.setText("Modificar Estado");
         EliminarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,9 +101,6 @@ public class ProductoIF extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(EliminarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 220, -1));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, 320, -1));
 
         AgregarB.setText("Agregar Producto");
         AgregarB.addActionListener(new java.awt.event.ActionListener() {
@@ -288,7 +280,6 @@ public class ProductoIF extends javax.swing.JInternalFrame {
     private javax.swing.JTextField StockT;
     private javax.swing.JLabel grisDer;
     private javax.swing.JLabel grisIzq;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -298,7 +289,6 @@ public class ProductoIF extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
