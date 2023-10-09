@@ -12,6 +12,7 @@ import AccesoADatos.ProductosData;
 import AccesoADatos.ProveedorData;
 import Entidades.Productos;
 import Entidades.Proveedor;
+import static Vistas.mainMenu.mensaje;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -35,6 +36,8 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         this.provD = provD;
         this.detaD = detaD;
         initComponents();
+        armarCabecera();
+        PrecioTotalT.setText(0+"");
         cargarJCBs();
     }
 
@@ -62,7 +65,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         ComprarTodoB = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         EliminarItemB = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        PrecioTotalT = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         AzulIzq = new javax.swing.JLabel();
         AzulDer = new javax.swing.JLabel();
@@ -112,6 +115,11 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 91, -1, 336));
 
         AgregarB.setText("Agregar al Carrito");
+        AgregarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarBActionPerformed(evt);
+            }
+        });
         getContentPane().add(AgregarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 430, -1));
 
         ComprarTodoB.setText("Comprar Todo");
@@ -128,7 +136,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(EliminarItemB, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 520, 218, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 459, 229, -1));
+        getContentPane().add(PrecioTotalT, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 459, 229, -1));
 
         jLabel7.setText("Precio Total");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 463, -1, -1));
@@ -152,6 +160,11 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_EliminarItemBActionPerformed
 
+    private void AgregarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarBActionPerformed
+        // Boton para agregar al carrito
+        agregadoCarrito();
+    }//GEN-LAST:event_AgregarBActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarB;
@@ -161,6 +174,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
     private javax.swing.JTable ComprasTabla;
     private javax.swing.JButton EliminarItemB;
     private com.toedter.calendar.JDateChooser Fecha;
+    private javax.swing.JTextField PrecioTotalT;
     private javax.swing.JComboBox<Productos> ProductosJCB;
     private javax.swing.JComboBox<Proveedor> ProveedorJCB;
     private javax.swing.JSpinner Stock;
@@ -172,7 +186,6 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
     public void borrarFilas(){
@@ -204,11 +217,26 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
     }
     
     public void agregadoCarrito(){
-        Productos deseado = (Productos) ProductosJCB.getSelectedItem();
-        int cantidad = (int) Stock.getValue();
-        double costo = deseado.getPrecioActual();
-        double costoMonto = costo*cantidad;
-        
-        modelo.addRow(new Object[]{deseado.getNombre(),cantidad,("$"+costo),("$"+costoMonto)});
+        try{
+            Productos deseado = (Productos) ProductosJCB.getSelectedItem();
+            int cantidad = (int) Stock.getValue();
+            double costo = deseado.getPrecioActual();
+            double costoMonto = costo*cantidad;
+
+            double x = Double.parseDouble(PrecioTotalT.getText());
+
+            modelo.addRow(new Object[]{deseado.getNombre(),cantidad,("$"+costo),("$"+costoMonto)});
+
+            PrecioTotalT.setText((x+costoMonto)+"");
+            
+            Stock.setValue(0);
+            Fecha.setDate(null);
+        }catch(NumberFormatException ex){
+            mensaje("Hay campos vacíos o valores mal ingresados, revisar el formulario.");
+            System.out.println(ex.getMessage());
+        }catch(NullPointerException ex){
+            mensaje("Hay campos vacíos o valores mal ingresados, revisar el formulario.");
+            System.out.println(ex.getMessage());
+        }
     }
 }
