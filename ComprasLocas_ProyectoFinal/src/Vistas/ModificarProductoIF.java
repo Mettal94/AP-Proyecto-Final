@@ -150,7 +150,7 @@ public class ModificarProductoIF extends javax.swing.JInternalFrame {
            String nom = NombreT.getText();
            String des = DesT.getText();
            String rub =(String) RubroCB.getSelectedItem();
-           double precio = Integer.parseInt(PrecioAT.getText());
+           double precio = Double.parseDouble(PrecioAT.getText());
            Boolean estado = producto.isEstado();
            int stock = Integer.parseInt(stockT.getText());
            

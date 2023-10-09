@@ -262,6 +262,7 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
             int id = (int) ProveedorTabla.getValueAt(fila, 0);
             Proveedor modificar = new Proveedor();
             modificar = lista.get(fila);
+            modificar.setIdProveedor(id);
              System.out.println(modificar);
             ModificarProveedorIF mpif = new ModificarProveedorIF(provD, modificar);
             mpif.setVisible(true);
