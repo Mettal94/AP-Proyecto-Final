@@ -6,20 +6,22 @@ public class Compras {
 
     private int idCompra=-1;
     private Proveedor proveedor;
+    private double precioTotal;
     private LocalDate fecha;
 
     public Compras() {
     }
 
-    
-    public Compras(int idCompra,Proveedor proveedor, LocalDate fecha) {
+    public Compras(int idCompra,Proveedor proveedor,double precioTotal, LocalDate fecha) {
         this.idCompra = idCompra;
         this.proveedor = proveedor;
+        this.precioTotal = precioTotal;
         this.fecha = fecha;
     }
 
-    public Compras(Proveedor proveedor, LocalDate fecha) {
+    public Compras(Proveedor proveedor, double precioTotal, LocalDate fecha) {
         this.proveedor = proveedor;
+        this.precioTotal = precioTotal;
         this.fecha = fecha;
     }
 
@@ -37,6 +39,14 @@ public class Compras {
 
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
+    }
+
+    public double getPrecioTotal() {
+        return precioTotal;
+    }
+
+    public void setPrecioTotal(double precioTotal) {
+        this.precioTotal = precioTotal;
     }
 
     public LocalDate getFecha() {

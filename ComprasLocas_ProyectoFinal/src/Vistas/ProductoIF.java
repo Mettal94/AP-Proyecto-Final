@@ -208,6 +208,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
             DescripcionT.setText("");
             PrecioT.setText("");
             StockT.setText("");
+            listar();
         }catch(NumberFormatException ex){
             mensaje("Hay campos vacíos o valores mal ingresados, revisar el formulario.");
             System.out.println(ex.getMessage());

@@ -12,6 +12,9 @@ import AccesoADatos.ProductosData;
 import AccesoADatos.ProveedorData;
 import Entidades.Productos;
 import Entidades.Proveedor;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,12 +26,16 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
     private ProductosData prodD;
     private ProveedorData provD;
     private DetalleData detaD;
+    private DefaultTableModel modelo = new DefaultTableModel();
+    List<Proveedor> listaProveedores = new ArrayList<>();
+    List<Productos> listaProductos = new ArrayList<>();
     public SolicitarProductoIF(ComprasData compD, ProductosData prodD, ProveedorData provD, DetalleData detaD) {
         this.compD = compD;
         this.prodD = prodD;
         this.provD = provD;
         this.detaD = detaD;
         initComponents();
+        cargarJCBs();
     }
 
     /** This method is called from within the constructor to
@@ -50,11 +57,11 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         ProductosJCB = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        ComprasTabla = new javax.swing.JTable();
+        AgregarB = new javax.swing.JButton();
+        ComprarTodoB = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        EliminarItemB = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         AzulIzq = new javax.swing.JLabel();
@@ -89,7 +96,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
 
         getContentPane().add(ProductosJCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 176, 306, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ComprasTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -100,27 +107,27 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(ComprasTabla);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 91, -1, 336));
 
-        jButton1.setText("Agregar al Carrito");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 430, -1));
+        AgregarB.setText("Agregar al Carrito");
+        getContentPane().add(AgregarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 430, -1));
 
-        jButton2.setText("Comprar Todo");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 520, 206, -1));
+        ComprarTodoB.setText("Comprar Todo");
+        getContentPane().add(ComprarTodoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 520, 206, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel6.setText("Carrito");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 33, -1, -1));
 
-        jButton3.setText("Eliminar Item");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        EliminarItemB.setText("Eliminar Item");
+        EliminarItemB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                EliminarItemBActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 520, 218, -1));
+        getContentPane().add(EliminarItemB, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 520, 218, -1));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 459, 229, -1));
 
         jLabel7.setText("Precio Total");
@@ -141,21 +148,22 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void EliminarItemBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarItemBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_EliminarItemBActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AgregarB;
     private javax.swing.JLabel AzulDer;
     private javax.swing.JLabel AzulIzq;
+    private javax.swing.JButton ComprarTodoB;
+    private javax.swing.JTable ComprasTabla;
+    private javax.swing.JButton EliminarItemB;
     private com.toedter.calendar.JDateChooser Fecha;
     private javax.swing.JComboBox<Productos> ProductosJCB;
     private javax.swing.JComboBox<Proveedor> ProveedorJCB;
     private javax.swing.JSpinner Stock;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -164,8 +172,43 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
+    public void borrarFilas(){
+        int f = ComprasTabla.getRowCount() - 1;
+        for (; f >= 0; f--) {
+            modelo.removeRow(f);
+        }
+    }
+    
+    public void armarCabecera(){
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Precio Unitario");
+        modelo.addColumn("Precio Por Monto");
+        ComprasTabla.setModel(modelo);
+        
+    }
+    
+    public void cargarJCBs(){
+        listaProveedores = provD.listarProveedores(1);
+        listaProductos = prodD.listarProductos(1);
+        
+        for (Proveedor listaProveedore : listaProveedores) {
+            ProveedorJCB.addItem(listaProveedore);
+        }
+        for (Productos listaProducto : listaProductos) {
+            ProductosJCB.addItem(listaProducto);
+        }
+    }
+    
+    public void agregadoCarrito(){
+        Productos deseado = (Productos) ProductosJCB.getSelectedItem();
+        int cantidad = (int) Stock.getValue();
+        double costo = deseado.getPrecioActual();
+        double costoMonto = costo*cantidad;
+        
+        modelo.addRow(new Object[]{deseado.getNombre(),cantidad,("$"+costo),("$"+costoMonto)});
+    }
 }
