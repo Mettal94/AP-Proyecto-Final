@@ -10,11 +10,13 @@ import AccesoADatos.ComprasData;
 import AccesoADatos.DetalleData;
 import AccesoADatos.ProductosData;
 import AccesoADatos.ProveedorData;
+import Entidades.Compras;
 import Entidades.Productos;
 import Entidades.Proveedor;
 import static Vistas.mainMenu.mensaje;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -127,6 +129,11 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         getContentPane().add(AgregarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 430, -1));
 
         ComprarTodoB.setText("Comprar Todo");
+        ComprarTodoB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComprarTodoBActionPerformed(evt);
+            }
+        });
         getContentPane().add(ComprarTodoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 520, 206, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -181,6 +188,26 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         // Boton para agregar al carrito
         agregadoCarrito();
     }//GEN-LAST:event_AgregarBActionPerformed
+
+    private void ComprarTodoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarTodoBActionPerformed
+        // Boton comprar todo
+        try{    
+            Compras comp = new Compras();
+            Proveedor prov = (Proveedor) ProveedorJCB.getSelectedItem();
+            java.util.Date fechax = Fecha.getDate();
+            LocalDate fechaCompra = fechax.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            double precioTotal = Double.parseDouble(PrecioTotalT.getText());
+            comp.setProveedor(prov);
+            comp.setPrecioTotal(precioTotal);
+            comp.setFecha(fechaCompra);
+
+            int idCompra = compD.nuevaCompra(comp);
+        }catch(NullPointerException ex){
+            System.out.println(ex.getMessage());
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }  
+    }//GEN-LAST:event_ComprarTodoBActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

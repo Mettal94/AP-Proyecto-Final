@@ -16,15 +16,16 @@ public class ComprasData {
         con = Conexion.getConexion();
     }
     
-    public void nuevaCompra(Compras comp){
+    public int nuevaCompra(Compras comp){
         
-        String sql = "INSERT INTO compra (idProveedor,fecha) VALUES (?,?);";
-        
+        String sql = "INSERT INTO compra (idProveedor, precioTotal, fecha) VALUES (?,?,?);";
+        int id = 0;
         try{
             
             PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, comp.getProveedor().getIdProveedor());
-            ps.setDate(2, Date.valueOf(comp.getFecha()));
+            ps.setDouble(2, comp.getPrecioTotal());
+            ps.setDate(3, Date.valueOf(comp.getFecha()));
             
             ps.executeUpdate();
             
@@ -34,9 +35,12 @@ public class ComprasData {
                 comp.setIdCompra(1);
                 mensaje("Compra exitosa.");
             }
+            id = comp.getIdCompra();
+            ps.close();
         }catch(SQLException ex){
             mensaje("Error al acceder a la base de datos.");
             System.out.println(ex.getMessage());
         }
+        return id;
     }
 }
