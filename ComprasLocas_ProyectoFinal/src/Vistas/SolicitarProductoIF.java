@@ -202,6 +202,9 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
             comp.setFecha(fechaCompra);
 
             int idCompra = compD.nuevaCompra(comp);
+            comp.setIdCompra(idCompra);
+            
+            
         }catch(NullPointerException ex){
             System.out.println(ex.getMessage());
         }catch(Exception ex){
@@ -280,6 +283,16 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
             System.out.println(ex.getMessage());
         }catch(NullPointerException ex){
             mensaje("Hay campos vacíos o valores mal ingresados, revisar el formulario.");
+            System.out.println(ex.getMessage());
+        }
+    }
+    
+    public void generarDetalles(Compras comp){
+        
+        try{
+            int cantidadDetalles = modelo.getRowCount();
+            
+        }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
     }
