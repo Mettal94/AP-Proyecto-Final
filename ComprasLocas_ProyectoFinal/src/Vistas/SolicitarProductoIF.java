@@ -13,6 +13,8 @@ import AccesoADatos.ProveedorData;
 import Entidades.Productos;
 import Entidades.Proveedor;
 import static Vistas.mainMenu.mensaje;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -30,6 +32,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
     private DefaultTableModel modelo = new DefaultTableModel();
     List<Proveedor> listaProveedores = new ArrayList<>();
     List<Productos> listaProductos = new ArrayList<>();
+    List<Productos> listaPrueba = new ArrayList<>();
     public SolicitarProductoIF(ComprasData compD, ProductosData prodD, ProveedorData provD, DetalleData detaD) {
         this.compD = compD;
         this.prodD = prodD;
@@ -38,6 +41,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         initComponents();
         armarCabecera();
         PrecioTotalT.setText(0+"");
+        Fecha.setDate(Date.valueOf(LocalDate.now()));
         cargarJCBs();
     }
 
@@ -136,6 +140,8 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(EliminarItemB, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 520, 218, -1));
+
+        PrecioTotalT.setEditable(false);
         getContentPane().add(PrecioTotalT, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 459, 229, -1));
 
         jLabel7.setText("Precio Total");
@@ -158,6 +164,17 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
 
     private void EliminarItemBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarItemBActionPerformed
         // TODO add your handling code here:
+        try{
+            int fila = ComprasTabla.getSelectedRow();
+            double precio = (double) ComprasTabla.getValueAt(fila, 3);
+            System.out.println(precio);
+            modelo.removeRow(fila);
+            double x = Double.parseDouble(PrecioTotalT.getText());
+            PrecioTotalT.setText((x-precio)+"");
+        }catch(ArrayIndexOutOfBoundsException ex){
+            mensaje("Debe seleccionar un producto de la tabla.");
+            System.out.println(ex.getMessage());
+        }
     }//GEN-LAST:event_EliminarItemBActionPerformed
 
     private void AgregarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarBActionPerformed
@@ -225,8 +242,8 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
 
             double x = Double.parseDouble(PrecioTotalT.getText());
 
-            modelo.addRow(new Object[]{deseado.getNombre(),cantidad,("$"+costo),("$"+costoMonto)});
-
+            modelo.addRow(new Object[]{deseado.getNombre(),cantidad,costo,costoMonto});
+            
             PrecioTotalT.setText((x+costoMonto)+"");
             
             Stock.setValue(0);
