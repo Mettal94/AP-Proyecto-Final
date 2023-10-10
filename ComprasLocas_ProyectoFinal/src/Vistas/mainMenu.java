@@ -44,23 +44,94 @@ public class mainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         Escritorio = new javax.swing.JDesktopPane();
-        ProductosB = new javax.swing.JButton();
-        SolicitarB = new javax.swing.JButton();
-        ProveedoresB = new javax.swing.JButton();
-        HistorialB = new javax.swing.JButton();
+        logito3 = new javax.swing.JLabel();
+        logito2 = new javax.swing.JLabel();
+        logito4 = new javax.swing.JLabel();
+        logito1 = new javax.swing.JLabel();
+        logito5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        ProductosB = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        ProveedoresB = new javax.swing.JButton();
+        SolicitarB = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        HistorialB = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        FondoFrame = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Escritorio.setBackground(new java.awt.Color(0, 102, 102));
         Escritorio.setMaximumSize(new java.awt.Dimension(1010, 610));
         Escritorio.setMinimumSize(new java.awt.Dimension(1010, 610));
 
-        ProductosB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Productos.png"))); // NOI18N
+        logito3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-laptop-100.png"))); // NOI18N
+
+        logito2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-tv-100.png"))); // NOI18N
+
+        logito4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-air-conditioner-100.png"))); // NOI18N
+
+        logito1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-refrigerator-100.png"))); // NOI18N
+
+        logito5.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        logito5.setForeground(new java.awt.Color(255, 255, 255));
+        logito5.setText("Bienvenidos a ComprasLocas");
+
+        Escritorio.setLayer(logito3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(logito2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(logito4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(logito1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(logito5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
+        Escritorio.setLayout(EscritorioLayout);
+        EscritorioLayout.setHorizontalGroup(
+            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EscritorioLayout.createSequentialGroup()
+                .addGroup(EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(EscritorioLayout.createSequentialGroup()
+                        .addGap(383, 383, 383)
+                        .addGroup(EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(logito2)
+                            .addComponent(logito3)))
+                    .addGroup(EscritorioLayout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addComponent(logito1)
+                        .addGap(257, 257, 257)
+                        .addComponent(logito4))
+                    .addGroup(EscritorioLayout.createSequentialGroup()
+                        .addGap(168, 168, 168)
+                        .addComponent(logito5, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(215, Short.MAX_VALUE))
+        );
+        EscritorioLayout.setVerticalGroup(
+            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EscritorioLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(logito5)
+                .addGap(88, 88, 88)
+                .addComponent(logito3)
+                .addGap(14, 14, 14)
+                .addGroup(EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logito4)
+                    .addComponent(logito1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(logito2)
+                .addGap(112, 112, 112))
+        );
+
+        getContentPane().add(Escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 1010, 610));
+        Escritorio.getAccessibleContext().setAccessibleName("");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-products-64.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+
+        ProductosB.setBackground(new java.awt.Color(204, 204, 255));
+        ProductosB.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        ProductosB.setForeground(new java.awt.Color(0, 0, 102));
+        ProductosB.setText("Productos");
+        ProductosB.setBorder(null);
         ProductosB.setMaximumSize(new java.awt.Dimension(100, 100));
         ProductosB.setMinimumSize(new java.awt.Dimension(100, 100));
         ProductosB.setPreferredSize(new java.awt.Dimension(100, 100));
@@ -69,18 +140,16 @@ public class mainMenu extends javax.swing.JFrame {
                 ProductosBActionPerformed(evt);
             }
         });
+        getContentPane().add(ProductosB, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 120, 30));
 
-        SolicitarB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/SolicitarCompra.png"))); // NOI18N
-        SolicitarB.setMaximumSize(new java.awt.Dimension(100, 100));
-        SolicitarB.setMinimumSize(new java.awt.Dimension(100, 100));
-        SolicitarB.setPreferredSize(new java.awt.Dimension(100, 100));
-        SolicitarB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SolicitarBActionPerformed(evt);
-            }
-        });
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-supplier-64.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
-        ProveedoresB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Proveedores.png"))); // NOI18N
+        ProveedoresB.setBackground(new java.awt.Color(204, 204, 255));
+        ProveedoresB.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        ProveedoresB.setForeground(new java.awt.Color(0, 0, 102));
+        ProveedoresB.setText("Gestionar Proveedores");
+        ProveedoresB.setBorder(null);
         ProveedoresB.setMaximumSize(new java.awt.Dimension(100, 100));
         ProveedoresB.setMinimumSize(new java.awt.Dimension(100, 100));
         ProveedoresB.setPreferredSize(new java.awt.Dimension(100, 100));
@@ -89,8 +158,31 @@ public class mainMenu extends javax.swing.JFrame {
                 ProveedoresBActionPerformed(evt);
             }
         });
+        getContentPane().add(ProveedoresB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 150, 30));
 
-        HistorialB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Historial.png"))); // NOI18N
+        SolicitarB.setBackground(new java.awt.Color(204, 204, 255));
+        SolicitarB.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        SolicitarB.setForeground(new java.awt.Color(0, 0, 102));
+        SolicitarB.setText("Solicitar Productos");
+        SolicitarB.setBorder(null);
+        SolicitarB.setMaximumSize(new java.awt.Dimension(100, 100));
+        SolicitarB.setMinimumSize(new java.awt.Dimension(100, 100));
+        SolicitarB.setPreferredSize(new java.awt.Dimension(100, 100));
+        SolicitarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SolicitarBActionPerformed(evt);
+            }
+        });
+        getContentPane().add(SolicitarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 140, 30));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-buy-64.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 70, -1));
+
+        HistorialB.setBackground(new java.awt.Color(204, 204, 255));
+        HistorialB.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        HistorialB.setForeground(new java.awt.Color(0, 0, 102));
+        HistorialB.setText("Historial de Compras");
+        HistorialB.setBorder(null);
         HistorialB.setMaximumSize(new java.awt.Dimension(100, 100));
         HistorialB.setMinimumSize(new java.awt.Dimension(100, 100));
         HistorialB.setPreferredSize(new java.awt.Dimension(100, 100));
@@ -99,80 +191,13 @@ public class mainMenu extends javax.swing.JFrame {
                 HistorialBActionPerformed(evt);
             }
         });
+        getContentPane().add(HistorialB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, 140, 30));
 
-        jLabel1.setText("Productos");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-list-64.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 70, -1));
 
-        jLabel2.setText("Historial de Compras");
-
-        jLabel3.setText("Gestionar Proveedores");
-
-        jLabel4.setText("Solicitar Productos");
-
-        Escritorio.setLayer(ProductosB, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(SolicitarB, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(ProveedoresB, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(HistorialB, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
-        Escritorio.setLayout(EscritorioLayout);
-        EscritorioLayout.setHorizontalGroup(
-            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EscritorioLayout.createSequentialGroup()
-                .addGap(323, 323, 323)
-                .addComponent(jLabel1)
-                .addGap(205, 205, 205)
-                .addComponent(jLabel3)
-                .addContainerGap(292, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EscritorioLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(EscritorioLayout.createSequentialGroup()
-                            .addGap(301, 301, 301)
-                            .addComponent(HistorialB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SolicitarB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(EscritorioLayout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(161, 161, 161)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(EscritorioLayout.createSequentialGroup()
-                        .addComponent(ProductosB, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(201, 201, 201)
-                        .addComponent(ProveedoresB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(255, 255, 255))
-        );
-        EscritorioLayout.setVerticalGroup(
-            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EscritorioLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addGroup(EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ProveedoresB, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ProductosB, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(100, 100, 100)
-                .addGroup(EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(HistorialB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SolicitarB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(193, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(Escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 630));
-        Escritorio.getAccessibleContext().setAccessibleName("");
-
-        setJMenuBar(jMenuBar1);
+        FondoFrame.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoAzulaesDefinicion.png"))); // NOI18N
+        getContentPane().add(FondoFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -184,7 +209,7 @@ public class mainMenu extends javax.swing.JFrame {
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
-        botones();
+         logito();
     }//GEN-LAST:event_ProductosBActionPerformed
 
     private void ProveedoresBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProveedoresBActionPerformed
@@ -194,7 +219,7 @@ public class mainMenu extends javax.swing.JFrame {
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
-        botones();
+         logito();
     }//GEN-LAST:event_ProveedoresBActionPerformed
 
     private void SolicitarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SolicitarBActionPerformed
@@ -204,7 +229,7 @@ public class mainMenu extends javax.swing.JFrame {
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
-        botones();
+         logito();
     }//GEN-LAST:event_SolicitarBActionPerformed
 
     private void HistorialBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialBActionPerformed
@@ -214,18 +239,15 @@ public class mainMenu extends javax.swing.JFrame {
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
-        botones();
+         logito();
     }//GEN-LAST:event_HistorialBActionPerformed
 
-    private void botones(){
-        Escritorio.add(SolicitarB);
-        Escritorio.add(ProductosB);
-        Escritorio.add(ProveedoresB);
-        Escritorio.add(HistorialB);
-        Escritorio.add(jLabel1);
-        Escritorio.add(jLabel2);
-        Escritorio.add(jLabel3);
-        Escritorio.add(jLabel4);
+   private void logito(){
+        Escritorio.add(logito1);
+        Escritorio.add(logito2);
+        Escritorio.add(logito3);
+        Escritorio.add(logito4);
+        Escritorio.add(logito5);
     }
     
     /**
@@ -265,6 +287,7 @@ public class mainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane Escritorio;
+    private javax.swing.JLabel FondoFrame;
     private javax.swing.JButton HistorialB;
     private javax.swing.JButton ProductosB;
     private javax.swing.JButton ProveedoresB;
@@ -273,7 +296,11 @@ public class mainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel logito1;
+    private javax.swing.JLabel logito2;
+    private javax.swing.JLabel logito3;
+    private javax.swing.JLabel logito4;
+    private javax.swing.JLabel logito5;
     // End of variables declaration//GEN-END:variables
 
     
