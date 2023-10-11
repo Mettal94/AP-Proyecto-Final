@@ -10,6 +10,8 @@ import AccesoADatos.DetalleData;
 import AccesoADatos.ProductosData;
 import AccesoADatos.ProveedorData;
 import Entidades.Productos;
+import java.awt.Color;
+import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,7 +19,7 @@ import javax.swing.JOptionPane;
  * @author ariel
  */
 public class mainMenu extends javax.swing.JFrame {
-
+  
     private ProductosData prodD;
     private ProveedorData provD;
     private ComprasData compD;
@@ -31,6 +33,7 @@ public class mainMenu extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
+
         //loggin();
     }
 
@@ -60,6 +63,7 @@ public class mainMenu extends javax.swing.JFrame {
         FondoFrame = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 102, 102));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Escritorio.setBackground(new java.awt.Color(0, 102, 102));
@@ -249,7 +253,7 @@ public class mainMenu extends javax.swing.JFrame {
         Escritorio.add(logito4);
         Escritorio.add(logito5);
     }
-    
+
     /**
      * @param args the command line arguments
      */

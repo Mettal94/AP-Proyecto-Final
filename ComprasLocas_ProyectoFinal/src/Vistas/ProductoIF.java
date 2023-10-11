@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Vistas;
-
+import javax.swing.ImageIcon;
 import AccesoADatos.ProductosData;
 import Entidades.Productos;
 import static Vistas.mainMenu.Escritorio;
@@ -63,6 +63,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         grisDer = new javax.swing.JLabel();
         grisIzq = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(153, 153, 255));
         setClosable(true);
         setTitle("Agregar Productos");
         setMaximumSize(new java.awt.Dimension(1008, 605));
@@ -70,30 +71,39 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(1008, 605));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 51));
         jLabel1.setText("Agregar Productos");
         jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 270, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 210, -1));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 51));
         jLabel2.setText("Listado de Productos");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, -1, -1));
 
-        jLabel3.setText("Descripcion");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, 20));
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setText("Descripcion:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, 20));
 
-        jLabel4.setText("Nombre");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, 20));
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setText("Nombre:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, 20));
 
-        jLabel5.setText("Rubro");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, 20));
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel5.setText("Rubro:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, 20));
 
-        jLabel6.setText("Precio Actual");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, 20));
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel6.setText("Precio Actual:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, 20));
 
-        jLabel7.setText("Stock");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, 20));
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel7.setText("Stock:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, 20));
 
+        EliminarB.setBackground(new java.awt.Color(14, 98, 81));
+        EliminarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         EliminarB.setText("Modificar Estado");
         EliminarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +112,8 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         });
         getContentPane().add(EliminarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 220, -1));
 
+        AgregarB.setBackground(new java.awt.Color(14, 98, 81));
+        AgregarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         AgregarB.setText("Agregar Producto");
         AgregarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,9 +122,14 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         });
         getContentPane().add(AgregarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 450, -1));
 
+        RubroCB.setBackground(new java.awt.Color(20, 143, 119));
+        RubroCB.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         RubroCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hogar", "Cocina", "Pequeños Electrodomésticos" }));
-        getContentPane().add(RubroCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 320, -1));
+        RubroCB.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(RubroCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 320, 20));
 
+        ModificarB.setBackground(new java.awt.Color(14, 98, 81));
+        ModificarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         ModificarB.setText("Modificar Producto");
         ModificarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,11 +137,38 @@ public class ProductoIF extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(ModificarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 490, 230, -1));
-        getContentPane().add(NombreT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 320, -1));
-        getContentPane().add(DescripcionT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 320, -1));
-        getContentPane().add(PrecioT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 320, -1));
-        getContentPane().add(StockT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, 320, -1));
 
+        NombreT.setBackground(new java.awt.Color(20, 143, 119));
+        NombreT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        NombreT.setForeground(new java.awt.Color(255, 255, 255));
+        NombreT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        NombreT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(NombreT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 114, 320, 20));
+
+        DescripcionT.setBackground(new java.awt.Color(20, 143, 119));
+        DescripcionT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        DescripcionT.setForeground(new java.awt.Color(255, 255, 255));
+        DescripcionT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        DescripcionT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(DescripcionT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 320, 20));
+
+        PrecioT.setBackground(new java.awt.Color(20, 143, 119));
+        PrecioT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        PrecioT.setForeground(new java.awt.Color(255, 255, 255));
+        PrecioT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        PrecioT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(PrecioT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 320, 20));
+
+        StockT.setBackground(new java.awt.Color(20, 143, 119));
+        StockT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        StockT.setForeground(new java.awt.Color(255, 255, 255));
+        StockT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        StockT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(StockT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, 320, 20));
+
+        ListaProducto.setBackground(new java.awt.Color(20, 143, 119));
+        ListaProducto.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
+        ListaProducto.setForeground(new java.awt.Color(255, 255, 255));
         ListaProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -151,16 +195,21 @@ public class ProductoIF extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        ListaProducto.setGridColor(new java.awt.Color(204, 204, 204));
+        ListaProducto.setSelectionBackground(new java.awt.Color(153, 153, 153));
         jScrollPane1.setViewportView(ListaProducto);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(523, 100, 460, 360));
 
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel9.setText("Inactivos");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 530, -1, 30));
 
-        jLabel10.setText("Mostrar :");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 530, -1, 30));
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel10.setText("Mostrar:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 530, -1, 30));
 
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel11.setText("Activos");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 530, -1, 30));
 
@@ -172,6 +221,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         });
         getContentPane().add(InactivosRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 530, 20, 30));
 
+        ActivosRB.setBackground(new java.awt.Color(255, 255, 255));
         Grupo.add(ActivosRB);
         ActivosRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,13 +230,13 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         });
         getContentPane().add(ActivosRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 530, 20, 30));
 
-        grisDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/gris.png"))); // NOI18N
+        grisDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
         grisDer.setMaximumSize(new java.awt.Dimension(500, 250));
         grisDer.setMinimumSize(new java.awt.Dimension(500, 250));
         grisDer.setPreferredSize(new java.awt.Dimension(500, 250));
         getContentPane().add(grisDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 480, 560));
 
-        grisIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/gris.png"))); // NOI18N
+        grisIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
         getContentPane().add(grisIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 480, 560));
 
         pack();
