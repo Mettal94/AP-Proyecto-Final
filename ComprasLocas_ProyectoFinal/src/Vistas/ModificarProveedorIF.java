@@ -64,25 +64,25 @@ public class ModificarProveedorIF extends javax.swing.JInternalFrame {
         jLabel3.setText("Telefono:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 202, -1, -1));
 
-        RazonST.setBackground(new java.awt.Color(20, 143, 119));
+        RazonST.setBackground(new java.awt.Color(31, 97, 141));
         RazonST.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         RazonST.setForeground(new java.awt.Color(255, 255, 255));
         RazonST.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(RazonST, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 48, 236, -1));
 
-        DomicilioT.setBackground(new java.awt.Color(20, 143, 119));
+        DomicilioT.setBackground(new java.awt.Color(31, 97, 141));
         DomicilioT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         DomicilioT.setForeground(new java.awt.Color(255, 255, 255));
         DomicilioT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(DomicilioT, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 113, 236, -1));
 
-        TelefonoT.setBackground(new java.awt.Color(20, 143, 119));
+        TelefonoT.setBackground(new java.awt.Color(31, 97, 141));
         TelefonoT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         TelefonoT.setForeground(new java.awt.Color(255, 255, 255));
         TelefonoT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(TelefonoT, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 202, 236, -1));
 
-        GuardarB.setBackground(new java.awt.Color(14, 98, 81));
+        GuardarB.setBackground(new java.awt.Color(21, 67, 96));
         GuardarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         GuardarB.setForeground(new java.awt.Color(255, 255, 255));
         GuardarB.setText("Guardar");
@@ -93,7 +93,7 @@ public class ModificarProveedorIF extends javax.swing.JInternalFrame {
         });
         getContentPane().add(GuardarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 190, -1));
 
-        CancelarB.setBackground(new java.awt.Color(14, 98, 81));
+        CancelarB.setBackground(new java.awt.Color(21, 67, 96));
         CancelarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         CancelarB.setForeground(new java.awt.Color(255, 255, 255));
         CancelarB.setText("Cancelar");
@@ -108,13 +108,13 @@ public class ModificarProveedorIF extends javax.swing.JInternalFrame {
         jLabel4.setText("Email:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 280, -1, -1));
 
-        EmailT.setBackground(new java.awt.Color(20, 143, 119));
+        EmailT.setBackground(new java.awt.Color(31, 97, 141));
         EmailT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         EmailT.setForeground(new java.awt.Color(255, 255, 255));
         EmailT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(EmailT, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 280, 236, -1));
 
-        FondoModiProve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
+        FondoModiProve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FONDO3.jpg"))); // NOI18N
         getContentPane().add(FondoModiProve, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 440, 410));
 
         pack();

@@ -79,7 +79,7 @@
     <Component class="javax.swing.JTextField" name="NombreT">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="77" green="8f" red="14" type="rgb"/>
+          <Color blue="8d" green="61" red="1f" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
@@ -102,7 +102,7 @@
     <Component class="javax.swing.JTextField" name="DesT">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="77" green="8f" red="14" type="rgb"/>
+          <Color blue="8d" green="61" red="1f" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
@@ -125,7 +125,7 @@
     <Component class="javax.swing.JTextField" name="PrecioAT">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="77" green="8f" red="14" type="rgb"/>
+          <Color blue="8d" green="61" red="1f" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
@@ -148,7 +148,7 @@
     <Component class="javax.swing.JComboBox" name="RubroCB">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="77" green="8f" red="14" type="rgb"/>
+          <Color blue="8d" green="61" red="1f" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
@@ -178,7 +178,7 @@
     <Component class="javax.swing.JButton" name="ModificarB">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="51" green="62" red="e" type="rgb"/>
+          <Color blue="60" green="43" red="15" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
@@ -200,7 +200,7 @@
     <Component class="javax.swing.JButton" name="CancelarB">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="51" green="62" red="e" type="rgb"/>
+          <Color blue="60" green="43" red="15" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
@@ -235,7 +235,7 @@
     <Component class="javax.swing.JTextField" name="stockT">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="77" green="8f" red="14" type="rgb"/>
+          <Color blue="8d" green="61" red="1f" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
@@ -258,7 +258,7 @@
     <Component class="javax.swing.JLabel" name="FondoModiProd">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Imagenes/verdeAzuladoPN.png"/>
+          <Image iconType="3" name="/Imagenes/FONDO3.jpg"/>
         </Property>
       </Properties>
       <Constraints>

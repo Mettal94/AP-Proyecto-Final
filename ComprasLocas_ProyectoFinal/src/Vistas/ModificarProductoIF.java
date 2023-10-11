@@ -74,31 +74,31 @@ public class ModificarProductoIF extends javax.swing.JInternalFrame {
         jLabel4.setText("PrecioActual:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
-        NombreT.setBackground(new java.awt.Color(20, 143, 119));
+        NombreT.setBackground(new java.awt.Color(31, 97, 141));
         NombreT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         NombreT.setForeground(new java.awt.Color(255, 255, 255));
         NombreT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(NombreT, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 230, 20));
 
-        DesT.setBackground(new java.awt.Color(20, 143, 119));
+        DesT.setBackground(new java.awt.Color(31, 97, 141));
         DesT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         DesT.setForeground(new java.awt.Color(255, 255, 255));
         DesT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(DesT, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 230, 20));
 
-        PrecioAT.setBackground(new java.awt.Color(20, 143, 119));
+        PrecioAT.setBackground(new java.awt.Color(31, 97, 141));
         PrecioAT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         PrecioAT.setForeground(new java.awt.Color(255, 255, 255));
         PrecioAT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(PrecioAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 230, 20));
 
-        RubroCB.setBackground(new java.awt.Color(20, 143, 119));
+        RubroCB.setBackground(new java.awt.Color(31, 97, 141));
         RubroCB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         RubroCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hogar", "Cocina", "Pequeños Electrodomésticos" }));
         RubroCB.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(RubroCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 230, -1));
 
-        ModificarB.setBackground(new java.awt.Color(14, 98, 81));
+        ModificarB.setBackground(new java.awt.Color(21, 67, 96));
         ModificarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         ModificarB.setForeground(new java.awt.Color(255, 255, 255));
         ModificarB.setText("Modificar");
@@ -109,7 +109,7 @@ public class ModificarProductoIF extends javax.swing.JInternalFrame {
         });
         getContentPane().add(ModificarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 188, -1));
 
-        CancelarB.setBackground(new java.awt.Color(14, 98, 81));
+        CancelarB.setBackground(new java.awt.Color(21, 67, 96));
         CancelarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         CancelarB.setForeground(new java.awt.Color(255, 255, 255));
         CancelarB.setText("Cancelar");
@@ -124,13 +124,13 @@ public class ModificarProductoIF extends javax.swing.JInternalFrame {
         jLabel5.setText("Stock:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
-        stockT.setBackground(new java.awt.Color(20, 143, 119));
+        stockT.setBackground(new java.awt.Color(31, 97, 141));
         stockT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         stockT.setForeground(new java.awt.Color(255, 255, 255));
         stockT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(stockT, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 230, -1));
 
-        FondoModiProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
+        FondoModiProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FONDO3.jpg"))); // NOI18N
         getContentPane().add(FondoModiProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 440, 410));
 
         pack();
