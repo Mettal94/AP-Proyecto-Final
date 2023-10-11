@@ -110,7 +110,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
                 EliminarBActionPerformed(evt);
             }
         });
-        getContentPane().add(EliminarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 490, 220, -1));
+        getContentPane().add(EliminarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 490, 220, -1));
 
         AgregarB.setBackground(new java.awt.Color(14, 98, 81));
         AgregarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -136,7 +136,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
                 ModificarBActionPerformed(evt);
             }
         });
-        getContentPane().add(ModificarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 490, 230, -1));
+        getContentPane().add(ModificarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 490, 230, -1));
 
         NombreT.setBackground(new java.awt.Color(20, 143, 119));
         NombreT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N

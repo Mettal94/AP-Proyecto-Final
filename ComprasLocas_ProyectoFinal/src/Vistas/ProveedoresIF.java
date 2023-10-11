@@ -36,6 +36,8 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
         jTable2 = new javax.swing.JTable();
         jComboBox2 = new javax.swing.JComboBox<>();
 
+        setClosable(true);
+
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel1.setText("Compras por Proveedores");

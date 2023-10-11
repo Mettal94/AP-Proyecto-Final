@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import static Vistas.mainMenu.Escritorio;
+
 /**
  *
  * @author ariel
@@ -17,7 +19,7 @@ public class HistorialCompraIF extends javax.swing.JInternalFrame {
     public HistorialCompraIF() {
         initComponents();
         setSize(500,350);
-        //setResizable(false);
+        
     }
 
     /**
@@ -29,23 +31,33 @@ public class HistorialCompraIF extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        comprasRealizadaB = new javax.swing.JButton();
+        ProveedorB = new javax.swing.JButton();
+        StockB = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Historial de Compras");
 
-        jButton1.setText("Compras Realizadas");
-
-        jButton3.setText("Proveedores");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        comprasRealizadaB.setText("Compras Realizadas");
+        comprasRealizadaB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                comprasRealizadaBActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Consultas Stock");
+        ProveedorB.setText("Proveedores");
+        ProveedorB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProveedorBActionPerformed(evt);
+            }
+        });
+
+        StockB.setText("Consultas Stock");
+        StockB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StockBActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -55,12 +67,12 @@ public class HistorialCompraIF extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(66, 66, 66)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comprasRealizadaB, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ProveedorB, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(160, 160, 160)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(StockB, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -68,24 +80,45 @@ public class HistorialCompraIF extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comprasRealizadaB, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ProveedorB, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(StockB, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(100, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void ProveedorBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProveedorBActionPerformed
+
+        ProveedoresIF mostrar = new ProveedoresIF();
+        mostrar.setVisible(true);
+        Escritorio.add(mostrar);
+        Escritorio.moveToFront(mostrar);
+       
+    }//GEN-LAST:event_ProveedorBActionPerformed
+
+    private void comprasRealizadaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprasRealizadaBActionPerformed
+
+        ComprasRealizadasIF mostrar = new ComprasRealizadasIF();
+        mostrar.setVisible(true);
+        Escritorio.add(mostrar);
+        Escritorio.moveToFront(mostrar);
+    }//GEN-LAST:event_comprasRealizadaBActionPerformed
+
+    private void StockBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StockBActionPerformed
+ 
+        ConsultaStockIF mostrar = new ConsultaStockIF();
+        mostrar.setVisible(true);
+        Escritorio.add(mostrar);
+        Escritorio.moveToFront(mostrar);
+    }//GEN-LAST:event_StockBActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton ProveedorB;
+    private javax.swing.JButton StockB;
+    private javax.swing.JButton comprasRealizadaB;
     // End of variables declaration//GEN-END:variables
 }

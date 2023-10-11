@@ -34,6 +34,7 @@ public class ConsultaStockIF extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
 
+        setClosable(true);
         setTitle("Control de Stock");
 
         jLabel2.setText("Seleccione un Producto");
