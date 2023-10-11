@@ -135,4 +135,29 @@ public class ProductosData {
             System.out.println(ex.getMessage());
         }
     }
+    
+     public void modificarStock(int id, int cantidad){
+        
+        String sql = "UPDATE producto SET stock = ? WHERE idProducto = ?";
+        
+        try{
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, cantidad);
+            ps.setInt(2, id);
+            
+            int fila = ps.executeUpdate();
+            
+            if(fila == 1){
+                System.out.println("Stock actualizado");
+            }else{
+                System.out.println("Hubo un error");
+            }
+            
+            ps.close();
+        }catch(SQLException ex){
+            mensaje("Error al acceder a la base de datos. ");
+            System.out.println(ex.getMessage());
+        }
+    }
 }

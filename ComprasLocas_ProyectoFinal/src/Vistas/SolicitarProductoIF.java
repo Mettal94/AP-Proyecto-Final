@@ -208,8 +208,17 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
             int idCompra = compD.nuevaCompra(comp);
             comp.setIdCompra(idCompra);
             
+            int stockActual;
+            int cantidad;
+            int idProd;
+            int stockActualizado;
             for (DetalleDeCompras detalles : listaDetalles) {
                 detalles.setCompra(comp);
+                idProd = detalles.getProducto().getIdProducto();
+                stockActual = detalles.getProducto().getStock();
+                cantidad = detalles.getCantidad();
+                stockActualizado = stockActual+cantidad;
+                prodD.modificarStock(idProd, stockActualizado);
                 detaD.insertarDetalle(detalles);
             }
             borrarFilas();
