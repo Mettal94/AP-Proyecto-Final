@@ -32,7 +32,7 @@ public class ComprasData {
             ResultSet rs = ps.getGeneratedKeys();
             
             if(rs.next()){
-                comp.setIdCompra(1);
+                comp.setIdCompra(rs.getInt(1));
                 mensaje("Compra exitosa.");
             }
             id = comp.getIdCompra();

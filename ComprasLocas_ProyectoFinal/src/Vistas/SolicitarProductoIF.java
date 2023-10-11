@@ -11,6 +11,7 @@ import AccesoADatos.DetalleData;
 import AccesoADatos.ProductosData;
 import AccesoADatos.ProveedorData;
 import Entidades.Compras;
+import Entidades.DetalleDeCompras;
 import Entidades.Productos;
 import Entidades.Proveedor;
 import static Vistas.mainMenu.mensaje;
@@ -35,6 +36,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
     List<Proveedor> listaProveedores = new ArrayList<>();
     List<Productos> listaProductos = new ArrayList<>();
     List<Productos> listaPrueba = new ArrayList<>();
+    List<DetalleDeCompras> listaDetalles = new ArrayList<>();
     public SolicitarProductoIF(ComprasData compD, ProductosData prodD, ProveedorData provD, DetalleData detaD) {
         this.compD = compD;
         this.prodD = prodD;
@@ -170,14 +172,16 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EliminarItemBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarItemBActionPerformed
-        // TODO add your handling code here:
+        // Boton para elimiar el producto de la tabla
         try{
             int fila = ComprasTabla.getSelectedRow();
             double precio = (double) ComprasTabla.getValueAt(fila, 3);
             System.out.println(precio);
             modelo.removeRow(fila);
+            listaDetalles.remove(fila);
             double x = Double.parseDouble(PrecioTotalT.getText());
             PrecioTotalT.setText((x-precio)+"");
+            
         }catch(ArrayIndexOutOfBoundsException ex){
             mensaje("Debe seleccionar un producto de la tabla.");
             System.out.println(ex.getMessage());
@@ -193,23 +197,34 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         // Boton comprar todo
         try{    
             Compras comp = new Compras();
-            Proveedor prov = (Proveedor) ProveedorJCB.getSelectedItem();
+            Proveedor prov = new Proveedor();
+            prov = (Proveedor) ProveedorJCB.getSelectedItem();
             java.util.Date fechax = Fecha.getDate();
             LocalDate fechaCompra = fechax.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             double precioTotal = Double.parseDouble(PrecioTotalT.getText());
             comp.setProveedor(prov);
             comp.setPrecioTotal(precioTotal);
             comp.setFecha(fechaCompra);
-
             int idCompra = compD.nuevaCompra(comp);
             comp.setIdCompra(idCompra);
             
-            
+            for (DetalleDeCompras detalles : listaDetalles) {
+                detalles.setCompra(comp);
+                detaD.insertarDetalle(detalles);
+            }
+            borrarFilas();
+            listaDetalles.clear();
+            PrecioTotalT.setText(0+"");
         }catch(NullPointerException ex){
+            mensaje("Exception null");
+            System.out.println(ex.getMessage());
+        }catch(NumberFormatException ex){
+             mensaje("Exception numberformat");
             System.out.println(ex.getMessage());
         }catch(Exception ex){
+             mensaje("Exception generica");
             System.out.println(ex.getMessage());
-        }  
+        }
     }//GEN-LAST:event_ComprarTodoBActionPerformed
 
 
@@ -276,8 +291,15 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
             
             PrecioTotalT.setText((x+costoMonto)+"");
             
+            DetalleDeCompras deta = new DetalleDeCompras();
+            deta.setCantidad(cantidad);
+            deta.setPrecioCosto(costoMonto);
+            deta.setProducto(deseado);
+            deta.setEstado(true);
+            
+            listaDetalles.add(deta);
             Stock.setValue(0);
-            Fecha.setDate(null);
+            Fecha.setDate(Date.valueOf(LocalDate.now()));
         }catch(NumberFormatException ex){
             mensaje("Hay campos vacíos o valores mal ingresados, revisar el formulario.");
             System.out.println(ex.getMessage());
@@ -292,6 +314,9 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         try{
             int cantidadDetalles = modelo.getRowCount();
             
+            for (int i = 0; i <= cantidadDetalles; i++) {
+                
+            }
         }catch(Exception ex){
             System.out.println(ex.getMessage());
         }

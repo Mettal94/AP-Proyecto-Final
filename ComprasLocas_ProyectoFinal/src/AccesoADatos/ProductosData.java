@@ -33,7 +33,7 @@ public class ProductosData {
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if(rs.next()){
-                prod.setIdProducto(1);
+                prod.setIdProducto(rs.getInt(1));
                 
                 mensaje("Se añadió el producto exitosamente");
             }

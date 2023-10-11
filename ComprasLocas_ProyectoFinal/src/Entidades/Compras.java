@@ -59,7 +59,7 @@ public class Compras {
 
     @Override
     public String toString() {
-        return "Compras{" + "idCompra=" + idCompra + ", proveedor=" + proveedor + ", fecha=" + fecha + '}';
+        return "Compras{" + "idCompra=" + idCompra + ", proveedor=" + proveedor + ",precioTotal=" + precioTotal+", fecha=" + fecha + '}';
     }
     
     

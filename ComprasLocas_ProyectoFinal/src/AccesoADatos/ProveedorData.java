@@ -33,7 +33,7 @@ public class ProveedorData {
             
             ResultSet rs = ps.getGeneratedKeys();
             if(rs.next()){
-                prov.setIdProveedor(1);
+                prov.setIdProveedor(rs.getInt(1));
                 
                 mensaje("Se añadió el proveedor exitosamente");
             }

@@ -29,6 +29,15 @@ public class DetalleDeCompras {
         this.estado = estado;
     }
 
+    public DetalleDeCompras(int cantidad, double precioCosto, Productos producto, boolean estado) {
+        this.cantidad = cantidad;
+        this.precioCosto = precioCosto;
+        this.producto = producto;
+        this.estado = estado;
+    }
+    
+    
+
     public int getIdDetalle() {
         return idDetalle;
     }
