@@ -53,92 +53,85 @@ public class ModificarProductoIF extends javax.swing.JInternalFrame {
         CancelarB = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         stockT = new javax.swing.JTextField();
+        FondoModiProd = new javax.swing.JLabel();
 
         setTitle("Modificar Productos");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Nombre");
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel1.setText("Nombre:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 34, -1, -1));
 
-        jLabel2.setText("Descripcion");
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setText("Descripcion:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 84, -1, -1));
 
-        jLabel3.setText("Rubro");
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setText("Rubro:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
-        jLabel4.setText("PrecioActual");
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setText("PrecioActual:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
+        NombreT.setBackground(new java.awt.Color(20, 143, 119));
+        NombreT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        NombreT.setForeground(new java.awt.Color(255, 255, 255));
+        NombreT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(NombreT, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 230, 20));
+
+        DesT.setBackground(new java.awt.Color(20, 143, 119));
+        DesT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        DesT.setForeground(new java.awt.Color(255, 255, 255));
+        DesT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(DesT, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 230, 20));
+
+        PrecioAT.setBackground(new java.awt.Color(20, 143, 119));
+        PrecioAT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        PrecioAT.setForeground(new java.awt.Color(255, 255, 255));
+        PrecioAT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(PrecioAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 230, 20));
+
+        RubroCB.setBackground(new java.awt.Color(20, 143, 119));
+        RubroCB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         RubroCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hogar", "Cocina", "Pequeños Electrodomésticos" }));
+        RubroCB.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(RubroCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 230, -1));
 
+        ModificarB.setBackground(new java.awt.Color(14, 98, 81));
+        ModificarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        ModificarB.setForeground(new java.awt.Color(255, 255, 255));
         ModificarB.setText("Modificar");
         ModificarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ModificarBActionPerformed(evt);
             }
         });
+        getContentPane().add(ModificarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 188, -1));
 
+        CancelarB.setBackground(new java.awt.Color(14, 98, 81));
+        CancelarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        CancelarB.setForeground(new java.awt.Color(255, 255, 255));
         CancelarB.setText("Cancelar");
         CancelarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CancelarBActionPerformed(evt);
             }
         });
+        getContentPane().add(CancelarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 350, 188, -1));
 
-        jLabel5.setText("Stock");
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel5.setText("Stock:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(NombreT)
-                            .addComponent(DesT)
-                            .addComponent(PrecioAT)
-                            .addComponent(RubroCB, 0, 230, Short.MAX_VALUE)
-                            .addComponent(stockT)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(ModificarB, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(CancelarB, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(NombreT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(DesT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(RubroCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(PrecioAT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(stockT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ModificarB)
-                    .addComponent(CancelarB))
-                .addGap(37, 37, 37))
-        );
+        stockT.setBackground(new java.awt.Color(20, 143, 119));
+        stockT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        stockT.setForeground(new java.awt.Color(255, 255, 255));
+        stockT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(stockT, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 230, -1));
+
+        FondoModiProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
+        getContentPane().add(FondoModiProd, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 440, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -187,6 +180,7 @@ public class ModificarProductoIF extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelarB;
     private javax.swing.JTextField DesT;
+    private javax.swing.JLabel FondoModiProd;
     private javax.swing.JButton ModificarB;
     private javax.swing.JTextField NombreT;
     private javax.swing.JTextField PrecioAT;

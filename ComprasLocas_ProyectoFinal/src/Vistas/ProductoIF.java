@@ -60,8 +60,8 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         InactivosRB = new javax.swing.JRadioButton();
         ActivosRB = new javax.swing.JRadioButton();
-        grisDer = new javax.swing.JLabel();
-        grisIzq = new javax.swing.JLabel();
+        FondoDer = new javax.swing.JLabel();
+        FondoIzq = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 255));
         setClosable(true);
@@ -114,6 +114,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
 
         AgregarB.setBackground(new java.awt.Color(14, 98, 81));
         AgregarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        AgregarB.setForeground(new java.awt.Color(255, 255, 255));
         AgregarB.setText("Agregar Producto");
         AgregarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,6 +131,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
 
         ModificarB.setBackground(new java.awt.Color(14, 98, 81));
         ModificarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        ModificarB.setForeground(new java.awt.Color(255, 255, 255));
         ModificarB.setText("Modificar Producto");
         ModificarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,14 +232,14 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         });
         getContentPane().add(ActivosRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 530, 20, 30));
 
-        grisDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
-        grisDer.setMaximumSize(new java.awt.Dimension(500, 250));
-        grisDer.setMinimumSize(new java.awt.Dimension(500, 250));
-        grisDer.setPreferredSize(new java.awt.Dimension(500, 250));
-        getContentPane().add(grisDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 480, 560));
+        FondoDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
+        FondoDer.setMaximumSize(new java.awt.Dimension(500, 250));
+        FondoDer.setMinimumSize(new java.awt.Dimension(500, 250));
+        FondoDer.setPreferredSize(new java.awt.Dimension(500, 250));
+        getContentPane().add(FondoDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 480, 560));
 
-        grisIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
-        getContentPane().add(grisIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 480, 560));
+        FondoIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
+        getContentPane().add(FondoIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 480, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -321,6 +323,8 @@ public class ProductoIF extends javax.swing.JInternalFrame {
     private javax.swing.JButton AgregarB;
     private javax.swing.JTextField DescripcionT;
     private javax.swing.JButton EliminarB;
+    private javax.swing.JLabel FondoDer;
+    private javax.swing.JLabel FondoIzq;
     private javax.swing.ButtonGroup Grupo;
     private javax.swing.JRadioButton InactivosRB;
     private javax.swing.JTable ListaProducto;
@@ -329,8 +333,6 @@ public class ProductoIF extends javax.swing.JInternalFrame {
     private javax.swing.JTextField PrecioT;
     private javax.swing.JComboBox<String> RubroCB;
     private javax.swing.JTextField StockT;
-    private javax.swing.JLabel grisDer;
-    private javax.swing.JLabel grisIzq;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

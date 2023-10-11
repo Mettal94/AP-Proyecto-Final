@@ -60,28 +60,67 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        FondoIzq = new javax.swing.JLabel();
+        FondoDer = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("Administrar Proveedores");
         setToolTipText("");
         setMaximumSize(new java.awt.Dimension(1008, 605));
         setMinimumSize(new java.awt.Dimension(1008, 605));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        AgregarB.setBackground(new java.awt.Color(14, 98, 81));
+        AgregarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        AgregarB.setForeground(new java.awt.Color(255, 255, 255));
         AgregarB.setText("Agregar nuevo Proveedor");
         AgregarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregarBActionPerformed(evt);
             }
         });
+        getContentPane().add(AgregarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 430, -1));
 
-        jLabel1.setText("Razon Social");
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel1.setText("Razon Social:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        jLabel2.setText("Domicilio");
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setText("Domicilio:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
-        jLabel3.setText("Email");
+        DomicilioT.setBackground(new java.awt.Color(20, 143, 119));
+        DomicilioT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        DomicilioT.setForeground(new java.awt.Color(255, 255, 255));
+        DomicilioT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        DomicilioT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(DomicilioT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 252, -1));
 
-        jLabel4.setText("Telefono");
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setText("Email:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
+        EmailT.setBackground(new java.awt.Color(20, 143, 119));
+        EmailT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        EmailT.setForeground(new java.awt.Color(255, 255, 255));
+        EmailT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        EmailT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(EmailT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 252, -1));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setText("Telefono:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+
+        TelefonoT.setBackground(new java.awt.Color(20, 143, 119));
+        TelefonoT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        TelefonoT.setForeground(new java.awt.Color(255, 255, 255));
+        TelefonoT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TelefonoT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(TelefonoT, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 252, -1));
+
+        ProveedorTabla.setBackground(new java.awt.Color(20, 143, 119));
+        ProveedorTabla.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        ProveedorTabla.setForeground(new java.awt.Color(255, 255, 255));
         ProveedorTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -95,23 +134,46 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(ProveedorTabla);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 404, 354));
+
+        ModificarB.setBackground(new java.awt.Color(14, 98, 81));
+        ModificarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        ModificarB.setForeground(new java.awt.Color(255, 255, 255));
         ModificarB.setText("Modificar Proveedor");
         ModificarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ModificarBActionPerformed(evt);
             }
         });
+        getContentPane().add(ModificarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 480, 220, -1));
 
+        EstadoB.setBackground(new java.awt.Color(14, 98, 81));
+        EstadoB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        EstadoB.setForeground(new java.awt.Color(255, 255, 255));
         EstadoB.setText("Modificar Estado");
         EstadoB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EstadoBActionPerformed(evt);
             }
         });
+        getContentPane().add(EstadoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(751, 480, 200, -1));
 
+        RazonST.setBackground(new java.awt.Color(20, 143, 119));
+        RazonST.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        RazonST.setForeground(new java.awt.Color(255, 255, 255));
+        RazonST.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        RazonST.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(RazonST, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 252, -1));
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 51));
         jLabel7.setText("Agregar nuevo Proveedor");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 51));
         jLabel8.setText("Gestionar proveedores existentes");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, -1, -1));
 
         Grupo.add(ActivosRB);
         ActivosRB.addActionListener(new java.awt.event.ActionListener() {
@@ -119,6 +181,7 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
                 ActivosRBActionPerformed(evt);
             }
         });
+        getContentPane().add(ActivosRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 530, -1, -1));
 
         Grupo.add(InactivosRB);
         InactivosRB.addActionListener(new java.awt.event.ActionListener() {
@@ -126,106 +189,25 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
                 InactivosRBActionPerformed(evt);
             }
         });
+        getContentPane().add(InactivosRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 530, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Mostrar :");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 530, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setText("Inactivos");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 530, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel9.setText("Activos");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 530, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(151, 151, 151)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(168, 168, 168))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(DomicilioT, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
-                            .addComponent(EmailT)
-                            .addComponent(TelefonoT)
-                            .addComponent(RazonST)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(AgregarB)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(ModificarB)
-                        .addGap(164, 164, 164)
-                        .addComponent(EstadoB))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(64, 64, 64))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(33, 33, 33)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(InactivosRB)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addGap(25, 25, 25)
-                .addComponent(ActivosRB)
-                .addGap(231, 231, 231))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(RazonST, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(DomicilioT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(EmailT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(TelefonoT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(AgregarB))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel8)
-                        .addGap(37, 37, 37)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EstadoB)
-                    .addComponent(ModificarB))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ActivosRB)
-                    .addComponent(jLabel9)
-                    .addComponent(InactivosRB)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6)
-                        .addComponent(jLabel5)))
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
+        FondoIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
+        getContentPane().add(FondoIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 470, 540));
+
+        FondoDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
+        getContentPane().add(FondoDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 460, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -310,6 +292,8 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
     private javax.swing.JTextField DomicilioT;
     private javax.swing.JTextField EmailT;
     private javax.swing.JButton EstadoB;
+    private javax.swing.JLabel FondoDer;
+    private javax.swing.JLabel FondoIzq;
     private javax.swing.ButtonGroup Grupo;
     private javax.swing.JRadioButton InactivosRB;
     private javax.swing.JButton ModificarB;

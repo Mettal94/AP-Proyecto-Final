@@ -16,6 +16,8 @@ public class LoginMain extends javax.swing.JFrame {
      */
     public LoginMain() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
         this.access = false;
     }
 
