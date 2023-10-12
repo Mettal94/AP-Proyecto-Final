@@ -160,4 +160,33 @@ public class ProductosData {
             System.out.println(ex.getMessage());
         }
     }
+     
+     public Productos buscarPorId(int id){
+         Productos prod = new Productos();
+         
+         String sql = "SELECT * FROM producto WHERE idProducto = ?";
+         
+         try{
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, id);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                prod.setIdProducto(rs.getInt(1));
+                prod.setNombre(rs.getString(2));
+                prod.setDescripcion(rs.getString(3));
+                prod.setRubro(rs.getString(4));
+                prod.setPrecioActual(rs.getDouble(5));
+                prod.setStock(rs.getInt(6));
+                prod.setEstado(rs.getInt("estado")== 1);
+            }
+            
+            ps.close();
+         }catch(SQLException ex){
+            mensaje("Error al acceder a la base de datos. ");
+            System.out.println(ex.getMessage());
+        }
+         return prod;
+     }
 }

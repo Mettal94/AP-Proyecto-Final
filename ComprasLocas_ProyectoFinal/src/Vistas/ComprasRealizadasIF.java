@@ -5,7 +5,15 @@
  */
 package Vistas;
 
+import AccesoADatos.ComprasData;
+import AccesoADatos.DetalleData;
+import AccesoADatos.ProductosData;
+import Entidades.Compras;
+import Entidades.DetalleDeCompras;
 import Entidades.Productos;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,11 +21,23 @@ import Entidades.Productos;
  */
 public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ComprasRealizadasIF
-     */
-    public ComprasRealizadasIF() {
+    private ComprasData compD;
+    private DetalleData detaD;
+    private ProductosData prodD;
+    private DefaultTableModel modelo1 = new DefaultTableModel();
+    private DefaultTableModel modelo2 = new DefaultTableModel();
+    List<Compras> listaCompras = new ArrayList<>();
+    List<DetalleDeCompras> listaDetalles = new ArrayList<>();
+    List<Productos> listaProd = new ArrayList<>();
+    
+    public ComprasRealizadasIF(ComprasData compD, DetalleData detaD, ProductosData prodD) {
+        this.compD = compD;
+        this.detaD = detaD;
+        this.prodD = prodD;
         initComponents();
+//        cargarJCB();
+        armarCabeceras();
+//        listarPorProd();
     }
 
     /**
@@ -35,11 +55,11 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
         FechaDesde = new com.toedter.calendar.JDateChooser();
         FechaHasta = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaPorFecha = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        TablaPorProd = new javax.swing.JTable();
         ProductosJCB = new javax.swing.JComboBox<>();
         BuscarB = new javax.swing.JButton();
 
@@ -52,7 +72,7 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Hasta");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaPorFecha.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -63,13 +83,13 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TablaPorFecha);
 
         jLabel4.setText("Busqueda por Productos");
 
         jLabel5.setText("Producto:");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TablaPorProd.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -80,7 +100,13 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(TablaPorProd);
+
+        ProductosJCB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProductosJCBActionPerformed(evt);
+            }
+        });
 
         BuscarB.setText("Buscar");
 
@@ -161,12 +187,20 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ProductosJCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductosJCBActionPerformed
+        // Seleccion en el comboBox
+        
+        
+    }//GEN-LAST:event_ProductosJCBActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BuscarB;
     private com.toedter.calendar.JDateChooser FechaDesde;
     private com.toedter.calendar.JDateChooser FechaHasta;
     private javax.swing.JComboBox<Productos> ProductosJCB;
+    private javax.swing.JTable TablaPorFecha;
+    private javax.swing.JTable TablaPorProd;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -174,12 +208,57 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 
 
-    public void cargarJCB(){
+    public void armarCabeceras(){
         
+        modelo1.addColumn("ID");
+        modelo1.addColumn("Cantidad");
+        modelo1.addColumn("Costo");
+        modelo1.addColumn("Fecha");
+        TablaPorProd.setModel(modelo1);
+        
+        modelo2.addColumn("ID");
+        modelo2.addColumn("Nombre");
+        modelo2.addColumn("Cantidad");
+        modelo2.addColumn("Costo");
+        TablaPorFecha.setModel(modelo2);
+        
+    }
+    
+    public void cargarJCB(){
+        listaProd = prodD.listarProductos(1);
+        
+        for (Productos prod : listaProd) {
+            ProductosJCB.addItem(prod);
+        }
+    }
+    
+      
+    public void borrarFilasProd(){
+        int f = TablaPorProd.getRowCount() - 1;
+        for (; f >= 0; f--) {
+            modelo1.removeRow(f);
+        }
+    }
+      
+    public void borrarFilasPorFecha(){
+        int f = TablaPorFecha.getRowCount() - 1;
+        for (; f >= 0; f--) {
+            modelo2.removeRow(f);
+        }
+    }
+    
+    public void listarPorProd(){
+        borrarFilasProd();
+        Productos prod = (Productos) ProductosJCB.getSelectedItem();
+        int id = prod.getIdProducto();
+        
+        listaDetalles = detaD.consultarPorIdProd(id);
+        
+        for (DetalleDeCompras deta : listaDetalles) {
+            modelo1.addRow(new Object[]{deta.getIdDetalle(), deta.getCantidad(), deta.getPrecioCosto(), deta.getCompra().getFecha()});
+        }
     }
 }

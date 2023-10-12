@@ -67,10 +67,37 @@ public class ComprasData {
                 
                 listaComp.add(comp);
             }
+            
+            ps.close();
         }catch(SQLException ex){
             mensaje("Error al acceder a la base de datos. ");
             System.out.println(ex.getMessage());
         }
         return listaComp;
+    }
+    
+    public Compras buscarPorId(int id){
+        Compras comp = new Compras();
+        String sql="SELECT * FROM compra WHERE idCompra = ?";
+        
+        try{
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, id);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                comp.setIdCompra(rs.getInt(1));
+                comp.setProveedor(provD.buscarProveedorPorId(rs.getInt(2)));
+                comp.setPrecioTotal(rs.getDouble(3));
+                comp.setFecha(rs.getDate(4).toLocalDate());
+            }
+            
+            ps.close();
+        }catch(SQLException ex){
+            mensaje("Error al acceder a la base de datos. ");
+            System.out.println(ex.getMessage());
+        }
+        return comp;
     }
 }

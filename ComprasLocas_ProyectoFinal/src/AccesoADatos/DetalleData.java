@@ -7,9 +7,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DetalleData {
     private Connection con = null;
+    private ComprasData compD = new ComprasData();
+    private ProductosData prodD = new ProductosData();
     
     public DetalleData(){
         con = Conexion.getConexion();
@@ -41,5 +45,36 @@ public class DetalleData {
             mensaje("Error al acceder a la base de datos. ");
             System.out.println(ex.getMessage());
         }
+    }
+    
+    public List consultarPorIdProd(int id){
+        List<DetalleDeCompras> listaDeta = new ArrayList<>();
+        
+        String sql="SELECT * FROM detallecompra WHERE idProducto = ?";
+        
+        try{
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, id);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                DetalleDeCompras deta = new DetalleDeCompras();
+                deta.setIdDetalle(rs.getInt(1));
+                deta.setCantidad(rs.getInt(2));
+                deta.setPrecioCosto(rs.getDouble(3));
+                deta.setCompra(compD.buscarPorId(rs.getInt(4)));
+                deta.setProducto(prodD.buscarPorId(rs.getInt(5)));
+                deta.setEstado(rs.getBoolean(6));
+                
+                listaDeta.add(deta);
+            }
+            
+            ps.close();
+        }catch(SQLException ex){
+            mensaje("Error al acceder a la base de datos. ");
+            System.out.println(ex.getMessage());
+        }
+        return listaDeta;
     }
 }

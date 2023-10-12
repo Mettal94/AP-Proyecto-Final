@@ -109,7 +109,7 @@ public class HistorialCompraIF extends javax.swing.JInternalFrame {
 
     private void comprasRealizadaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprasRealizadaBActionPerformed
 
-        ComprasRealizadasIF mostrar = new ComprasRealizadasIF();
+        ComprasRealizadasIF mostrar = new ComprasRealizadasIF(compD, detaD, prodD);
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
