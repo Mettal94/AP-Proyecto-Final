@@ -35,9 +35,9 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
         this.detaD = detaD;
         this.prodD = prodD;
         initComponents();
-//        cargarJCB();
+        cargarJCB();
         armarCabeceras();
-//        listarPorProd();
+        listarPorProd();
     }
 
     /**
@@ -189,7 +189,7 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
 
     private void ProductosJCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductosJCBActionPerformed
         // Seleccion en el comboBox
-        
+        listarPorProd();
         
     }//GEN-LAST:event_ProductosJCBActionPerformed
 
@@ -230,35 +230,47 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
     public void cargarJCB(){
         listaProd = prodD.listarProductos(1);
         
-        for (Productos prod : listaProd) {
-            ProductosJCB.addItem(prod);
+        for (Productos productitos : listaProd) {
+            ProductosJCB.addItem(productitos);
         }
     }
     
       
     public void borrarFilasProd(){
-        int f = TablaPorProd.getRowCount() - 1;
-        for (; f >= 0; f--) {
-            modelo1.removeRow(f);
-        }
+         try{   
+            int f = TablaPorProd.getRowCount() - 1;
+            for (; f >= 0; f--) {
+                modelo1.removeRow(f);
+            }
+         }catch(ArrayIndexOutOfBoundsException ex){
+             System.out.println(ex.getMessage());
+         }  
     }
       
     public void borrarFilasPorFecha(){
-        int f = TablaPorFecha.getRowCount() - 1;
-        for (; f >= 0; f--) {
-            modelo2.removeRow(f);
-        }
+         try{   
+            int f = TablaPorFecha.getRowCount() - 1;
+            for (; f >= 0; f--) {
+                modelo2.removeRow(f);
+            }
+         }catch(ArrayIndexOutOfBoundsException ex){
+             System.out.println(ex.getMessage());
+         }  
     }
     
     public void listarPorProd(){
-        borrarFilasProd();
-        Productos prod = (Productos) ProductosJCB.getSelectedItem();
-        int id = prod.getIdProducto();
-        
-        listaDetalles = detaD.consultarPorIdProd(id);
-        
-        for (DetalleDeCompras deta : listaDetalles) {
-            modelo1.addRow(new Object[]{deta.getIdDetalle(), deta.getCantidad(), deta.getPrecioCosto(), deta.getCompra().getFecha()});
+        try{    
+            borrarFilasProd();
+            Productos prod = (Productos) ProductosJCB.getSelectedItem();
+            int id = prod.getIdProducto();
+
+            listaDetalles = detaD.consultarPorIdProd(id);
+
+            for (DetalleDeCompras deta : listaDetalles) {
+                modelo1.addRow(new Object[]{deta.getIdDetalle(), deta.getCantidad(), deta.getPrecioCosto(), deta.getCompra().getFecha()});
+            }
+          }catch(ArrayIndexOutOfBoundsException ex){
+              System.out.println(ex.getMessage());
+          }  
         }
-    }
 }
