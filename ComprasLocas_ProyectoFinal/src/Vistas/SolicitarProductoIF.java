@@ -225,13 +225,10 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
             listaDetalles.clear();
             PrecioTotalT.setText(0+"");
         }catch(NullPointerException ex){
-            mensaje("Exception null");
+            mensaje("Hubo un error");
             System.out.println(ex.getMessage());
         }catch(NumberFormatException ex){
-             mensaje("Exception numberformat");
-            System.out.println(ex.getMessage());
-        }catch(Exception ex){
-             mensaje("Exception generica");
+             mensaje("Hubo un error");
             System.out.println(ex.getMessage());
         }
     }//GEN-LAST:event_ComprarTodoBActionPerformed
@@ -314,19 +311,6 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
             System.out.println(ex.getMessage());
         }catch(NullPointerException ex){
             mensaje("Hay campos vacíos o valores mal ingresados, revisar el formulario.");
-            System.out.println(ex.getMessage());
-        }
-    }
-    
-    public void generarDetalles(Compras comp){
-        
-        try{
-            int cantidadDetalles = modelo.getRowCount();
-            
-            for (int i = 0; i <= cantidadDetalles; i++) {
-                
-            }
-        }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
     }
