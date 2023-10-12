@@ -239,7 +239,7 @@ public class mainMenu extends javax.swing.JFrame {
     private void HistorialBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialBActionPerformed
         Escritorio.removeAll();
         Escritorio.repaint();
-        HistorialCompraIF mostrar = new HistorialCompraIF();
+        HistorialCompraIF mostrar = new HistorialCompraIF(compD, prodD, provD, detaD);
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);

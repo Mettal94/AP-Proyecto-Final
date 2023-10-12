@@ -5,18 +5,26 @@
  */
 package Vistas;
 
+import AccesoADatos.ComprasData;
+import AccesoADatos.DetalleData;
+import AccesoADatos.ProductosData;
+import AccesoADatos.ProveedorData;
 import static Vistas.mainMenu.Escritorio;
 
-/**
- *
- * @author ariel
- */
 public class HistorialCompraIF extends javax.swing.JInternalFrame {
 
+    private ComprasData compD;
+    private ProveedorData provD;
+    private ProductosData prodD;
+    private DetalleData detaD;
     /**
      * Creates new form HistorialCompraIF
      */
-    public HistorialCompraIF() {
+    public HistorialCompraIF(ComprasData compD, ProductosData prodD, ProveedorData provD, DetalleData detaD) {
+        this.compD = compD;
+        this.prodD = prodD;
+        this.provD = provD;
+        this.detaD = detaD;
         initComponents();
         setSize(500,350);
         
@@ -92,7 +100,7 @@ public class HistorialCompraIF extends javax.swing.JInternalFrame {
 
     private void ProveedorBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProveedorBActionPerformed
 
-        ProveedoresIF mostrar = new ProveedoresIF();
+        ProveedoresIF mostrar = new ProveedoresIF(provD, prodD, compD);
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);

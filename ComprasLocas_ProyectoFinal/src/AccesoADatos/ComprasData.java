@@ -8,9 +8,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ComprasData {
     private Connection con = null;
+    private ProveedorData provD = new ProveedorData();
     
     public ComprasData(){
         con = Conexion.getConexion();
@@ -42,5 +45,32 @@ public class ComprasData {
             System.out.println(ex.getMessage());
         }
         return id;
+    }
+    
+    public List comprasPorProveedor(int id){
+        List<Compras> listaComp = new ArrayList<>();
+        
+        String sql = "SELECT * FROM compra WHERE idProveedor = ?";
+        
+        try{
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, id);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Compras comp = new Compras();
+                comp.setIdCompra(rs.getInt(1));
+                comp.setProveedor(provD.buscarProveedorPorId(rs.getInt(2)));
+                comp.setPrecioTotal(rs.getDouble(3));
+                comp.setFecha(rs.getDate(4).toLocalDate());
+                
+                listaComp.add(comp);
+            }
+        }catch(SQLException ex){
+            mensaje("Error al acceder a la base de datos. ");
+            System.out.println(ex.getMessage());
+        }
+        return listaComp;
     }
 }

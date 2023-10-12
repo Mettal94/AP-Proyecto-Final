@@ -5,6 +5,14 @@
  */
 package Vistas;
 
+import AccesoADatos.ComprasData;
+import AccesoADatos.ProductosData;
+import AccesoADatos.ProveedorData;
+import Entidades.Compras;
+import Entidades.Productos;
+import Entidades.Proveedor;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -13,12 +21,24 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ProveedoresIF extends javax.swing.JInternalFrame {
 
- private DefaultTableModel modelo = new DefaultTableModel();
-    public ProveedoresIF() {
+    private ProductosData prodD;
+    private ProveedorData provD;
+    private ComprasData compD;
+ private DefaultTableModel modelo1 = new DefaultTableModel();
+ private DefaultTableModel modelo2 = new DefaultTableModel();
+ List<Proveedor> listaProv = new ArrayList<>();
+ List<Productos> listaProd = new ArrayList<>();
+ List<Compras> listaComp = new ArrayList<>();
+ 
+    public ProveedoresIF(ProveedorData provD, ProductosData prodD, ComprasData compD) {
+        this.prodD = prodD;
+        this.provD = provD;
+        this.compD = compD;
         initComponents();
         armarCabeceraPro();
         armarCabeceraCompra();
-        setSize(450, 500);
+        llenarComboBox();
+//        setSize(450, 500);
         
     }
 
@@ -31,7 +51,7 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
+        ProveedoresJCB = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaCompra = new javax.swing.JTable();
@@ -42,7 +62,11 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
 
         setClosable(true);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ProveedoresJCB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProveedoresJCBActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Compras por Proveedores");
 
@@ -96,7 +120,7 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
                 .addGap(23, 23, 23)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ProveedoresJCB, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(202, 202, 202))
         );
         layout.setVerticalGroup(
@@ -104,7 +128,7 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ProveedoresJCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -120,11 +144,26 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ProveedoresJCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProveedoresJCBActionPerformed
+        // Seleccion en el comboBox
+        listaProd = prodD.listarProductos(1);
+        for (Productos prod : listaProd) {
+            modelo1.addRow(new Object[]{prod.getNombre(), prod.getRubro(), prod.getPrecioActual(), prod.getStock()});
+        }
+        
+        Proveedor prov = (Proveedor) ProveedoresJCB.getSelectedItem();
+        int id = prov.getIdProveedor();
+        listaComp = compD.comprasPorProveedor(id);
+        for (Compras compra : listaComp) {
+            modelo2.addRow(new Object[]{compra.getIdCompra(), compra.getFecha(), compra.getPrecioTotal()});
+        }
+    }//GEN-LAST:event_ProveedoresJCBActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<Proveedor> ProveedoresJCB;
     private javax.swing.JTable TablaCompra;
     private javax.swing.JTable TablaPro;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -132,19 +171,26 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
     public void armarCabeceraPro(){
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Descripcion");
-        modelo.addColumn("Rubro");
-        modelo.addColumn("Precio");
-        modelo.addColumn("Cantidad");
-        TablaPro.setModel(modelo);
+        modelo1.addColumn("Nombre");
+        modelo1.addColumn("Rubro");
+        modelo1.addColumn("Precio");
+        modelo1.addColumn("Cantidad");
+        TablaPro.setModel(modelo1);
     }
     public void armarCabeceraCompra(){
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Descripcion");
-        modelo.addColumn("Rubro");
-        modelo.addColumn("Precio");
-        modelo.addColumn("Cantidad");
-        TablaCompra.setModel(modelo);
+        modelo2.addColumn("ID");
+        modelo2.addColumn("Fecha");
+        modelo2.addColumn("Precio Total de la Compra");
+        TablaCompra.setModel(modelo2);
+    }
+    
+    public void llenarComboBox(){
+        
+        listaProv = provD.listarProveedores(1);
+        
+        for (Proveedor proveedor : listaProv) {
+            ProveedoresJCB.addItem(proveedor);
+        }
+        
     }
 }
