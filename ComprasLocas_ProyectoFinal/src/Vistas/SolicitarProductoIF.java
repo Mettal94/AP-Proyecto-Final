@@ -180,8 +180,12 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
             modelo.removeRow(fila);
             listaDetalles.remove(fila);
             double x = Double.parseDouble(PrecioTotalT.getText());
-            PrecioTotalT.setText((x-precio)+"");
-            
+            int cantidadDeFilas = ComprasTabla.getRowCount();
+            if(cantidadDeFilas <= 0){
+                PrecioTotalT.setText(0+"");
+            }else{
+                PrecioTotalT.setText((x-precio)+"");
+            }
         }catch(ArrayIndexOutOfBoundsException ex){
             mensaje("Debe seleccionar un producto de la tabla.");
             System.out.println(ex.getMessage());
