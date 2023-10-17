@@ -5,16 +5,17 @@
  */
 package Vistas;
 
+import AccesoADatos.ProductosData;
+
 /**
  *
  * @author Servidor
  */
 public class ConsultaStockIF extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ConsultaStockIF
-     */
-    public ConsultaStockIF() {
+  private ProductosData prodD;
+    public ConsultaStockIF(ProductosData prodD) {
+        this.prodD = prodD;
         initComponents();
     }
 

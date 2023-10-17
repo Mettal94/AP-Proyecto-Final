@@ -117,7 +117,7 @@ public class HistorialCompraIF extends javax.swing.JInternalFrame {
 
     private void StockBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StockBActionPerformed
  
-        ConsultaStockIF mostrar = new ConsultaStockIF();
+        ConsultaStockIF mostrar = new ConsultaStockIF(prodD);
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
