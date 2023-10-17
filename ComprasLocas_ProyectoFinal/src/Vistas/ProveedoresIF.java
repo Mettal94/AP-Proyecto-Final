@@ -24,12 +24,12 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
     private ProductosData prodD;
     private ProveedorData provD;
     private ComprasData compD;
- private DefaultTableModel modelo1 = new DefaultTableModel();
- private DefaultTableModel modelo2 = new DefaultTableModel();
- List<Proveedor> listaProv = new ArrayList<>();
- List<Productos> listaProd = new ArrayList<>();
- List<Compras> listaComp = new ArrayList<>();
- 
+    private DefaultTableModel modelo1 = new DefaultTableModel();
+    private DefaultTableModel modelo2 = new DefaultTableModel();
+    List<Proveedor> listaProv = new ArrayList<>();
+    List<Productos> listaProd = new ArrayList<>();
+    List<Compras> listaComp = new ArrayList<>();
+
     public ProveedoresIF(ProveedorData provD, ProductosData prodD, ComprasData compD) {
         this.prodD = prodD;
         this.provD = provD;
@@ -39,7 +39,7 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
         armarCabeceraCompra();
         llenarComboBox();
 //        setSize(450, 500);
-        
+
     }
 
     /**
@@ -133,11 +133,12 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
 
     private void ProveedoresJCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProveedoresJCBActionPerformed
         // Seleccion en el comboBox
+        borrarFilas();
         listaProd = prodD.listarProductos(1);
         for (Productos prod : listaProd) {
             modelo1.addRow(new Object[]{prod.getNombre(), prod.getRubro(), prod.getPrecioActual(), prod.getStock()});
         }
-        
+
         Proveedor prov = (Proveedor) ProveedoresJCB.getSelectedItem();
         int id = prov.getIdProveedor();
         listaComp = compD.comprasPorProveedor(id);
@@ -159,27 +160,39 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
-    public void armarCabeceraPro(){
+    public void armarCabeceraPro() {
         modelo1.addColumn("Nombre");
         modelo1.addColumn("Rubro");
         modelo1.addColumn("Precio");
         modelo1.addColumn("Cantidad");
         TablaPro.setModel(modelo1);
     }
-    public void armarCabeceraCompra(){
+
+    public void armarCabeceraCompra() {
         modelo2.addColumn("ID");
         modelo2.addColumn("Fecha");
         modelo2.addColumn("Precio Total de la Compra");
         TablaCompra.setModel(modelo2);
     }
-    
-    public void llenarComboBox(){
-        
+
+    public void borrarFilas() {
+        int f = TablaPro.getRowCount() - 1;
+        for (; f >= 0; f--) {
+            modelo1.removeRow(f);
+        }
+        int i = TablaCompra.getRowCount() - 1;
+        for (; i >= 0; i--) {
+            modelo2.removeRow(i);
+        }
+    }
+
+    public void llenarComboBox() {
+
         listaProv = provD.listarProveedores(1);
-        
+
         for (Proveedor proveedor : listaProv) {
             ProveedoresJCB.addItem(proveedor);
         }
-        
+
     }
 }
