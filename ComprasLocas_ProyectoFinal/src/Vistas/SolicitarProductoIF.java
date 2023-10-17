@@ -241,6 +241,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
             comp.setProveedor(prov);
             comp.setPrecioTotal(precioTotal);
             comp.setFecha(fechaCompra);
+            System.out.println(fechaCompra);
             int idCompra = compD.nuevaCompra(comp);
             comp.setIdCompra(idCompra);
             
@@ -260,6 +261,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
             borrarFilas();
             listaDetalles.clear();
             PrecioTotalT.setText(0+"");
+            Fecha.setDate(Date.valueOf(LocalDate.now()));
         }catch(NullPointerException ex){
             mensaje("Hubo un error");
             System.out.println(ex.getMessage());
@@ -341,7 +343,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
             
             listaDetalles.add(deta);
             Stock.setValue(0);
-            Fecha.setDate(Date.valueOf(LocalDate.now()));
+           
         }catch(NumberFormatException ex){
             mensaje("Hay campos vacíos o valores mal ingresados, revisar el formulario.");
             System.out.println(ex.getMessage());

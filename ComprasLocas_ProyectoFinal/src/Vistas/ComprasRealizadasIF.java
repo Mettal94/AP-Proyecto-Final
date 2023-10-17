@@ -109,6 +109,11 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
         });
 
         BuscarB.setText("Buscar");
+        BuscarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarBActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -192,6 +197,10 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
         listarPorProd();
         
     }//GEN-LAST:event_ProductosJCBActionPerformed
+
+    private void BuscarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscarBActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
