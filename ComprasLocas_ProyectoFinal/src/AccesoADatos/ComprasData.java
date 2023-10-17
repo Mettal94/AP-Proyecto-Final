@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -101,15 +102,15 @@ public class ComprasData {
         }
         return comp;
     }
-    public List BusquedaPorFecha (Date fecha1, Date fecha2){
+    public List BusquedaPorFecha (LocalDate fecha1, LocalDate fecha2){
         List <Compras> listaCompra = new ArrayList<>();
         //producto, precio, fecha, cantidad
         
         String sql = "SELECT * FROM compra WHERE fecha BETWEEN ? AND ? ORDER BY fecha ";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setDate(1, fecha1);
-            ps.setDate(2, fecha2);
+            ps.setDate(1, Date.valueOf(fecha1) );
+            ps.setDate(2, Date.valueOf(fecha2));
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Compras comp = new Compras();

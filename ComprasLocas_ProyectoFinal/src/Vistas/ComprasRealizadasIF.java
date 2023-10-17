@@ -11,6 +11,10 @@ import AccesoADatos.ProductosData;
 import Entidades.Compras;
 import Entidades.DetalleDeCompras;
 import Entidades.Productos;
+import static Vistas.mainMenu.mensaje;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -199,7 +203,37 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_ProductosJCBActionPerformed
 
     private void BuscarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarBActionPerformed
-        // TODO add your handling code here:
+        //Busqueda por fecha
+        borrarFilasPorFecha();
+        try{
+        java.util.Date fechaA = FechaDesde.getDate();
+        LocalDate fecha1 = fechaA.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        java.util.Date fechaB = FechaHasta.getDate();
+        LocalDate fecha2 = fechaB.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        if (fecha1.isAfter(fecha2)) {
+            mensaje("No seas gambini");
+            return;
+        }
+        List <Compras> listaCom = new ArrayList<>();
+        List <DetalleDeCompras> listaDet = new ArrayList<>();
+        listaCom = compD.BusquedaPorFecha(fecha1, fecha2);
+        
+        for (Compras LCompra : listaCom) {
+            listaDet = detaD.BusquedaPorIdComp(LCompra.getIdCompra());
+            
+            for (DetalleDeCompras detalle : listaDet) {
+                
+                modelo2.addRow(new Object[]{LCompra.getFecha(), LCompra.getProveedor().getRazonSocial() , detalle.getProducto().getNombre(), detalle.getPrecioCosto(), detalle.getCantidad() });
+            }
+        listaDet.clear();
+        }
+        }catch(NullPointerException ex){
+            mensaje("Error al Seleccionar las fechas");
+            System.out.println(ex.getMessage());
+        }
+        
+        
+        
     }//GEN-LAST:event_BuscarBActionPerformed
 
 
@@ -228,10 +262,11 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
         modelo1.addColumn("Fecha");
         TablaPorProd.setModel(modelo1);
         
-        modelo2.addColumn("ID");
+        modelo2.addColumn("Fecha");
+        modelo2.addColumn("Proveedor");
         modelo2.addColumn("Nombre");
-        modelo2.addColumn("Cantidad");
         modelo2.addColumn("Costo");
+        modelo2.addColumn("Cantidad");
         TablaPorFecha.setModel(modelo2);
         
     }
