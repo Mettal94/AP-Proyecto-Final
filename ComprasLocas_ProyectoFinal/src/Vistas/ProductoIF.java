@@ -68,7 +68,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         setTitle("Agregar Productos");
         setMaximumSize(new java.awt.Dimension(1008, 605));
         setMinimumSize(new java.awt.Dimension(1008, 605));
-        setPreferredSize(new java.awt.Dimension(1008, 605));
+        setPreferredSize(new java.awt.Dimension(1010, 610));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -104,6 +104,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
 
         EliminarB.setBackground(new java.awt.Color(14, 98, 81));
         EliminarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        EliminarB.setForeground(new java.awt.Color(255, 255, 255));
         EliminarB.setText("Modificar Estado");
         EliminarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,10 +237,10 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         FondoDer.setMaximumSize(new java.awt.Dimension(500, 250));
         FondoDer.setMinimumSize(new java.awt.Dimension(500, 250));
         FondoDer.setPreferredSize(new java.awt.Dimension(500, 250));
-        getContentPane().add(FondoDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 480, 560));
+        getContentPane().add(FondoDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 490, 580));
 
         FondoIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
-        getContentPane().add(FondoIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 480, 560));
+        getContentPane().add(FondoIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

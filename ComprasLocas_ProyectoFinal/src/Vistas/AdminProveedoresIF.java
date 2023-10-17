@@ -68,6 +68,7 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
         setToolTipText("");
         setMaximumSize(new java.awt.Dimension(1008, 605));
         setMinimumSize(new java.awt.Dimension(1008, 605));
+        setPreferredSize(new java.awt.Dimension(1010, 610));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         AgregarB.setBackground(new java.awt.Color(14, 98, 81));
@@ -204,10 +205,10 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 530, -1, -1));
 
         FondoIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
-        getContentPane().add(FondoIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 470, 540));
+        getContentPane().add(FondoIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 580));
 
         FondoDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
-        getContentPane().add(FondoDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 460, 540));
+        getContentPane().add(FondoDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 490, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

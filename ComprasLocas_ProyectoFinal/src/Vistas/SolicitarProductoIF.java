@@ -82,31 +82,47 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         setTitle("Solicitar Productos");
         setMaximumSize(new java.awt.Dimension(1008, 605));
         setMinimumSize(new java.awt.Dimension(1008, 605));
-        setPreferredSize(new java.awt.Dimension(1008, 605));
+        setPreferredSize(new java.awt.Dimension(1010, 610));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 51));
         jLabel1.setText("Solicitar Productos a Proveedores");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, -1));
 
-        jLabel2.setText("Producto :");
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setText("Producto:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 181, -1, -1));
 
-        getContentPane().add(ProveedorJCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 101, 306, -1));
+        ProveedorJCB.setBackground(new java.awt.Color(20, 143, 119));
+        ProveedorJCB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        getContentPane().add(ProveedorJCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 306, -1));
 
-        jLabel3.setText("Unidades :");
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setText("Unidades:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 265, -1, -1));
-        getContentPane().add(Stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 151, -1));
 
-        jLabel4.setText("Fecha :");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 334, -1, 29));
-        getContentPane().add(Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 334, 306, -1));
+        Stock.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        getContentPane().add(Stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 151, -1));
 
-        jLabel5.setText("Proveedor :");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 106, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setText("Fecha:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, 29));
 
-        getContentPane().add(ProductosJCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 176, 306, -1));
+        Fecha.setBackground(new java.awt.Color(20, 143, 119));
+        getContentPane().add(Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 306, -1));
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel5.setText("Proveedor:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+
+        ProductosJCB.setBackground(new java.awt.Color(20, 143, 119));
+        ProductosJCB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        getContentPane().add(ProductosJCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 306, -1));
+
+        ComprasTabla.setBackground(new java.awt.Color(20, 143, 119));
+        ComprasTabla.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        ComprasTabla.setForeground(new java.awt.Color(255, 255, 255));
         ComprasTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -122,6 +138,9 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 91, -1, 336));
 
+        AgregarB.setBackground(new java.awt.Color(14, 98, 81));
+        AgregarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        AgregarB.setForeground(new java.awt.Color(255, 255, 255));
         AgregarB.setText("Agregar al Carrito");
         AgregarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,6 +149,9 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         });
         getContentPane().add(AgregarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 430, -1));
 
+        ComprarTodoB.setBackground(new java.awt.Color(14, 98, 81));
+        ComprarTodoB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        ComprarTodoB.setForeground(new java.awt.Color(255, 255, 255));
         ComprarTodoB.setText("Comprar Todo");
         ComprarTodoB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,10 +160,14 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         });
         getContentPane().add(ComprarTodoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 520, 206, -1));
 
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel6.setText("Carrito");
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel6.setText("Carrito:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 33, -1, -1));
 
+        EliminarItemB.setBackground(new java.awt.Color(14, 98, 81));
+        EliminarItemB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        EliminarItemB.setForeground(new java.awt.Color(255, 255, 255));
         EliminarItemB.setText("Eliminar Item");
         EliminarItemB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,22 +177,28 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         getContentPane().add(EliminarItemB, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 520, 218, -1));
 
         PrecioTotalT.setEditable(false);
+        PrecioTotalT.setBackground(new java.awt.Color(20, 143, 119));
+        PrecioTotalT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        PrecioTotalT.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(PrecioTotalT, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 459, 229, -1));
 
-        jLabel7.setText("Precio Total");
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel7.setText("Precio Total:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 463, -1, -1));
 
-        AzulIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/azul.png"))); // NOI18N
+        AzulIzq.setBackground(new java.awt.Color(20, 143, 119));
+        AzulIzq.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        AzulIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
         AzulIzq.setMaximumSize(new java.awt.Dimension(905, 593));
         AzulIzq.setMinimumSize(new java.awt.Dimension(905, 593));
         AzulIzq.setPreferredSize(new java.awt.Dimension(905, 593));
-        getContentPane().add(AzulIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 490, 560));
+        getContentPane().add(AzulIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 580));
 
-        AzulDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/azul.png"))); // NOI18N
+        AzulDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
         AzulDer.setMaximumSize(new java.awt.Dimension(905, 593));
         AzulDer.setMinimumSize(new java.awt.Dimension(905, 593));
         AzulDer.setPreferredSize(new java.awt.Dimension(905, 593));
-        getContentPane().add(AzulDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 490, 560));
+        getContentPane().add(AzulDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 490, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
