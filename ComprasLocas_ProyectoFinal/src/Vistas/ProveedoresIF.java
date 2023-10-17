@@ -73,7 +73,7 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
                 ProveedoresJCBActionPerformed(evt);
             }
         });
-        getContentPane().add(ProveedoresJCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(396, 11, 353, -1));
+        getContentPane().add(ProveedoresJCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 353, 20));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel1.setText("Compras por Proveedores");
