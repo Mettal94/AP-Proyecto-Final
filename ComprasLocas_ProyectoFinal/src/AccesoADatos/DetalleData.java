@@ -77,4 +77,35 @@ public class DetalleData {
         }
         return listaDeta;
     }
+    public List BusquedaPorIdComp(int id){
+        List <DetalleDeCompras> listaDeta = new ArrayList<>();
+        
+        String sql = "SELECT * FROM detallecompra WHERE idCompra = ? ";
+        
+        try{
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, id);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                DetalleDeCompras deta = new DetalleDeCompras();
+                deta.setIdDetalle(rs.getInt(1));
+                deta.setCantidad(rs.getInt(2));
+                deta.setPrecioCosto(rs.getDouble(3));
+                deta.setCompra(compD.buscarPorId(rs.getInt(4)));
+                deta.setProducto(prodD.buscarPorId(rs.getInt(5)));
+                deta.setEstado(rs.getBoolean(6));
+                
+                listaDeta.add(deta);
+            }
+            
+            ps.close();
+        }catch(SQLException ex){
+            mensaje("Error al acceder a la base de datos. ");
+            System.out.println(ex.getMessage());
+        }
+        
+        return listaDeta;
+    }
 }
