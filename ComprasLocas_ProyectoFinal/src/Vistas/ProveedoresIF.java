@@ -59,17 +59,28 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaPro = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        FondoProvIzq = new javax.swing.JLabel();
+        FondoProvDer = new javax.swing.JLabel();
 
         setClosable(true);
+        setPreferredSize(new java.awt.Dimension(1010, 610));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        ProveedoresJCB.setBackground(new java.awt.Color(20, 143, 119));
+        ProveedoresJCB.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         ProveedoresJCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ProveedoresJCBActionPerformed(evt);
             }
         });
+        getContentPane().add(ProveedoresJCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(396, 11, 353, -1));
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel1.setText("Compras por Proveedores");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, -1, -1));
 
+        TablaCompra.setBackground(new java.awt.Color(20, 143, 119));
+        TablaCompra.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         TablaCompra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -83,8 +94,15 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(TablaCompra);
 
-        jLabel2.setText("Lista de Productos por Proveedor");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 81, 368, 456));
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        jLabel2.setText("Lista de Productos por Proveedor");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
+
+        TablaPro.setBackground(new java.awt.Color(20, 143, 119));
+        TablaPro.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
+        TablaPro.setForeground(new java.awt.Color(255, 255, 255));
         TablaPro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -98,48 +116,17 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(TablaPro);
 
-        jLabel3.setText("Seleccione un Proveedor");
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 81, 391, 456));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(106, 106, 106))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ProveedoresJCB, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(202, 202, 202))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ProveedoresJCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(8, Short.MAX_VALUE))
-        );
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel3.setText("Seleccione un Proveedor");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
+
+        FondoProvIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
+        getContentPane().add(FondoProvIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 490, 530));
+
+        FondoProvDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
+        getContentPane().add(FondoProvDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 490, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -161,6 +148,8 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel FondoProvDer;
+    private javax.swing.JLabel FondoProvIzq;
     private javax.swing.JComboBox<Proveedor> ProveedoresJCB;
     private javax.swing.JTable TablaCompra;
     private javax.swing.JTable TablaPro;
