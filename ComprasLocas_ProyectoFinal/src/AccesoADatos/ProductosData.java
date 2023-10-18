@@ -189,4 +189,33 @@ public class ProductosData {
         }
          return prod;
      }
+     
+      public List<Productos> listarStockFaltante(){
+        List<Productos> listFaltante = new ArrayList<>();
+        
+        String sql = " SELECT `idProducto`, `nombre`, `descripcion`, `precioActual`, `stock` FROM `producto` WHERE stock <= 10 " ;
+        
+        try{
+            PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Productos prod = new Productos();
+                prod.setIdProducto(rs.getInt(1));
+                prod.setNombre(rs.getString(2));
+                prod.setDescripcion(rs.getString(3));
+                prod.setPrecioActual(rs.getDouble(4));
+                prod.setStock(rs.getInt(5));
+
+                listFaltante.add(prod);
+            }
+            
+            ps.close();
+        }catch(SQLException ex){
+            mensaje("Error al acceder a la base de datos. ");
+            System.out.println(ex.getMessage());
+        }
+        return listFaltante;
+    }
 }
