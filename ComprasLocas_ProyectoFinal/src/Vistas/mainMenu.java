@@ -60,6 +60,7 @@ public class mainMenu extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         HistorialB = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         FondoFrame = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -200,6 +201,14 @@ public class mainMenu extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-list-64.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 70, -1));
 
+        jButton1.setText("Ventas");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 570, -1, -1));
+
         FondoFrame.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoAzulaesDefinicion.png"))); // NOI18N
         getContentPane().add(FondoFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 610));
 
@@ -245,6 +254,17 @@ public class mainMenu extends javax.swing.JFrame {
         Escritorio.moveToFront(mostrar);
          logito();
     }//GEN-LAST:event_HistorialBActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Boton de ventas
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        VentasIF mostrar = new VentasIF(prodD);
+        mostrar.setVisible(true);
+        Escritorio.add(mostrar);
+        Escritorio.moveToFront(mostrar);
+         logito();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
    private void logito(){
         Escritorio.add(logito1);
@@ -296,6 +316,7 @@ public class mainMenu extends javax.swing.JFrame {
     private javax.swing.JButton ProductosB;
     private javax.swing.JButton ProveedoresB;
     private javax.swing.JButton SolicitarB;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
