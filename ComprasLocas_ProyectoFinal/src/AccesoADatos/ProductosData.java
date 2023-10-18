@@ -193,7 +193,7 @@ public class ProductosData {
       public List<Productos> listarStockFaltante(){
         List<Productos> listFaltante = new ArrayList<>();
         
-        String sql = " SELECT `idProducto`, `nombre`, `descripcion`, `precioActual`, `stock` FROM `producto` WHERE stock <= 10 " ;
+        String sql = " SELECT `idProducto`, `nombre`, `descripcion`, `precioActual`, `stock` FROM `producto` WHERE stock <= 10 ORDER BY stock " ;
         
         try{
             PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
