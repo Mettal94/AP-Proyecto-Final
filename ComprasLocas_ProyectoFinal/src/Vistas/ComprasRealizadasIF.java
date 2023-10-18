@@ -28,8 +28,16 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
     private ComprasData compD;
     private DetalleData detaD;
     private ProductosData prodD;
-    private DefaultTableModel modelo1 = new DefaultTableModel();
-    private DefaultTableModel modelo2 = new DefaultTableModel();
+    private DefaultTableModel modelo1 = new DefaultTableModel(){
+        public boolean isCellEditable(int f, int c) {
+            return false;
+        }
+    };
+    private DefaultTableModel modelo2 = new DefaultTableModel(){
+        public boolean isCellEditable(int f, int c) {
+            return false;
+        }
+    };
     List<Compras> listaCompras = new ArrayList<>();
     List<DetalleDeCompras> listaDetalles = new ArrayList<>();
     List<Productos> listaProd = new ArrayList<>();

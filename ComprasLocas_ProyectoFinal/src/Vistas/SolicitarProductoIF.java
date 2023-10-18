@@ -32,7 +32,11 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
     private ProductosData prodD;
     private ProveedorData provD;
     private DetalleData detaD;
-    private DefaultTableModel modelo = new DefaultTableModel();
+    private DefaultTableModel modelo = new DefaultTableModel(){
+        public boolean isCellEditable(int f, int c) {
+            return false;
+        }
+    };
     List<Proveedor> listaProveedores = new ArrayList<>();
     List<Productos> listaProductos = new ArrayList<>();
     List<Productos> listaPrueba = new ArrayList<>();

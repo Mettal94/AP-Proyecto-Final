@@ -24,8 +24,16 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
     private ProductosData prodD;
     private ProveedorData provD;
     private ComprasData compD;
-    private DefaultTableModel modelo1 = new DefaultTableModel();
-    private DefaultTableModel modelo2 = new DefaultTableModel();
+    private DefaultTableModel modelo1 = new DefaultTableModel(){
+        public boolean isCellEditable(int f, int c) {
+            return false;
+        }
+    };
+    private DefaultTableModel modelo2 = new DefaultTableModel(){
+        public boolean isCellEditable(int f, int c) {
+            return false;
+        }
+    };
     List<Proveedor> listaProv = new ArrayList<>();
     List<Productos> listaProd = new ArrayList<>();
     List<Compras> listaComp = new ArrayList<>();

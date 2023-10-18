@@ -18,7 +18,11 @@ import javax.swing.table.DefaultTableModel;
  * @author Servidor
  */
 public class ConsultaStockIF extends javax.swing.JInternalFrame {
-  private DefaultTableModel modelo = new DefaultTableModel();
+  private DefaultTableModel modelo = new DefaultTableModel(){
+        public boolean isCellEditable(int f, int c) {
+            return false;
+        }
+    };
   List<Productos> listFaltante = new ArrayList<>();
   private ProductosData prodD;
     public ConsultaStockIF(ProductosData prodD) {

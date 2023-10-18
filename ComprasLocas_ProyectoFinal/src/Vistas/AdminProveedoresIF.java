@@ -20,7 +20,11 @@ import javax.swing.table.DefaultTableModel;
 public class AdminProveedoresIF extends javax.swing.JInternalFrame {
 
     private ProveedorData provD;
-    private DefaultTableModel modelo = new DefaultTableModel();
+    private DefaultTableModel modelo = new DefaultTableModel(){
+        public boolean isCellEditable(int f, int c) {
+            return false;
+        }
+    };
     List<Proveedor> lista = new ArrayList<>(); 
     public AdminProveedoresIF(ProveedorData provD) {
         this.provD = provD;

@@ -18,7 +18,11 @@ import javax.swing.table.TableModel;
 public class ProductoIF extends javax.swing.JInternalFrame {
 
     private ProductosData prodD;
-    private DefaultTableModel modelo = new DefaultTableModel();
+    private DefaultTableModel modelo = new DefaultTableModel(){
+        public boolean isCellEditable(int f, int c) {
+            return false;
+        }
+    };
     List<Productos> lista = new ArrayList<>();
     public ProductoIF(ProductosData prodD) {
         this.prodD = prodD;
