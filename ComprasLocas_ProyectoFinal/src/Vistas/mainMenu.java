@@ -52,7 +52,6 @@ public class mainMenu extends javax.swing.JFrame {
         logito4 = new javax.swing.JLabel();
         logito1 = new javax.swing.JLabel();
         logito5 = new javax.swing.JLabel();
-        panelLogito = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         ProductosB = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -72,39 +71,58 @@ public class mainMenu extends javax.swing.JFrame {
         Escritorio.setBackground(new java.awt.Color(0, 102, 102));
         Escritorio.setMaximumSize(new java.awt.Dimension(1010, 610));
         Escritorio.setMinimumSize(new java.awt.Dimension(1010, 610));
-        Escritorio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logito3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-laptop-100.png"))); // NOI18N
-        Escritorio.add(logito3, new org.netbeans.lib.awtextra.AbsoluteConstraints(462, 145, -1, -1));
 
         logito2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-tv-100.png"))); // NOI18N
-        Escritorio.add(logito2, new org.netbeans.lib.awtextra.AbsoluteConstraints(462, 459, -1, -1));
 
         logito4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-air-conditioner-100.png"))); // NOI18N
-        Escritorio.add(logito4, new org.netbeans.lib.awtextra.AbsoluteConstraints(653, 293, -1, -1));
 
         logito1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-refrigerator-100.png"))); // NOI18N
-        Escritorio.add(logito1, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 293, -1, -1));
 
         logito5.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         logito5.setForeground(new java.awt.Color(255, 255, 255));
         logito5.setText("Bienvenidos a ComprasLocas");
-        Escritorio.add(logito5, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 55, 627, -1));
 
-        panelLogito.setBackground(new java.awt.Color(0, 102, 102));
+        Escritorio.setLayer(logito3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(logito2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(logito4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(logito1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(logito5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout panelLogitoLayout = new javax.swing.GroupLayout(panelLogito);
-        panelLogito.setLayout(panelLogitoLayout);
-        panelLogitoLayout.setHorizontalGroup(
-            panelLogitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1010, Short.MAX_VALUE)
+        javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
+        Escritorio.setLayout(EscritorioLayout);
+        EscritorioLayout.setHorizontalGroup(
+            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EscritorioLayout.createSequentialGroup()
+                .addGap(208, 208, 208)
+                .addComponent(logito5, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(EscritorioLayout.createSequentialGroup()
+                .addGap(462, 462, 462)
+                .addComponent(logito3))
+            .addGroup(EscritorioLayout.createSequentialGroup()
+                .addGap(262, 262, 262)
+                .addComponent(logito1)
+                .addGap(291, 291, 291)
+                .addComponent(logito4))
+            .addGroup(EscritorioLayout.createSequentialGroup()
+                .addGap(462, 462, 462)
+                .addComponent(logito2))
         );
-        panelLogitoLayout.setVerticalGroup(
-            panelLogitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
+        EscritorioLayout.setVerticalGroup(
+            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EscritorioLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(logito5)
+                .addGap(34, 34, 34)
+                .addComponent(logito3)
+                .addGap(48, 48, 48)
+                .addGroup(EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logito1)
+                    .addComponent(logito4))
+                .addGap(66, 66, 66)
+                .addComponent(logito2))
         );
-
-        Escritorio.add(panelLogito, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 610));
 
         getContentPane().add(Escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 1010, 610));
         Escritorio.getAccessibleContext().setAccessibleName("");
@@ -161,7 +179,7 @@ public class mainMenu extends javax.swing.JFrame {
         getContentPane().add(SolicitarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 140, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-buy-64.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 70, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 70, -1));
 
         HistorialB.setBackground(new java.awt.Color(204, 204, 255));
         HistorialB.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -191,10 +209,10 @@ public class mainMenu extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 140, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 140, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-add-shopping-cart-64.png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, -1));
 
         FondoFrame.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoAzulaesDefinicion.png"))); // NOI18N
         getContentPane().add(FondoFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 610));
@@ -250,7 +268,6 @@ public class mainMenu extends javax.swing.JFrame {
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
-        Escritorio.add(panelLogito);
          logito();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -318,7 +335,6 @@ public class mainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel logito3;
     private javax.swing.JLabel logito4;
     private javax.swing.JLabel logito5;
-    private javax.swing.JPanel panelLogito;
     // End of variables declaration//GEN-END:variables
 
     
