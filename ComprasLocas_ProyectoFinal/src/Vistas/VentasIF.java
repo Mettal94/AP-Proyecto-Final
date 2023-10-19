@@ -17,20 +17,21 @@ import javax.swing.table.DefaultTableModel;
  * @author PC
  */
 public class VentasIF extends javax.swing.JInternalFrame {
-
+    
     private ProductosData prodD;
-    private DefaultTableModel modelo = new DefaultTableModel(){
+    private DefaultTableModel modelo = new DefaultTableModel() {
         public boolean isCellEditable(int f, int c) {
             return false;
         }
     };
     List<Productos> listaProd = new ArrayList<>();
+    List <Productos> listaCarrito = new ArrayList<>();
     public VentasIF(ProductosData prodD) {
         this.prodD = prodD;
         initComponents();
         cargarJCB();
         armarCabecera();
-        PrecioTotalT.setText(0+"");
+        PrecioTotalT.setText(0 + "");
     }
 
     /**
@@ -51,10 +52,21 @@ public class VentasIF extends javax.swing.JInternalFrame {
         AgregarB = new javax.swing.JButton();
         ComprarTodoB = new javax.swing.JButton();
         EliminarItemB = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        FondoVenzq = new javax.swing.JLabel();
+        FondoVenDer = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("Ventas");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        TablaVentas.setBackground(new java.awt.Color(20, 143, 119));
+        TablaVentas.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        TablaVentas.setForeground(new java.awt.Color(255, 255, 255));
         TablaVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -68,104 +80,155 @@ public class VentasIF extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(TablaVentas);
 
-        jLabel1.setText("Precio Total");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, 379, 333));
 
+        PrecioTotalT.setBackground(new java.awt.Color(20, 143, 119));
+        PrecioTotalT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        PrecioTotalT.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(PrecioTotalT, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 440, 122, -1));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel1.setText("Precio Total:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 440, -1, -1));
+
+        ProductosJCB.setBackground(new java.awt.Color(20, 143, 119));
+        ProductosJCB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        getContentPane().add(ProductosJCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 326, -1));
+
+        CantidadS.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        getContentPane().add(CantidadS, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 198, -1));
+
+        AgregarB.setBackground(new java.awt.Color(14, 98, 81));
+        AgregarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        AgregarB.setForeground(new java.awt.Color(255, 255, 255));
         AgregarB.setText("Agregar al carrito");
         AgregarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregarBActionPerformed(evt);
             }
         });
+        getContentPane().add(AgregarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 440, -1));
 
+        ComprarTodoB.setBackground(new java.awt.Color(14, 98, 81));
+        ComprarTodoB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        ComprarTodoB.setForeground(new java.awt.Color(255, 255, 255));
         ComprarTodoB.setText("Comprar Todo");
+        ComprarTodoB.setPreferredSize(new java.awt.Dimension(125, 23));
+        ComprarTodoB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComprarTodoBActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ComprarTodoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 520, 111, -1));
 
+        EliminarItemB.setBackground(new java.awt.Color(14, 98, 81));
+        EliminarItemB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        EliminarItemB.setForeground(new java.awt.Color(255, 255, 255));
         EliminarItemB.setText("Eliminar Item");
+        EliminarItemB.setPreferredSize(new java.awt.Dimension(125, 23));
+        EliminarItemB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarItemBActionPerformed(evt);
+            }
+        });
+        getContentPane().add(EliminarItemB, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 520, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ProductosJCB, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(CantidadS, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(AgregarB)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ComprarTodoB, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(61, 61, 61)
-                                .addComponent(EliminarItemB))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(PrecioTotalT, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(112, 112, 112))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(ProductosJCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(CantidadS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(AgregarB)))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PrecioTotalT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ComprarTodoB)
-                    .addComponent(EliminarItemB))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setText("Seleccione un producto: ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setText("Cantidad a vender: ");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
+
+        jButton1.setBackground(new java.awt.Color(14, 98, 81));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Cancelar Compra");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 520, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 26)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel4.setText("Concretar Venta");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 190, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-banknotes-100.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
+
+        FondoVenzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
+        getContentPane().add(FondoVenzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 580));
+
+        FondoVenDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
+        getContentPane().add(FondoVenDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 490, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarBActionPerformed
         // Agregar al carrito
-        try{
+        try {
             Productos prod = (Productos) ProductosJCB.getSelectedItem();
             int cantidad = (int) CantidadS.getValue();
             int stock = prod.getStock();
-            if(cantidad > stock){
+            if (cantidad > stock) {
                 mensaje("No hay suficientes existencias del producto");
                 return;
             }
             double precio = prod.getPrecioActual();
-            double costoTotal = precio*cantidad;
-
+            double costoTotal = precio * cantidad;
+            
             modelo.addRow(new Object[]{prod.getIdProducto(), prod.getNombre(), cantidad, prod.getPrecioActual(), costoTotal});
             
+            listaCarrito.add(prod);
+            
             double x = Double.parseDouble(PrecioTotalT.getText());
-            PrecioTotalT.setText((x+costoTotal)+"");
-        }catch(NumberFormatException ex){
+            PrecioTotalT.setText((x + costoTotal) + "");
+        } catch (NumberFormatException ex) {
             mensaje("Hay campos vacíos o valores mal ingresados, revisar el formulario.");
             System.out.println(ex.getMessage());
-        }catch(NullPointerException ex){
+        } catch (NullPointerException ex) {
             mensaje("Hay campos vacíos o valores mal ingresados, revisar el formulario.");
             System.out.println(ex.getMessage());
         }
     }//GEN-LAST:event_AgregarBActionPerformed
+
+    private void EliminarItemBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarItemBActionPerformed
+        //Boton eliminar item
+        try {
+            int fila = TablaVentas.getSelectedRow();
+            double precio = (double) TablaVentas.getValueAt(fila, 4);
+            modelo.removeRow(fila);
+            double x = Double.parseDouble(PrecioTotalT.getText());
+            int cantidadFila = TablaVentas.getRowCount();
+            if (cantidadFila <= 0) {
+                PrecioTotalT.setText(0 + "");
+            } else {
+                PrecioTotalT.setText((x - precio) + "");
+            }
+            listaCarrito.remove(fila);
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            mensaje("Debe seleccionar un producto de la tabla.");
+            System.out.println(ex.getMessage());
+        }
+        
+
+    }//GEN-LAST:event_EliminarItemBActionPerformed
+
+    private void ComprarTodoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarTodoBActionPerformed
+        //Boton comprar todo
+        int i=0; 
+        for (Productos produ : listaCarrito){
+            int stock = produ.getStock();
+            int comprado = (int)TablaVentas.getValueAt(i, 2);
+            int stockNuevo = stock - comprado;
+            prodD.modificarStock(produ.getIdProducto(), stockNuevo);
+            i++;
+            
+        }
+        PrecioTotalT.setText(0+"");
+        mensaje("Se realizo la venta con exito!");
+        borrarFilas();
+    }//GEN-LAST:event_ComprarTodoBActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -173,21 +236,28 @@ public class VentasIF extends javax.swing.JInternalFrame {
     private javax.swing.JSpinner CantidadS;
     private javax.swing.JButton ComprarTodoB;
     private javax.swing.JButton EliminarItemB;
+    private javax.swing.JLabel FondoVenDer;
+    private javax.swing.JLabel FondoVenzq;
     private javax.swing.JTextField PrecioTotalT;
     private javax.swing.JComboBox<Productos> ProductosJCB;
     private javax.swing.JTable TablaVentas;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
-     public void borrarFilas(){
+    public void borrarFilas() {
         int f = TablaVentas.getRowCount() - 1;
         for (; f >= 0; f--) {
             modelo.removeRow(f);
         }
     }
     
-    public void armarCabecera(){
+    public void armarCabecera() {
         modelo.addColumn("ID");
         modelo.addColumn("Nombre");
         modelo.addColumn("Cantidad");
@@ -197,7 +267,7 @@ public class VentasIF extends javax.swing.JInternalFrame {
         
     }
     
-    public void cargarJCB(){
+    public void cargarJCB() {
         listaProd = prodD.listarProductos(1);
         for (Productos product : listaProd) {
             ProductosJCB.addItem(product);
