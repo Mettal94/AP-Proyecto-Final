@@ -20,6 +20,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -51,6 +52,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         PrecioTotalT.setText(0+"");
         Fecha.setDate(Date.valueOf(LocalDate.now()));
         cargarJCBs();
+        
     }
 
     /** This method is called from within the constructor to
@@ -100,6 +102,11 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
 
         ProveedorJCB.setBackground(new java.awt.Color(20, 143, 119));
         ProveedorJCB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        ProveedorJCB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProveedorJCBActionPerformed(evt);
+            }
+        });
         getContentPane().add(ProveedorJCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 306, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -107,6 +114,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 265, -1, -1));
 
         Stock.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        Stock.setValue(1);
         getContentPane().add(Stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 151, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -230,7 +238,12 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
 
     private void AgregarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarBActionPerformed
         // Boton para agregar al carrito
-        agregadoCarrito();
+        int cantidad = (int) Stock.getValue();
+        if(cantidad <= 0){
+            mensaje("La cantidad solicitada no es válida");
+        }else{
+            agregadoCarrito();
+        }
     }//GEN-LAST:event_AgregarBActionPerformed
 
     private void ComprarTodoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarTodoBActionPerformed
@@ -275,6 +288,18 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_ComprarTodoBActionPerformed
 
+    private void ProveedorJCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProveedorJCBActionPerformed
+        // Cambio de proveedor
+        if(ComprasTabla.getRowCount()>0){
+            int decision = JOptionPane.showConfirmDialog(this, "Si cambia de proveedor se perderá la compra actual, proceder?");
+            if(decision == 0){
+                borrarFilas();
+                PrecioTotalT.setText(0+"");
+                Stock.setValue(1);
+            }
+        }
+    }//GEN-LAST:event_ProveedorJCBActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarB;
@@ -306,6 +331,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
     }
     
     public void armarCabecera(){
+        modelo.addColumn("ID");
         modelo.addColumn("Nombre");
         modelo.addColumn("Cantidad");
         modelo.addColumn("Precio Unitario");
@@ -332,18 +358,35 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
             int cantidad = (int) Stock.getValue();
             double costo = deseado.getPrecioActual();
             double costoMonto = costo*cantidad;
-
+            int filas = ComprasTabla.getRowCount();
             double x = Double.parseDouble(PrecioTotalT.getText());
-
-            modelo.addRow(new Object[]{deseado.getNombre(),cantidad,costo,costoMonto});
+            boolean coincidencia = false;
+            for (int i = 0; i == filas; i++) {
+                int productoEnTabla = (int) ComprasTabla.getValueAt(i, 0);
+                int cantidadEnTabla = (int) ComprasTabla.getValueAt(i, 2);
+                if(deseado.getIdProducto()== productoEnTabla){
+                    modelo.setValueAt((cantidad += cantidadEnTabla), i, 2);
+                    coincidencia = true;
+                    break;
+                }
+            }
             
+            if(coincidencia == false){
+                 modelo.addRow(new Object[]{deseado.getIdProducto(), deseado.getNombre(),cantidad,costo,costoMonto});
+            }
             PrecioTotalT.setText((x+costoMonto)+"");
             
+            if(coincidencia == true){
+                for (DetalleDeCompras detalle : listaDetalles) {
+                    
+                }
+            }
             DetalleDeCompras deta = new DetalleDeCompras();
             deta.setCantidad(cantidad);
             deta.setPrecioCosto(costoMonto);
             deta.setProducto(deseado);
             deta.setEstado(true);
+            
             
             listaDetalles.add(deta);
             Stock.setValue(0);

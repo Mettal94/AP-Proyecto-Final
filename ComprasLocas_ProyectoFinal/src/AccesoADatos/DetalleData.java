@@ -108,4 +108,26 @@ public class DetalleData {
         
         return listaDeta;
     }
+    
+    public List ultimaCompra(){
+        List<DetalleDeCompras> ultimaComp = new ArrayList<>();
+        
+        String sqlC = "SELECT MAX(idCompra) FROM compra";
+        int idCompra=0;
+        try{
+            PreparedStatement ps = con.prepareStatement(sqlC, Statement.RETURN_GENERATED_KEYS);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+                idCompra = rs.getInt(1);
+            }
+            
+            ultimaComp = BusquedaPorIdComp(idCompra);
+        }catch(SQLException ex){
+            mensaje("Error al acceder a la base de datos. ");
+            System.out.println(ex.getMessage());
+        }
+        return ultimaComp;
+    }
 }

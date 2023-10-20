@@ -38,9 +38,16 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
             return false;
         }
     };
+    private DefaultTableModel modelo3 = new DefaultTableModel(){
+        public boolean isCellEditable(int f, int c) {
+            return false;
+        }
+    };
     List<Compras> listaCompras = new ArrayList<>();
     List<DetalleDeCompras> listaDetalles = new ArrayList<>();
     List<Productos> listaProd = new ArrayList<>();
+    List<DetalleDeCompras> listaUltimaCompra = new ArrayList<>();
+    
     
     public ComprasRealizadasIF(ComprasData compD, DetalleData detaD, ProductosData prodD) {
         this.compD = compD;
@@ -50,6 +57,7 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
         cargarJCB();
         armarCabeceras();
         listarPorProd();
+        ultimaCompra();
     }
 
     /**
@@ -61,6 +69,8 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -74,8 +84,24 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
         TablaPorProd = new javax.swing.JTable();
         ProductosJCB = new javax.swing.JComboBox<>();
         BuscarB = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        ultimaCompraT = new javax.swing.JTable();
         FondoIzq = new javax.swing.JLabel();
         FondoDer = new javax.swing.JLabel();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable1);
 
         setClosable(true);
         setTitle("Compras Realizadas");
@@ -144,7 +170,7 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(TablaPorProd);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 126, 417, -1));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 126, 417, 260));
 
         ProductosJCB.setBackground(new java.awt.Color(20, 143, 119));
         ProductosJCB.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
@@ -165,6 +191,26 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(BuscarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(556, 96, 404, -1));
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Última Compra");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, -1, -1));
+
+        ultimaCompraT.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(ultimaCompraT);
+
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 460, 90));
 
         FondoIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
         getContentPane().add(FondoIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 580));
@@ -230,8 +276,13 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable ultimaCompraT;
     // End of variables declaration//GEN-END:variables
 
 
@@ -249,6 +300,12 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
         modelo2.addColumn("Costo");
         modelo2.addColumn("Cantidad");
         TablaPorFecha.setModel(modelo2);
+        
+        modelo3.addColumn("ID Detalle");
+        modelo3.addColumn("Nombre");
+        modelo3.addColumn("Cantidad");
+        modelo3.addColumn("Costo");
+        ultimaCompraT.setModel(modelo3);
         
     }
     
@@ -298,4 +355,12 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
               System.out.println(ex.getMessage());
           }  
         }
+    
+    public void ultimaCompra(){
+        
+        listaUltimaCompra = detaD.ultimaCompra();
+        for (DetalleDeCompras ulti : listaUltimaCompra) {
+            modelo3.addRow(new Object[]{ ulti.getIdDetalle(), ulti.getProducto().getNombre(), ulti.getCantidad(), ulti.getPrecioCosto()});
+        }
+    }
 }
