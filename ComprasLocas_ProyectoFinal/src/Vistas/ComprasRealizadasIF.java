@@ -236,7 +236,7 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
         java.util.Date fechaB = FechaHasta.getDate();
         LocalDate fecha2 = fechaB.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         if (fecha1.isAfter(fecha2)) {
-            mensaje("No seas gambini");
+            mensaje("La primer fecha no puede ser posterior a la segunda.");
             return;
         }
         List <Compras> listaCom = new ArrayList<>();

@@ -361,37 +361,38 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
             int filas = ComprasTabla.getRowCount();
             double x = Double.parseDouble(PrecioTotalT.getText());
             boolean coincidencia = false;
-            for (int i = 0; i == filas; i++) {
+            for (int i = 0; i < filas; i++) {
                 int productoEnTabla = (int) ComprasTabla.getValueAt(i, 0);
                 int cantidadEnTabla = (int) ComprasTabla.getValueAt(i, 2);
+                double precioCostoEnTabla = (double) ComprasTabla.getValueAt(i, 4);
                 if(deseado.getIdProducto()== productoEnTabla){
                     modelo.setValueAt((cantidad += cantidadEnTabla), i, 2);
+                    modelo.setValueAt((precioCostoEnTabla + costoMonto), i, 4);
                     coincidencia = true;
                     break;
                 }
             }
+            PrecioTotalT.setText((x+costoMonto)+"");
+            Stock.setValue(0);
             
             if(coincidencia == false){
                  modelo.addRow(new Object[]{deseado.getIdProducto(), deseado.getNombre(),cantidad,costo,costoMonto});
-            }
-            PrecioTotalT.setText((x+costoMonto)+"");
-            
-            if(coincidencia == true){
+                 DetalleDeCompras deta = new DetalleDeCompras();
+                 deta.setCantidad(cantidad);
+                 deta.setPrecioCosto(costoMonto);
+                 deta.setProducto(deseado);
+                 deta.setEstado(true);
+                 listaDetalles.add(deta);
+            }else{
                 for (DetalleDeCompras detalle : listaDetalles) {
-                    
+                    int id = detalle.getProducto().getIdProducto();
+                    int idDeseado = deseado.getIdProducto();
+                    if(id == idDeseado){
+                        detalle.setCantidad(cantidad);
+                    }
                 }
             }
-            DetalleDeCompras deta = new DetalleDeCompras();
-            deta.setCantidad(cantidad);
-            deta.setPrecioCosto(costoMonto);
-            deta.setProducto(deseado);
-            deta.setEstado(true);
-            
-            
-            listaDetalles.add(deta);
-            Stock.setValue(0);
-           
-        }catch(NumberFormatException ex){
+           }catch(NumberFormatException ex){
             mensaje("Hay campos vacíos o valores mal ingresados, revisar el formulario.");
             System.out.println(ex.getMessage());
         }catch(NullPointerException ex){
