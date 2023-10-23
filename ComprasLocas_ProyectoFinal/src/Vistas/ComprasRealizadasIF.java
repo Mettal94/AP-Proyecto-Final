@@ -87,6 +87,7 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         ultimaCompraT = new javax.swing.JTable();
+        LabelProveedor = new javax.swing.JLabel();
         FondoIzq = new javax.swing.JLabel();
         FondoDer = new javax.swing.JLabel();
 
@@ -212,6 +213,9 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 460, 90));
 
+        LabelProveedor.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(LabelProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 460, 20));
+
         FondoIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
         getContentPane().add(FondoIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 580));
 
@@ -268,6 +272,7 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
     private com.toedter.calendar.JDateChooser FechaHasta;
     private javax.swing.JLabel FondoDer;
     private javax.swing.JLabel FondoIzq;
+    private javax.swing.JLabel LabelProveedor;
     private javax.swing.JComboBox<Productos> ProductosJCB;
     private javax.swing.JTable TablaPorFecha;
     private javax.swing.JTable TablaPorProd;
@@ -291,6 +296,7 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
         modelo1.addColumn("ID");
         modelo1.addColumn("Cantidad");
         modelo1.addColumn("Costo");
+        modelo1.addColumn("Proveedor");
         modelo1.addColumn("Fecha");
         TablaPorProd.setModel(modelo1);
         
@@ -349,7 +355,7 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
             listaDetalles = detaD.consultarPorIdProd(id);
 
             for (DetalleDeCompras deta : listaDetalles) {
-                modelo1.addRow(new Object[]{deta.getIdDetalle(), deta.getCantidad(), deta.getPrecioCosto(), deta.getCompra().getFecha()});
+                modelo1.addRow(new Object[]{deta.getIdDetalle(), deta.getCantidad(), deta.getPrecioCosto(), deta.getCompra().getProveedor().getRazonSocial(), deta.getCompra().getFecha()});
             }
           }catch(ArrayIndexOutOfBoundsException ex){
               System.out.println(ex.getMessage());
@@ -361,6 +367,8 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
         listaUltimaCompra = detaD.ultimaCompra();
         for (DetalleDeCompras ulti : listaUltimaCompra) {
             modelo3.addRow(new Object[]{ ulti.getIdDetalle(), ulti.getProducto().getNombre(), ulti.getCantidad(), ulti.getPrecioCosto()});
+        LabelProveedor.setText("Proveedor: "+ulti.getCompra().getProveedor().getRazonSocial()+"       -       Fecha: "+ulti.getCompra().getFecha());
         }
+        
     }
 }
