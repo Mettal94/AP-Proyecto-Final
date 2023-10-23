@@ -11,6 +11,8 @@ import AccesoADatos.ProductosData;
 import AccesoADatos.ProveedorData;
 import Entidades.Productos;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 
@@ -25,6 +27,7 @@ public class mainMenu extends javax.swing.JFrame {
     private ComprasData compD;
     private DetalleData detaD;
     
+    
     public mainMenu() {
         this.prodD = new ProductosData();
         this.provD = new ProveedorData();
@@ -33,6 +36,7 @@ public class mainMenu extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
+//        alertaStockBajo();
 
         //loggin();
     }
@@ -60,7 +64,7 @@ public class mainMenu extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         HistorialB = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        VentasB = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         FondoFrame = new javax.swing.JLabel();
 
@@ -199,17 +203,17 @@ public class mainMenu extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-list-64.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 70, -1));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 255));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 102));
-        jButton1.setText("Ventas");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        VentasB.setBackground(new java.awt.Color(204, 204, 255));
+        VentasB.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        VentasB.setForeground(new java.awt.Color(0, 0, 102));
+        VentasB.setText("Ventas");
+        VentasB.setBorder(null);
+        VentasB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                VentasBActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 140, 30));
+        getContentPane().add(VentasB, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 140, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-add-shopping-cart-64.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, -1));
@@ -227,6 +231,7 @@ public class mainMenu extends javax.swing.JFrame {
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
+         alertaStockBajo();
          logito();
     }//GEN-LAST:event_ProductosBActionPerformed
 
@@ -237,6 +242,7 @@ public class mainMenu extends javax.swing.JFrame {
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
+         alertaStockBajo();
          logito();
     }//GEN-LAST:event_ProveedoresBActionPerformed
 
@@ -260,7 +266,7 @@ public class mainMenu extends javax.swing.JFrame {
          logito();
     }//GEN-LAST:event_HistorialBActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void VentasBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VentasBActionPerformed
         // Boton de ventas
         Escritorio.removeAll();
         Escritorio.repaint();
@@ -268,8 +274,9 @@ public class mainMenu extends javax.swing.JFrame {
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
+         alertaStockBajo();
          logito();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_VentasBActionPerformed
 
    private void logito(){
         
@@ -324,7 +331,7 @@ public class mainMenu extends javax.swing.JFrame {
     private javax.swing.JButton ProductosB;
     private javax.swing.JButton ProveedoresB;
     private javax.swing.JButton SolicitarB;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton VentasB;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -342,5 +349,12 @@ public class mainMenu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, mensaje);
     }
 
-    
+    public static void alertaStockBajo(){
+        ProductosData prodDS = new ProductosData();
+        List<Productos> stockBajo = new ArrayList<>();
+        stockBajo = prodDS.listarStockFaltante();
+        if(stockBajo.size()>=1){
+            mensaje("Uno o más productos están por debajo del stock mínimo.");
+        }
+    }
 }

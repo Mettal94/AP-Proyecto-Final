@@ -5,6 +5,7 @@
  */
 package Vistas;
 import Entidades.Login;
+import static Vistas.mainMenu.alertaStockBajo;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -92,6 +93,7 @@ public class LoginMain extends javax.swing.JFrame {
             mainMenu desktopView = new mainMenu();
             desktopView.setVisible(true);
             desktopView.setLocationRelativeTo(null);
+            alertaStockBajo();
         } else {
             JOptionPane.showMessageDialog(this, "Inicio de sesión incorrecto.");
             jtContraseña.setText("");
