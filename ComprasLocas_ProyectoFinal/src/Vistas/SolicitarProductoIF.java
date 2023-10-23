@@ -218,12 +218,12 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
     private void EliminarItemBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarItemBActionPerformed
         // Boton para elimiar el producto de la tabla
         try{
+            double x = Double.parseDouble(PrecioTotalT.getText());
             int fila = ComprasTabla.getSelectedRow();
-            double precio = (double) ComprasTabla.getValueAt(fila, 3);
+            double precio = (double) ComprasTabla.getValueAt(fila, 4);
             System.out.println(precio);
             modelo.removeRow(fila);
             listaDetalles.remove(fila);
-            double x = Double.parseDouble(PrecioTotalT.getText());
             int cantidadDeFilas = ComprasTabla.getRowCount();
             if(cantidadDeFilas <= 0){
                 PrecioTotalT.setText(0+"");
@@ -373,7 +373,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
                 }
             }
             PrecioTotalT.setText((x+costoMonto)+"");
-            Stock.setValue(0);
+            Stock.setValue(1);
             
             if(coincidencia == false){
                  modelo.addRow(new Object[]{deseado.getIdProducto(), deseado.getNombre(),cantidad,costo,costoMonto});
@@ -389,6 +389,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
                     int idDeseado = deseado.getIdProducto();
                     if(id == idDeseado){
                         detalle.setCantidad(cantidad);
+                        detalle.setPrecioCosto(costoMonto);
                     }
                 }
             }
