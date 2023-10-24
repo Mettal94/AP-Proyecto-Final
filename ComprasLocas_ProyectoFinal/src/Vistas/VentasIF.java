@@ -10,6 +10,7 @@ import Entidades.Productos;
 import static Vistas.mainMenu.mensaje;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -54,7 +55,7 @@ public class VentasIF extends javax.swing.JInternalFrame {
         EliminarItemB = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        CancelarB = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         FondoVenzq = new javax.swing.JLabel();
@@ -143,11 +144,16 @@ public class VentasIF extends javax.swing.JInternalFrame {
         jLabel3.setText("Cantidad a vender: ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(14, 98, 81));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Cancelar Compra");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 520, -1, -1));
+        CancelarB.setBackground(new java.awt.Color(14, 98, 81));
+        CancelarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        CancelarB.setForeground(new java.awt.Color(255, 255, 255));
+        CancelarB.setText("Cancelar Compra");
+        CancelarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarBActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CancelarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 520, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 26)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 51));
@@ -189,6 +195,7 @@ public class VentasIF extends javax.swing.JInternalFrame {
             
             double x = Double.parseDouble(PrecioTotalT.getText());
             PrecioTotalT.setText((x + costoTotal) + "");
+            CantidadS.setValue(0);
         } catch (NumberFormatException ex) {
             mensaje("Hay campos vacíos o valores mal ingresados, revisar el formulario.");
             System.out.println(ex.getMessage());
@@ -222,6 +229,10 @@ public class VentasIF extends javax.swing.JInternalFrame {
 
     private void ComprarTodoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarTodoBActionPerformed
         //Boton comprar todo
+        if(TablaVentas.getRowCount()<=0){
+            mensaje("No hay ningún producto en la tabla");
+            return;
+        }
         int i=0; 
         for (Productos produ : listaCarrito){
             int stock = produ.getStock();
@@ -236,9 +247,20 @@ public class VentasIF extends javax.swing.JInternalFrame {
         borrarFilas();
     }//GEN-LAST:event_ComprarTodoBActionPerformed
 
+    private void CancelarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarBActionPerformed
+        // Boton para cancelar la compra
+        int decision = JOptionPane.showConfirmDialog(this, "Desea cancelar la venta?");
+            if(decision == 0){
+                borrarFilas();
+                listaCarrito.clear();
+                PrecioTotalT.setText(0+"");
+            }
+    }//GEN-LAST:event_CancelarBActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarB;
+    private javax.swing.JButton CancelarB;
     private javax.swing.JSpinner CantidadS;
     private javax.swing.JButton ComprarTodoB;
     private javax.swing.JButton EliminarItemB;
@@ -247,7 +269,6 @@ public class VentasIF extends javax.swing.JInternalFrame {
     private javax.swing.JTextField PrecioTotalT;
     private javax.swing.JComboBox<Productos> ProductosJCB;
     private javax.swing.JTable TablaVentas;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
