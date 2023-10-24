@@ -60,10 +60,6 @@
                   <Component id="logito5" min="-2" pref="627" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace min="462" pref="462" max="-2" attributes="0"/>
-                  <Component id="logito2" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
                   <EmptySpace min="653" pref="653" max="-2" attributes="0"/>
                   <Component id="logito4" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -76,6 +72,10 @@
                   <Component id="logito3" min="-2" max="-2" attributes="0"/>
               </Group>
               <Component id="logito6P" min="-2" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="462" max="-2" attributes="0"/>
+                  <Component id="logito2" min="-2" max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -145,7 +145,7 @@
         <Container class="javax.swing.JPanel" name="logito6P">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="0" type="rgb"/>
+              <Color blue="89" green="a5" red="17" type="rgb"/>
             </Property>
           </Properties>
 

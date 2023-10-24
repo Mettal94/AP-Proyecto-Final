@@ -21,7 +21,7 @@ import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.UIManager;
+
 
 /**
  *
@@ -99,7 +99,7 @@ public class mainMenu extends javax.swing.JFrame {
 
         logito1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-refrigerator-100.png"))); // NOI18N
 
-        logito6P.setBackground(new java.awt.Color(0, 102, 102));
+        logito6P.setBackground(new java.awt.Color(23, 165, 137));
 
         javax.swing.GroupLayout logito6PLayout = new javax.swing.GroupLayout(logito6P);
         logito6P.setLayout(logito6PLayout);
@@ -127,9 +127,6 @@ public class mainMenu extends javax.swing.JFrame {
                 .addGap(208, 208, 208)
                 .addComponent(logito5, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(EscritorioLayout.createSequentialGroup()
-                .addGap(462, 462, 462)
-                .addComponent(logito2))
-            .addGroup(EscritorioLayout.createSequentialGroup()
                 .addGap(653, 653, 653)
                 .addComponent(logito4))
             .addGroup(EscritorioLayout.createSequentialGroup()
@@ -139,6 +136,9 @@ public class mainMenu extends javax.swing.JFrame {
                 .addGap(462, 462, 462)
                 .addComponent(logito3))
             .addComponent(logito6P, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(EscritorioLayout.createSequentialGroup()
+                .addGap(462, 462, 462)
+                .addComponent(logito2))
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -389,10 +389,6 @@ public class mainMenu extends javax.swing.JFrame {
 
     
     public static void mensaje(String mensaje){
-//        UIManager UI;
-//        UI=null;
-//        UI.put("OptionPane.background", new Color(13, 139, 223));
-//        UI.put("Panel.background", new Color(13, 139, 223));
 
         Icon alerta;
         alerta = new ImageIcon("src/Imagenes/icons8-alarm-64.png");
