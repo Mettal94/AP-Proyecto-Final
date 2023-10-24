@@ -69,6 +69,7 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         FondoProvIzq = new javax.swing.JLabel();
         FondoProvDer = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setClosable(true);
         setPreferredSize(new java.awt.Dimension(1010, 610));
@@ -136,6 +137,9 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
         FondoProvDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
         getContentPane().add(FondoProvDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 490, 530));
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fof.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 590));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -165,6 +169,7 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables

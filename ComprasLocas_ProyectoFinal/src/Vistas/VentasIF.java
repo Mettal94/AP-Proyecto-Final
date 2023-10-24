@@ -59,9 +59,11 @@ public class VentasIF extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         FondoVenzq = new javax.swing.JLabel();
         FondoVenDer = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("Ventas");
+        setPreferredSize(new java.awt.Dimension(1010, 610));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TablaVentas.setBackground(new java.awt.Color(20, 143, 119));
@@ -93,10 +95,10 @@ public class VentasIF extends javax.swing.JInternalFrame {
 
         ProductosJCB.setBackground(new java.awt.Color(20, 143, 119));
         ProductosJCB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        getContentPane().add(ProductosJCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 326, -1));
+        getContentPane().add(ProductosJCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 326, -1));
 
         CantidadS.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        getContentPane().add(CantidadS, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 198, -1));
+        getContentPane().add(CantidadS, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 198, -1));
 
         AgregarB.setBackground(new java.awt.Color(14, 98, 81));
         AgregarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -135,11 +137,11 @@ public class VentasIF extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("Seleccione un producto: ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Cantidad a vender: ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(14, 98, 81));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -150,7 +152,7 @@ public class VentasIF extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 26)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 51));
         jLabel4.setText("Concretar Venta");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 190, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 190, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-banknotes-100.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
@@ -160,6 +162,10 @@ public class VentasIF extends javax.swing.JInternalFrame {
 
         FondoVenDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
         getContentPane().add(FondoVenDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 490, 580));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fof.png"))); // NOI18N
+        jLabel6.setToolTipText("");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -247,6 +253,7 @@ public class VentasIF extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 

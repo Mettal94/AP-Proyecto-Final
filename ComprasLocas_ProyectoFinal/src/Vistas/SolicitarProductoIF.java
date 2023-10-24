@@ -83,6 +83,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         AzulIzq = new javax.swing.JLabel();
         AzulDer = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("Solicitar Productos");
@@ -212,6 +213,9 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         AzulDer.setPreferredSize(new java.awt.Dimension(905, 593));
         getContentPane().add(AzulDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 490, 580));
 
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fof.png"))); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 580));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -320,6 +324,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 

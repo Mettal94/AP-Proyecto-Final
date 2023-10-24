@@ -61,18 +61,21 @@
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="462" pref="462" max="-2" attributes="0"/>
-                  <Component id="logito3" min="-2" max="-2" attributes="0"/>
+                  <Component id="logito2" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="653" pref="653" max="-2" attributes="0"/>
+                  <Component id="logito4" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="262" pref="262" max="-2" attributes="0"/>
                   <Component id="logito1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="291" pref="291" max="-2" attributes="0"/>
-                  <Component id="logito4" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="462" pref="462" max="-2" attributes="0"/>
-                  <Component id="logito2" min="-2" max="-2" attributes="0"/>
+                  <Component id="logito3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <Component id="logito6P" min="-2" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -80,20 +83,37 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="55" pref="55" max="-2" attributes="0"/>
                   <Component id="logito5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
-                  <Component id="logito3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="logito1" min="-2" max="-2" attributes="0"/>
-                      <Component id="logito4" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="66" pref="66" max="-2" attributes="0"/>
+                  <EmptySpace min="348" pref="348" max="-2" attributes="0"/>
                   <Component id="logito2" min="-2" max="-2" attributes="0"/>
               </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="293" pref="293" max="-2" attributes="0"/>
+                  <Component id="logito4" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="293" pref="293" max="-2" attributes="0"/>
+                  <Component id="logito1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="145" pref="145" max="-2" attributes="0"/>
+                  <Component id="logito3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Component id="logito6P" min="-2" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
+        <Component class="javax.swing.JLabel" name="logito5">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="48" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Bienvenidos a ComprasLocas"/>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="logito3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -122,17 +142,26 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="logito5">
+        <Container class="javax.swing.JPanel" name="logito6P">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="48" style="1"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="0" type="rgb"/>
             </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Bienvenidos a ComprasLocas"/>
           </Properties>
-        </Component>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="1010" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="610" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+        </Container>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel1">

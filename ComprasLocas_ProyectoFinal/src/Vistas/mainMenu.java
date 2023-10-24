@@ -13,21 +13,25 @@ import Entidades.Productos;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 /**
  *
  * @author ariel
  */
 public class mainMenu extends javax.swing.JFrame {
-  
+    
     private ProductosData prodD;
     private ProveedorData provD;
     private ComprasData compD;
     private DetalleData detaD;
-    
-    
+
     public mainMenu() {
         this.prodD = new ProductosData();
         this.provD = new ProveedorData();
@@ -51,11 +55,12 @@ public class mainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         Escritorio = new javax.swing.JDesktopPane();
+        logito5 = new javax.swing.JLabel();
         logito3 = new javax.swing.JLabel();
         logito2 = new javax.swing.JLabel();
         logito4 = new javax.swing.JLabel();
         logito1 = new javax.swing.JLabel();
-        logito5 = new javax.swing.JLabel();
+        logito6P = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         ProductosB = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -76,6 +81,10 @@ public class mainMenu extends javax.swing.JFrame {
         Escritorio.setMaximumSize(new java.awt.Dimension(1010, 610));
         Escritorio.setMinimumSize(new java.awt.Dimension(1010, 610));
 
+        logito5.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        logito5.setForeground(new java.awt.Color(255, 255, 255));
+        logito5.setText("Bienvenidos a ComprasLocas");
+
         logito3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-laptop-100.png"))); // NOI18N
 
         logito2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-tv-100.png"))); // NOI18N
@@ -84,15 +93,25 @@ public class mainMenu extends javax.swing.JFrame {
 
         logito1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-refrigerator-100.png"))); // NOI18N
 
-        logito5.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
-        logito5.setForeground(new java.awt.Color(255, 255, 255));
-        logito5.setText("Bienvenidos a ComprasLocas");
+        logito6P.setBackground(new java.awt.Color(0, 102, 102));
 
+        javax.swing.GroupLayout logito6PLayout = new javax.swing.GroupLayout(logito6P);
+        logito6P.setLayout(logito6PLayout);
+        logito6PLayout.setHorizontalGroup(
+            logito6PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1010, Short.MAX_VALUE)
+        );
+        logito6PLayout.setVerticalGroup(
+            logito6PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 610, Short.MAX_VALUE)
+        );
+
+        Escritorio.setLayer(logito5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Escritorio.setLayer(logito3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Escritorio.setLayer(logito2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Escritorio.setLayer(logito4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Escritorio.setLayer(logito1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(logito5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(logito6P, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
         Escritorio.setLayout(EscritorioLayout);
@@ -103,29 +122,35 @@ public class mainMenu extends javax.swing.JFrame {
                 .addComponent(logito5, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(EscritorioLayout.createSequentialGroup()
                 .addGap(462, 462, 462)
-                .addComponent(logito3))
+                .addComponent(logito2))
             .addGroup(EscritorioLayout.createSequentialGroup()
-                .addGap(262, 262, 262)
-                .addComponent(logito1)
-                .addGap(291, 291, 291)
+                .addGap(653, 653, 653)
                 .addComponent(logito4))
             .addGroup(EscritorioLayout.createSequentialGroup()
+                .addGap(262, 262, 262)
+                .addComponent(logito1))
+            .addGroup(EscritorioLayout.createSequentialGroup()
                 .addGap(462, 462, 462)
-                .addComponent(logito2))
+                .addComponent(logito3))
+            .addComponent(logito6P, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EscritorioLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(logito5)
-                .addGap(34, 34, 34)
-                .addComponent(logito3)
-                .addGap(48, 48, 48)
-                .addGroup(EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logito1)
-                    .addComponent(logito4))
-                .addGap(66, 66, 66)
+                .addGap(348, 348, 348)
                 .addComponent(logito2))
+            .addGroup(EscritorioLayout.createSequentialGroup()
+                .addGap(293, 293, 293)
+                .addComponent(logito4))
+            .addGroup(EscritorioLayout.createSequentialGroup()
+                .addGap(293, 293, 293)
+                .addComponent(logito1))
+            .addGroup(EscritorioLayout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addComponent(logito3))
+            .addComponent(logito6P, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         getContentPane().add(Escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 1010, 610));
@@ -231,8 +256,10 @@ public class mainMenu extends javax.swing.JFrame {
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
-         alertaStockBajo();
-         logito();
+        logito();
+        Escritorio.add(logito6P);
+        alertaStockBajo();
+        
     }//GEN-LAST:event_ProductosBActionPerformed
 
     private void ProveedoresBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProveedoresBActionPerformed
@@ -242,8 +269,10 @@ public class mainMenu extends javax.swing.JFrame {
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
-         alertaStockBajo();
-         logito();
+        logito();
+        Escritorio.add(logito6P);
+        alertaStockBajo();
+       
     }//GEN-LAST:event_ProveedoresBActionPerformed
 
     private void SolicitarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SolicitarBActionPerformed
@@ -253,7 +282,9 @@ public class mainMenu extends javax.swing.JFrame {
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
-         logito();
+        logito();
+        Escritorio.add(logito6P);
+       
     }//GEN-LAST:event_SolicitarBActionPerformed
 
     private void HistorialBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialBActionPerformed
@@ -263,7 +294,9 @@ public class mainMenu extends javax.swing.JFrame {
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
-         logito();
+        logito();
+        Escritorio.add(logito6P);
+        
     }//GEN-LAST:event_HistorialBActionPerformed
 
     private void VentasBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VentasBActionPerformed
@@ -274,17 +307,20 @@ public class mainMenu extends javax.swing.JFrame {
         mostrar.setVisible(true);
         Escritorio.add(mostrar);
         Escritorio.moveToFront(mostrar);
-         alertaStockBajo();
-         logito();
+        logito();
+        Escritorio.add(logito6P);
+        alertaStockBajo();
+         
     }//GEN-LAST:event_VentasBActionPerformed
 
    private void logito(){
-        
         Escritorio.add(logito1);
         Escritorio.add(logito2);
         Escritorio.add(logito3);
         Escritorio.add(logito4);
         Escritorio.add(logito5);
+       
+        
         
         
     }
@@ -342,12 +378,21 @@ public class mainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel logito3;
     private javax.swing.JLabel logito4;
     private javax.swing.JLabel logito5;
+    private javax.swing.JPanel logito6P;
     // End of variables declaration//GEN-END:variables
 
     
     public static void mensaje(String mensaje){
-        JOptionPane.showMessageDialog(null, mensaje);
+//        UIManager UI;
+//        UI=null;
+//        UI.put("OptionPane.background", new Color(13, 139, 223));
+//        UI.put("Panel.background", new Color(13, 139, 223));
+        
+        Icon alerta;
+        alerta = new ImageIcon("src/Imagenes/icons8-alarm-64.png");
+        JOptionPane.showConfirmDialog(null, mensaje, "Mensaje Importante", JOptionPane.WARNING_MESSAGE, JOptionPane.INFORMATION_MESSAGE, alerta);
     }
+    
 
     public static void alertaStockBajo(){
         ProductosData prodDS = new ProductosData();
@@ -357,4 +402,6 @@ public class mainMenu extends javax.swing.JFrame {
             mensaje("Uno o más productos están por debajo del stock mínimo.");
         }
     }
+ 
+    
 }

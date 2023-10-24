@@ -66,6 +66,7 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         FondoIzq = new javax.swing.JLabel();
         FondoDer = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("Administrar Proveedores");
@@ -214,6 +215,9 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
         FondoDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
         getContentPane().add(FondoDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 490, 580));
 
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fof.png"))); // NOI18N
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 590));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -306,6 +310,7 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
     private javax.swing.JTextField RazonST;
     private javax.swing.JTextField TelefonoT;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -66,6 +66,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         ActivosRB = new javax.swing.JRadioButton();
         FondoDer = new javax.swing.JLabel();
         FondoIzq = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 255));
         setClosable(true);
@@ -246,6 +247,9 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         FondoIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
         getContentPane().add(FondoIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 580));
 
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fof.png"))); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 590));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -347,6 +351,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
