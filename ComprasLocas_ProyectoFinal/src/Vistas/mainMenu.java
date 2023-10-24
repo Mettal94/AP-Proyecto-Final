@@ -61,12 +61,12 @@ public class mainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         Escritorio = new javax.swing.JDesktopPane();
-        logito5 = new javax.swing.JLabel();
-        logito3 = new javax.swing.JLabel();
-        logito2 = new javax.swing.JLabel();
-        logito4 = new javax.swing.JLabel();
-        logito1 = new javax.swing.JLabel();
         logito6P = new javax.swing.JPanel();
+        logito1 = new javax.swing.JLabel();
+        logito2 = new javax.swing.JLabel();
+        logito3 = new javax.swing.JLabel();
+        logito4 = new javax.swing.JLabel();
+        logito5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         ProductosB = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -87,75 +87,68 @@ public class mainMenu extends javax.swing.JFrame {
         Escritorio.setMaximumSize(new java.awt.Dimension(1010, 610));
         Escritorio.setMinimumSize(new java.awt.Dimension(1010, 610));
 
-        logito5.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
-        logito5.setForeground(new java.awt.Color(255, 255, 255));
-        logito5.setText("Bienvenidos a ComprasLocas");
-
-        logito3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-laptop-100.png"))); // NOI18N
-
-        logito2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-tv-100.png"))); // NOI18N
-
-        logito4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-air-conditioner-100.png"))); // NOI18N
+        logito6P.setBackground(new java.awt.Color(23, 165, 137));
 
         logito1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-refrigerator-100.png"))); // NOI18N
 
-        logito6P.setBackground(new java.awt.Color(23, 165, 137));
+        logito2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-tv-100.png"))); // NOI18N
+
+        logito3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-laptop-100.png"))); // NOI18N
+
+        logito4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-air-conditioner-100.png"))); // NOI18N
+
+        logito5.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        logito5.setForeground(new java.awt.Color(255, 255, 255));
+        logito5.setText("Bienvenidos a ComprasLocas");
 
         javax.swing.GroupLayout logito6PLayout = new javax.swing.GroupLayout(logito6P);
         logito6P.setLayout(logito6PLayout);
         logito6PLayout.setHorizontalGroup(
             logito6PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1010, Short.MAX_VALUE)
+            .addGroup(logito6PLayout.createSequentialGroup()
+                .addGap(217, 217, 217)
+                .addComponent(logito1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(logito4)
+                .addGap(198, 198, 198))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logito6PLayout.createSequentialGroup()
+                .addContainerGap(202, Short.MAX_VALUE)
+                .addGroup(logito6PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logito6PLayout.createSequentialGroup()
+                        .addComponent(logito5, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(181, 181, 181))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logito6PLayout.createSequentialGroup()
+                        .addGroup(logito6PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(logito2)
+                            .addComponent(logito3))
+                        .addGap(450, 450, 450))))
         );
         logito6PLayout.setVerticalGroup(
             logito6PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logito6PLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(logito5)
+                .addGap(38, 38, 38)
+                .addComponent(logito3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addGroup(logito6PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logito1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(logito4, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(74, 74, 74)
+                .addComponent(logito2)
+                .addGap(59, 59, 59))
         );
 
-        Escritorio.setLayer(logito5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(logito3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(logito2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(logito4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(logito1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Escritorio.setLayer(logito6P, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EscritorioLayout.createSequentialGroup()
-                .addGap(208, 208, 208)
-                .addComponent(logito5, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(EscritorioLayout.createSequentialGroup()
-                .addGap(653, 653, 653)
-                .addComponent(logito4))
-            .addGroup(EscritorioLayout.createSequentialGroup()
-                .addGap(262, 262, 262)
-                .addComponent(logito1))
-            .addGroup(EscritorioLayout.createSequentialGroup()
-                .addGap(462, 462, 462)
-                .addComponent(logito3))
             .addComponent(logito6P, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(EscritorioLayout.createSequentialGroup()
-                .addGap(462, 462, 462)
-                .addComponent(logito2))
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EscritorioLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(logito5)
-                .addGap(348, 348, 348)
-                .addComponent(logito2))
-            .addGroup(EscritorioLayout.createSequentialGroup()
-                .addGap(293, 293, 293)
-                .addComponent(logito4))
-            .addGroup(EscritorioLayout.createSequentialGroup()
-                .addGap(293, 293, 293)
-                .addComponent(logito1))
-            .addGroup(EscritorioLayout.createSequentialGroup()
-                .addGap(145, 145, 145)
-                .addComponent(logito3))
             .addComponent(logito6P, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
