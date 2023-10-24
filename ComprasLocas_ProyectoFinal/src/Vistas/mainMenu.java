@@ -11,8 +11,10 @@ import AccesoADatos.ProductosData;
 import AccesoADatos.ProveedorData;
 import Entidades.Productos;
 import java.awt.Color;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
@@ -38,7 +40,11 @@ public class mainMenu extends javax.swing.JFrame {
         this.compD = new ComprasData();
         this.detaD = new DetalleData();
         initComponents();
-        setLocationRelativeTo(null);
+//      setIconImage(new ImageIcon(getClass().getResource("src/Imagenes/icono-tuvi.png")).getImage());
+         URL iconURL = mainMenu.class.getResource("/Imagenes/icons8-store-64.png");
+            ImageIcon icon = new ImageIcon(iconURL);
+            setIconImage(icon.getImage());
+        this.setLocationRelativeTo(null);
         setResizable(false);
 //        alertaStockBajo();
 
@@ -387,7 +393,7 @@ public class mainMenu extends javax.swing.JFrame {
 //        UI=null;
 //        UI.put("OptionPane.background", new Color(13, 139, 223));
 //        UI.put("Panel.background", new Color(13, 139, 223));
-        
+
         Icon alerta;
         alerta = new ImageIcon("src/Imagenes/icons8-alarm-64.png");
         JOptionPane.showConfirmDialog(null, mensaje, "Mensaje Importante", JOptionPane.WARNING_MESSAGE, JOptionPane.INFORMATION_MESSAGE, alerta);
