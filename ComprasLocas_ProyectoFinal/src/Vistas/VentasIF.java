@@ -182,18 +182,36 @@ public class VentasIF extends javax.swing.JInternalFrame {
             Productos prod = (Productos) ProductosJCB.getSelectedItem();
             int cantidad = (int) CantidadS.getValue();
             int stock = prod.getStock();
-            if (cantidad > stock) {
-                mensaje("No hay suficientes existencias del producto");
-                return;
-            }
             double precio = prod.getPrecioActual();
             double costoTotal = precio * cantidad;
-            
-            modelo.addRow(new Object[]{prod.getIdProducto(), prod.getNombre(), cantidad, prod.getPrecioActual(), costoTotal});
-            
-            listaCarrito.add(prod);
-            
+            int filas = TablaVentas.getRowCount();
             double x = Double.parseDouble(PrecioTotalT.getText());
+            boolean coincidencia = false;
+            for (int i = 0; i < filas; i++) {
+                int productoEnTabla = (int) TablaVentas.getValueAt(i, 0);
+                int cantidadEnTabla = (int) TablaVentas.getValueAt(i, 2);
+                double precioCostoEnTabla = (double) TablaVentas.getValueAt(i, 4);
+                if(productoEnTabla == prod.getIdProducto()){
+                    coincidencia = true;
+                    int cantidadNueva = cantidadEnTabla + cantidad;
+                    if(cantidadNueva>prod.getStock()){
+                        mensaje("No hay suficientes existencias del producto");
+                        return;
+                    }else{
+                        modelo.setValueAt(cantidadNueva, i, 2);
+                        modelo.setValueAt((precioCostoEnTabla+costoTotal), i, 4);
+                    }   
+                }
+            }    
+                if(coincidencia == false){
+                    if (cantidad > stock) {
+                    mensaje("No hay suficientes existencias del producto");
+                    return;
+                    }
+                    modelo.addRow(new Object[]{prod.getIdProducto(), prod.getNombre(), cantidad, prod.getPrecioActual(), costoTotal});
+                    listaCarrito.add(prod);
+                }
+            
             PrecioTotalT.setText((x + costoTotal) + "");
             CantidadS.setValue(0);
         } catch (NumberFormatException ex) {
