@@ -80,6 +80,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         EliminarItemB = new javax.swing.JButton();
         PrecioTotalT = new javax.swing.JTextField();
+        CancelarB = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         AzulIzq = new javax.swing.JLabel();
         AzulDer = new javax.swing.JLabel();
@@ -171,7 +172,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
                 ComprarTodoBActionPerformed(evt);
             }
         });
-        getContentPane().add(ComprarTodoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 520, 206, -1));
+        getContentPane().add(ComprarTodoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 520, 130, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 51));
@@ -187,13 +188,21 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
                 EliminarItemBActionPerformed(evt);
             }
         });
-        getContentPane().add(EliminarItemB, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 520, 218, -1));
+        getContentPane().add(EliminarItemB, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 520, 140, -1));
 
         PrecioTotalT.setEditable(false);
         PrecioTotalT.setBackground(new java.awt.Color(20, 143, 119));
         PrecioTotalT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         PrecioTotalT.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(PrecioTotalT, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 459, 229, -1));
+
+        CancelarB.setText("Cancelar Compra");
+        CancelarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarBActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CancelarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 520, 140, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setText("Precio Total:");
@@ -253,6 +262,10 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
     private void ComprarTodoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarTodoBActionPerformed
         // Boton comprar todo
         try{    
+            if(ComprasTabla.getRowCount()<=0){
+                mensaje("No ha seleccionado ningún producto para comprar");
+                return;
+            }
             Compras comp = new Compras();
             Proveedor prov = new Proveedor();
             prov = (Proveedor) ProveedorJCB.getSelectedItem();
@@ -304,11 +317,22 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_ProveedorJCBActionPerformed
 
+    private void CancelarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarBActionPerformed
+        // Boton cancelar compra
+        int decision = JOptionPane.showConfirmDialog(this, "Desea cancelar la compra?");
+            if(decision == 0){
+                borrarFilas();
+                listaDetalles.clear();
+                PrecioTotalT.setText(0+"");
+            }
+    }//GEN-LAST:event_CancelarBActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarB;
     private javax.swing.JLabel AzulDer;
     private javax.swing.JLabel AzulIzq;
+    private javax.swing.JButton CancelarB;
     private javax.swing.JButton ComprarTodoB;
     private javax.swing.JTable ComprasTabla;
     private javax.swing.JButton EliminarItemB;
