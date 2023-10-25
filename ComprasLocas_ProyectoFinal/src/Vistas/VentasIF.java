@@ -266,7 +266,11 @@ public class VentasIF extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_ComprarTodoBActionPerformed
 
     private void CancelarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarBActionPerformed
-        // Boton para cancelar la compra
+        // Boton para cancelar la venta
+        if(TablaVentas.getRowCount()<=0){
+            mensaje("No hay productos para vender");
+            return;
+        }
         int decision = JOptionPane.showConfirmDialog(this, "Desea cancelar la venta?");
             if(decision == 0){
                 borrarFilas();

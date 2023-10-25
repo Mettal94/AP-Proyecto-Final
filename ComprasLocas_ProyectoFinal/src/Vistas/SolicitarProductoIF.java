@@ -322,6 +322,10 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
 
     private void CancelarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarBActionPerformed
         // Boton cancelar compra
+        if(ComprasTabla.getRowCount()<=0){
+            mensaje("No hay productos para comprar");
+            return;
+        }
         int decision = JOptionPane.showConfirmDialog(this, "Desea cancelar la compra?");
             if(decision == 0){
                 borrarFilas();
