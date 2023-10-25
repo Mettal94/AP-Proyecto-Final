@@ -188,7 +188,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
                 EliminarItemBActionPerformed(evt);
             }
         });
-        getContentPane().add(EliminarItemB, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 520, 140, -1));
+        getContentPane().add(EliminarItemB, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 520, 130, -1));
 
         PrecioTotalT.setEditable(false);
         PrecioTotalT.setBackground(new java.awt.Color(20, 143, 119));
@@ -196,13 +196,16 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
         PrecioTotalT.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(PrecioTotalT, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 459, 229, -1));
 
+        CancelarB.setBackground(new java.awt.Color(14, 98, 81));
+        CancelarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        CancelarB.setForeground(new java.awt.Color(255, 255, 255));
         CancelarB.setText("Cancelar Compra");
         CancelarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CancelarBActionPerformed(evt);
             }
         });
-        getContentPane().add(CancelarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 520, 140, -1));
+        getContentPane().add(CancelarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 520, 130, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setText("Precio Total:");
