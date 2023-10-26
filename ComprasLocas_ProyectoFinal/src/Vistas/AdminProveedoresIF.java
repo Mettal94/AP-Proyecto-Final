@@ -228,6 +228,10 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
             String domicilio = DomicilioT.getText();
             String email = EmailT.getText();
             String telefono = TelefonoT.getText();
+            if(razonSoc.isEmpty()||domicilio.isEmpty()||telefono.isEmpty()){
+                mensaje("Hay campos obligarotios vacíos (Razón Social, Domicilio o Teléfono)");
+                return;
+            }
             
             Proveedor prov = new Proveedor(razonSoc, domicilio, email, telefono, true);
             
