@@ -99,6 +99,7 @@ public class VentasIF extends javax.swing.JInternalFrame {
         getContentPane().add(ProductosJCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 326, -1));
 
         CantidadS.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        CantidadS.setValue(1);
         getContentPane().add(CantidadS, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 198, -1));
 
         AgregarB.setBackground(new java.awt.Color(14, 98, 81));
@@ -187,6 +188,10 @@ public class VentasIF extends javax.swing.JInternalFrame {
             int filas = TablaVentas.getRowCount();
             double x = Double.parseDouble(PrecioTotalT.getText());
             boolean coincidencia = false;
+            if(cantidad <= 0){
+             mensaje("La cantidad del producto es invalida");
+             PrecioTotalT.setText(" ");
+            }else{
             for (int i = 0; i < filas; i++) {
                 int productoEnTabla = (int) TablaVentas.getValueAt(i, 0);
                 int cantidadEnTabla = (int) TablaVentas.getValueAt(i, 2);
@@ -211,7 +216,8 @@ public class VentasIF extends javax.swing.JInternalFrame {
                     modelo.addRow(new Object[]{prod.getIdProducto(), prod.getNombre(), cantidad, prod.getPrecioActual(), costoTotal});
                     listaCarrito.add(prod);
                 }
-            
+            }
+
             PrecioTotalT.setText((x + costoTotal) + "");
             CantidadS.setValue(0);
         } catch (NumberFormatException ex) {
