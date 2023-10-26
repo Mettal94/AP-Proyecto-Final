@@ -90,6 +90,7 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
 
         TablaCompra.setBackground(new java.awt.Color(20, 143, 119));
         TablaCompra.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
+        TablaCompra.setForeground(new java.awt.Color(255, 255, 255));
         TablaCompra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

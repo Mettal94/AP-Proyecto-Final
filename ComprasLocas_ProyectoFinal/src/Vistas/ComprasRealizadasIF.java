@@ -200,6 +200,8 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, -1));
 
         ultimaCompraT.setBackground(new java.awt.Color(20, 143, 119));
+        ultimaCompraT.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
+        ultimaCompraT.setForeground(new java.awt.Color(255, 255, 255));
         ultimaCompraT.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -215,7 +217,7 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 470, 90));
 
-        LabelProveedor.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        LabelProveedor.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         getContentPane().add(LabelProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 460, 20));
 
         FondoDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
