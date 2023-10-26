@@ -116,7 +116,7 @@ public class VentasIF extends javax.swing.JInternalFrame {
         ComprarTodoB.setBackground(new java.awt.Color(14, 98, 81));
         ComprarTodoB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         ComprarTodoB.setForeground(new java.awt.Color(255, 255, 255));
-        ComprarTodoB.setText("Comprar Todo");
+        ComprarTodoB.setText("Vender Todo");
         ComprarTodoB.setPreferredSize(new java.awt.Dimension(125, 23));
         ComprarTodoB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,7 +148,7 @@ public class VentasIF extends javax.swing.JInternalFrame {
         CancelarB.setBackground(new java.awt.Color(14, 98, 81));
         CancelarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         CancelarB.setForeground(new java.awt.Color(255, 255, 255));
-        CancelarB.setText("Cancelar Compra");
+        CancelarB.setText("Cancelar Venta");
         CancelarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CancelarBActionPerformed(evt);
@@ -190,7 +190,7 @@ public class VentasIF extends javax.swing.JInternalFrame {
             boolean coincidencia = false;
             if(cantidad <= 0){
              mensaje("La cantidad del producto es invalida");
-             PrecioTotalT.setText(" ");
+             PrecioTotalT.setText(0+"");
             }else{
             for (int i = 0; i < filas; i++) {
                 int productoEnTabla = (int) TablaVentas.getValueAt(i, 0);
