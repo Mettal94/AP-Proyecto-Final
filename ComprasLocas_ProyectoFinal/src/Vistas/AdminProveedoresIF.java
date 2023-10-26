@@ -264,7 +264,7 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
             Escritorio.add(mpif);
             Escritorio.moveToFront(mpif);
          }catch(ArrayIndexOutOfBoundsException ex){
-            mensaje("Debe seleccionar un producto de la tabla.");
+            mensaje("Debe seleccionar un proveedor de la tabla.");
             System.out.println(ex.getMessage());
         }
     }//GEN-LAST:event_ModificarBActionPerformed
@@ -293,7 +293,7 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
             
             listar();
         }catch(ArrayIndexOutOfBoundsException ex){
-            mensaje("Debe seleccionar un producto de la tabla.");
+            mensaje("Debe seleccionar un proveedor de la tabla.");
             System.out.println(ex.getMessage());
         }
     }//GEN-LAST:event_EstadoBActionPerformed
