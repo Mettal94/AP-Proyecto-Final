@@ -366,7 +366,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         }
         
        for (Productos productos : lista) {
-            modelo.addRow(new Object[]{productos.getIdProducto(), productos.getNombre(),productos.getPrecioActual(), productos.getStock()});
+            modelo.addRow(new Object[]{productos.getIdProducto(), productos.getNombre(),productos.getRubro(), productos.getPrecioActual(), productos.getStock()});
         }
     }
     
@@ -380,6 +380,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
     public void armarCabecera(){
         modelo.addColumn("ID");
         modelo.addColumn("Nombre");
+        modelo.addColumn("Rubro");
         modelo.addColumn("Precio");
         modelo.addColumn("Stock");
         ListaProducto.setModel(modelo);
