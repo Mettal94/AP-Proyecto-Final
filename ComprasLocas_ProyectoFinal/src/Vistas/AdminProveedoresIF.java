@@ -156,7 +156,7 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
         EstadoB.setBackground(new java.awt.Color(14, 98, 81));
         EstadoB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         EstadoB.setForeground(new java.awt.Color(255, 255, 255));
-        EstadoB.setText("Modificar Estado");
+        EstadoB.setText("Dar de Baja");
         EstadoB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EstadoBActionPerformed(evt);
@@ -187,7 +187,7 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
                 ActivosRBActionPerformed(evt);
             }
         });
-        getContentPane().add(ActivosRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 530, -1, -1));
+        getContentPane().add(ActivosRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 530, -1, -1));
 
         Grupo.add(InactivosRB);
         InactivosRB.addActionListener(new java.awt.event.ActionListener() {
@@ -199,15 +199,15 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Mostrar :");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 530, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 527, -1, 30));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel6.setText("Inactivos");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 530, -1, -1));
+        jLabel6.setText("No Disponibles");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 527, -1, 30));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel9.setText("Activos");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 530, -1, -1));
+        jLabel9.setText("Disponibles");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 527, -1, 30));
 
         FondoIzq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
         getContentPane().add(FondoIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 580));
@@ -272,11 +272,13 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
     private void ActivosRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActivosRBActionPerformed
         // Boton activo
         listar();
+        EstadoB.setText("Dar de Baja");
     }//GEN-LAST:event_ActivosRBActionPerformed
 
     private void InactivosRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InactivosRBActionPerformed
         // Boton inactivos
         listar();
+        EstadoB.setText("Dar de Alta");
     }//GEN-LAST:event_InactivosRBActionPerformed
 
     private void EstadoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadoBActionPerformed
@@ -327,7 +329,6 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private void armarCabecera(){
-        modelo.addColumn("ID");
         modelo.addColumn("Razón Social");
         modelo.addColumn("Dirección");
         modelo.addColumn("E-Mail");
@@ -344,7 +345,7 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
         }
         
        for (Proveedor prov : lista) {
-            modelo.addRow(new Object[]{prov.getIdProveedor(),prov.getRazonSocial(),prov.getDomicilio(),prov.getEmail(),prov.getTelefono()});
+            modelo.addRow(new Object[]{prov.getRazonSocial(),prov.getDomicilio(),prov.getEmail(),prov.getTelefono()});
         }
     }
     

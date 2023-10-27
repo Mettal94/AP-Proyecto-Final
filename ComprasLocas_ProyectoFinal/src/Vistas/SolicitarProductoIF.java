@@ -367,7 +367,6 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
     }
     
     public void armarCabecera(){
-        modelo.addColumn("ID");
         modelo.addColumn("Nombre");
         modelo.addColumn("Cantidad");
         modelo.addColumn("Precio Unitario");
@@ -412,7 +411,7 @@ public class SolicitarProductoIF extends javax.swing.JInternalFrame {
             Stock.setValue(1);
             
             if(coincidencia == false){
-                 modelo.addRow(new Object[]{deseado.getIdProducto(), deseado.getNombre(),cantidad,costo,costoMonto});
+                 modelo.addRow(new Object[]{deseado.getNombre(),cantidad,costo,costoMonto});
                  DetalleDeCompras deta = new DetalleDeCompras();
                  deta.setCantidad(cantidad);
                  deta.setPrecioCosto(costoMonto);

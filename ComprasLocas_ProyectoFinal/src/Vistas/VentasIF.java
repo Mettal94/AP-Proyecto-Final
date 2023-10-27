@@ -213,7 +213,7 @@ public class VentasIF extends javax.swing.JInternalFrame {
                     mensaje("No hay suficientes existencias del producto");
                     return;
                     }
-                    modelo.addRow(new Object[]{prod.getIdProducto(), prod.getNombre(), cantidad, prod.getPrecioActual(), costoTotal});
+                    modelo.addRow(new Object[]{prod.getNombre(), cantidad, prod.getPrecioActual(), costoTotal});
                     listaCarrito.add(prod);
                 }
             }
@@ -314,7 +314,6 @@ public class VentasIF extends javax.swing.JInternalFrame {
     }
     
     public void armarCabecera() {
-        modelo.addColumn("ID");
         modelo.addColumn("Nombre");
         modelo.addColumn("Cantidad");
         modelo.addColumn("Precio Unitario");

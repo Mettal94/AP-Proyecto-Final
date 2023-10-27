@@ -210,16 +210,16 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(523, 100, 460, 360));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel9.setText("Inactivos");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 530, -1, 30));
+        jLabel9.setText("No Disponibles");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 530, -1, 30));
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel10.setText("Mostrar:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 530, -1, 30));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 530, -1, 30));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel11.setText("Activos");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 530, -1, 30));
+        jLabel11.setText("Disponibles");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, -1, 30));
 
         Grupo.add(InactivosRB);
         InactivosRB.addActionListener(new java.awt.event.ActionListener() {
@@ -236,7 +236,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
                 ActivosRBActionPerformed(evt);
             }
         });
-        getContentPane().add(ActivosRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 530, 20, 30));
+        getContentPane().add(ActivosRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 530, 20, 30));
 
         FondoDer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verdeAzuladoPN.png"))); // NOI18N
         FondoDer.setMaximumSize(new java.awt.Dimension(500, 250));
@@ -300,11 +300,13 @@ public class ProductoIF extends javax.swing.JInternalFrame {
     private void ActivosRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActivosRBActionPerformed
         // Listar activos
         listar();
+        EliminarB.setText("Dar de Baja");
     }//GEN-LAST:event_ActivosRBActionPerformed
 
     private void InactivosRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InactivosRBActionPerformed
         // Listar inactivos
         listar();
+        EliminarB.setText("Dar de Alta");
     }//GEN-LAST:event_InactivosRBActionPerformed
 
     private void ModificarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarBActionPerformed
@@ -366,7 +368,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         }
         
        for (Productos productos : lista) {
-            modelo.addRow(new Object[]{productos.getIdProducto(), productos.getNombre(),productos.getRubro(), productos.getPrecioActual(), productos.getStock()});
+            modelo.addRow(new Object[]{productos.getNombre(),productos.getRubro(), productos.getPrecioActual(), productos.getStock()});
         }
     }
     
@@ -378,7 +380,6 @@ public class ProductoIF extends javax.swing.JInternalFrame {
     }
     
     public void armarCabecera(){
-        modelo.addColumn("ID");
         modelo.addColumn("Nombre");
         modelo.addColumn("Rubro");
         modelo.addColumn("Precio");

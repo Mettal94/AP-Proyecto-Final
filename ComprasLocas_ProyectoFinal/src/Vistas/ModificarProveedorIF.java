@@ -129,6 +129,11 @@ public class ModificarProveedorIF extends javax.swing.JInternalFrame {
         String correo = EmailT.getText();
         Boolean estado = proveedor.isEstado();
         
+        if (razon.isEmpty() || domicilio.isEmpty() || tel.isEmpty()){
+            mensaje("No pueden quedar campos vacíos.");
+            return;
+        }
+        
         Proveedor modificar = new Proveedor (id, razon, domicilio, correo, tel, estado);
            System.out.println(modificar);
         provD.modificarProveedor(modificar);

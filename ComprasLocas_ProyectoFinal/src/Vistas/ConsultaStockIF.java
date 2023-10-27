@@ -92,13 +92,12 @@ private void Stock(){
     
  listFaltante = prodD.listarStockFaltante();
         for (Productos prod : listFaltante) {
-            modelo.addRow(new Object[]{prod.getIdProducto() ,prod.getNombre(), prod.getDescripcion(), prod.getPrecioActual(), prod.getStock()});
+            modelo.addRow(new Object[]{prod.getNombre(), prod.getDescripcion(), prod.getPrecioActual(), prod.getStock()});
         }
 
 }
 
 public void armarCabecera(){
-        modelo.addColumn("ID");
         modelo.addColumn("Producto");
         modelo.addColumn("Descripcion");
         modelo.addColumn("Precio");

@@ -147,6 +147,11 @@ public class ModificarProductoIF extends javax.swing.JInternalFrame {
            Boolean estado = producto.isEstado();
            int stock = Integer.parseInt(stockT.getText());
            
+           if (nom.isEmpty() || des.isEmpty()){
+               mensaje("No pueden quedar campos vacíos.");
+               return;
+           }
+           
            Productos modificar = new Productos (id, nom, des, rub, precio,stock, estado);
            prodD.modificarProducto(modificar);
            

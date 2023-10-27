@@ -156,7 +156,7 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
         int id = prov.getIdProveedor();
         listaComp = compD.comprasPorProveedor(id);
         for (Compras compra : listaComp) {
-            modelo2.addRow(new Object[]{compra.getIdCompra(), compra.getFecha(), compra.getPrecioTotal()});
+            modelo2.addRow(new Object[]{compra.getFecha(), compra.getPrecioTotal()});
         }
     }//GEN-LAST:event_ProveedoresJCBActionPerformed
 
@@ -183,7 +183,6 @@ public class ProveedoresIF extends javax.swing.JInternalFrame {
     }
 
     public void armarCabeceraCompra() {
-        modelo2.addColumn("ID");
         modelo2.addColumn("Fecha");
         modelo2.addColumn("Precio Total de la Compra");
         TablaCompra.setModel(modelo2);

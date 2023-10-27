@@ -250,6 +250,11 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
             mensaje("La primer fecha no puede ser posterior a la segunda.");
             return;
         }
+        if (fecha1.isAfter(LocalDate.now()) || fecha2.isAfter(LocalDate.now())) {
+            mensaje("No se puede seleccionar una fecha futura");
+            return;
+        }
+
         List <Compras> listaCom = new ArrayList<>();
         List <DetalleDeCompras> listaDet = new ArrayList<>();
         listaCom = compD.BusquedaPorFecha(fecha1, fecha2);
@@ -300,8 +305,6 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
 
 
     public void armarCabeceras(){
-        
-        modelo1.addColumn("ID");
         modelo1.addColumn("Cantidad");
         modelo1.addColumn("Costo");
         modelo1.addColumn("Proveedor");
@@ -315,7 +318,6 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
         modelo2.addColumn("Cantidad");
         TablaPorFecha.setModel(modelo2);
         
-        modelo3.addColumn("ID Detalle");
         modelo3.addColumn("Nombre");
         modelo3.addColumn("Cantidad");
         modelo3.addColumn("Costo");
@@ -363,7 +365,7 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
             listaDetalles = detaD.consultarPorIdProd(id);
 
             for (DetalleDeCompras deta : listaDetalles) {
-                modelo1.addRow(new Object[]{deta.getIdDetalle(), deta.getCantidad(), deta.getPrecioCosto(), deta.getCompra().getProveedor().getRazonSocial(), deta.getCompra().getFecha()});
+                modelo1.addRow(new Object[]{ deta.getCantidad(), deta.getPrecioCosto(), deta.getCompra().getProveedor().getRazonSocial(), deta.getCompra().getFecha()});
             }
           }catch(ArrayIndexOutOfBoundsException ex){
               System.out.println(ex.getMessage());
@@ -374,7 +376,7 @@ public class ComprasRealizadasIF extends javax.swing.JInternalFrame {
         
         listaUltimaCompra = detaD.ultimaCompra();
         for (DetalleDeCompras ulti : listaUltimaCompra) {
-            modelo3.addRow(new Object[]{ ulti.getIdDetalle(), ulti.getProducto().getNombre(), ulti.getCantidad(), ulti.getPrecioCosto()});
+            modelo3.addRow(new Object[]{ulti.getProducto().getNombre(), ulti.getCantidad(), ulti.getPrecioCosto()});
         LabelProveedor.setText("Proveedor: "+ulti.getCompra().getProveedor().getRazonSocial()+"       -       Fecha: "+ulti.getCompra().getFecha());
         }
         
