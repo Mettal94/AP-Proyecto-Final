@@ -110,7 +110,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         EliminarB.setBackground(new java.awt.Color(14, 98, 81));
         EliminarB.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         EliminarB.setForeground(new java.awt.Color(255, 255, 255));
-        EliminarB.setText("Modificar Estado");
+        EliminarB.setText("Dar de Baja");
         EliminarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EliminarBActionPerformed(evt);
@@ -368,7 +368,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
         }
         
        for (Productos productos : lista) {
-            modelo.addRow(new Object[]{productos.getNombre(),productos.getRubro(), productos.getPrecioActual(), productos.getStock()});
+            modelo.addRow(new Object[]{productos.getIdProducto(), productos.getNombre(),productos.getRubro(), productos.getPrecioActual(), productos.getStock()});
         }
     }
     
@@ -380,6 +380,7 @@ public class ProductoIF extends javax.swing.JInternalFrame {
     }
     
     public void armarCabecera(){
+        modelo.addColumn("Codigo");
         modelo.addColumn("Nombre");
         modelo.addColumn("Rubro");
         modelo.addColumn("Precio");

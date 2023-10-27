@@ -329,6 +329,7 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private void armarCabecera(){
+        modelo.addColumn("CUIT");
         modelo.addColumn("Razón Social");
         modelo.addColumn("Dirección");
         modelo.addColumn("E-Mail");
@@ -345,7 +346,7 @@ public class AdminProveedoresIF extends javax.swing.JInternalFrame {
         }
         
        for (Proveedor prov : lista) {
-            modelo.addRow(new Object[]{prov.getRazonSocial(),prov.getDomicilio(),prov.getEmail(),prov.getTelefono()});
+            modelo.addRow(new Object[]{prov.getIdProveedor(), prov.getRazonSocial(),prov.getDomicilio(),prov.getEmail(),prov.getTelefono()});
         }
     }
     
